@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- Backend styles CSS -->
+    <link rel="stylesheet" type="text/css" href={{ asset("assets/css/backend.css") }} media="screen">
+{% endblock %}
+
+{% block title %} Projet - {% endblock %}
+
+{% block header %}
+    <header id="header" class="col-12">
+        <div class="welcome">
+            <div class="welcome-sub">Dashbord</div>
+            <h1>Projet </h1>
+        </div><!-- /.intro -->
+    </header><!-- End Home Section -->
+{% endblock %}
+
+{% block body %}
+    <section id="body-backend" class="container col-11">
+        <div id="dark-bg">
+            <div class="container">
+                <div class="row">
+                    <hr>
+                    <div class="col-1 offset-1">
+                        <p>Titre: </p>
+                    </div>
+                    <div class="col-6 ml-auto mr-auto">
+                        <h3>""</h3>
+                    </div>
+                    <div class="col-1 offset-1">
+                        <p>Sous-titre: </p>
+                    </div>
+                    <div class="col-6 ml-auto mr-auto">
+                        <h4>""</h4>
+                    </div>
+                    <div class="col-1">
+                        <p>Lien: </p>
+                    </div>
+                    <div class="col-3 text-left">
+                        <p>"<a href=""></a>"</p>
+                    </div>
+                    <hr>
+                    <div class="col-1 offset-1">
+                        <p>Image: </p>
+                    </div>
+                    <div class="col-6 ml-auto mr-auto">
+                        <h4>" "</h4>
+                    </div>
+                    <div class="col-10 mr-auto ml-auto">
+                        <p>Description de l'image: </p>
+                        <p>""</p>
+                    </div>
+                    <div class="col-1">
+                        <p>Date: </p>
+                    </div>
+                    <div class="col-3 text-left">
+                        <p>""</p>
+                    </div>
+                    <hr>
+                    <hr>
+                    <div class="col-10 mr-auto ml-auto">
+                        <p>Description: </p>
+                        <p>""</p>
+                    </div>
+                    <div class="col-2 mr-auto ml-auto">
+                        <p>Catégorie: </p>
+                        <p>""</p>
+                    </div>
+                    <hr>
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.hire-section-bg -->
+    </section><!-- End Hire Section -->
+{% endblock %}
