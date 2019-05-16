@@ -1,12 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block head %}
+            {% include "inc/head.html.twig" %}
+        {% endblock %}
         {% block stylesheets %}{% endblock %}
+        <title>{% block title %}{% endblock %} Adrien Morim - Développeur Web</title>
     </head>
     <body>
+        {% block header %}{% endblock %}
+        {% block nav %}{% endblock %}
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block footer %}
+            {% include "inc/footer.html.twig" %}
+        {% endblock %}
+        {% block javascripts %}
+            {% include "inc/js.html.twig" %}
+        {% endblock %}
     </body>
 </html>
