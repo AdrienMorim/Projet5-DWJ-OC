@@ -35,28 +35,26 @@
                                     <th scope="col">Contenu</th>
                                     <th scope="col">Lien</th>
                                     <th scope="col">Image</th>
-                                    <th scope="col">Description</th>
                                     <th scope="col">Categories</th>
                                     <th scope="col">Date</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                {% for work in works %}
                                     <tr>
-                                        <th scope="row"><strong>1</strong></th>
-                                        <td><strong>Titre n°1</strong></td>
-                                        <td><strong>Sous-titre n°1</strong></td>
-                                        <td><strong>Contenu n°1</strong></td>
+                                        <th scope="row"><strong>{{ work.id }}</strong></th>
+                                        <td><strong>{{ work.title }}</strong></td>
+                                        <td><strong>{{ work.subtitle }}</strong></td>
+                                        <td><strong>{{ work.content }}</strong></td>
                                         <td><strong> 
-                                                <a class="link-back" href=" {{ path("work_show") }}" >lien n°1</a>
+                                                <a class="link-back" href=" {{ path("work_show" , { 'id': work.id }) }}" >Voir le projet {{ work.id }} </a>
                                             </strong>
                                         </td>
-                                        <td><strong><img src="http://via.placeholder.com/60x40" alt=""></strong></td>
-                                        <td><strong>Description de l'image n°1</strong></td>
+                                        <td><strong><img src="{{ work.image }}" alt="{{ work.imageAlt }}"></strong></td>
                                         <td><strong>Catégorie</strong></td>
-                                        <td><em>Date</em></td>
+                                        <td><em>{{ work.createdAt | date('d/m/Y à H:i') }}</em></td>
                                     </tr>
-                                
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div><!-- /.col-md-12 -->
