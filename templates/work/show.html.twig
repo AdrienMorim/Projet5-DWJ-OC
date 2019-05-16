@@ -6,13 +6,13 @@
     <link rel="stylesheet" type="text/css" href={{ asset("assets/css/backend.css") }} media="screen">
 {% endblock %}
 
-{% block title %} Projet - {% endblock %}
+{% block title %} Projet {{ work.id }} - {% endblock %}
 
 {% block header %}
     <header id="header" class="col-12">
         <div class="welcome">
             <div class="welcome-sub">Dashbord</div>
-            <h1>Projet </h1>
+            <h1>Projet {{ work.id }}</h1>
         </div><!-- /.intro -->
     </header><!-- End Home Section -->
 {% endblock %}
@@ -27,46 +27,42 @@
                         <p>Titre: </p>
                     </div>
                     <div class="col-6 ml-auto mr-auto">
-                        <h3>""</h3>
+                        <h3>{{ work.title }}</h3>
                     </div>
                     <div class="col-1 offset-1">
                         <p>Sous-titre: </p>
                     </div>
                     <div class="col-6 ml-auto mr-auto">
-                        <h4>""</h4>
+                        <h4>{{ work.subtitle }}</h4>
                     </div>
                     <div class="col-1">
                         <p>Lien: </p>
                     </div>
                     <div class="col-3 text-left">
-                        <p>"<a href=""></a>"</p>
+                        <p><a href="{{ work.link }}">{{ work.link }}</a></p>
                     </div>
                     <hr>
                     <div class="col-1 offset-1">
                         <p>Image: </p>
                     </div>
                     <div class="col-6 ml-auto mr-auto">
-                        <h4>" "</h4>
-                    </div>
-                    <div class="col-10 mr-auto ml-auto">
-                        <p>Description de l'image: </p>
-                        <p>""</p>
+                        <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
                     </div>
                     <div class="col-1">
                         <p>Date: </p>
                     </div>
                     <div class="col-3 text-left">
-                        <p>""</p>
+                        <p>{{ work.createdAt | date('d/m/Y à H:i') }}</p>
                     </div>
                     <hr>
                     <hr>
                     <div class="col-10 mr-auto ml-auto">
                         <p>Description: </p>
-                        <p>""</p>
+                        <p>{{ work.title }}</p>
                     </div>
                     <div class="col-2 mr-auto ml-auto">
                         <p>Catégorie: </p>
-                        <p>""</p>
+                        <p></p>
                     </div>
                     <hr>
                 </div><!-- /.row -->
