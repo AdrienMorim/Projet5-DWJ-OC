@@ -1,6 +1,7 @@
 {% extends "base.html.twig" %}
 
 {% block stylesheets %}
+    {{ parent() }}
     <!-- Backend styles CSS -->
     <link rel="stylesheet" type="text/css" href= {{ asset("assets/css/backend.css") }} media="screen">
 {% endblock %}
