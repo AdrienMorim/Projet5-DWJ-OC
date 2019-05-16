@@ -1,0 +1,99 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+    <!-- Backend styles CSS -->
+    <link rel="stylesheet" type="text/css" href= {{ asset("assets/css/backend.css") }} media="screen">
+{% endblock %}
+
+{% block title %} Dashbord - {% endblock %}
+
+{% block header %}
+    <header id="header" class="col-12">
+        <div class="welcome">
+            <div class="welcome-sub">Adrien Morim</div>
+            <h1>Bienvenue sur le Dashbord</h1>
+        </div><!-- /.intro -->
+    </header><!-- End Home Section -->
+{% endblock %}
+
+{% block body %}
+    <section id="body-backend" class="col-11">
+        <div class="container dashbord-container">
+            <div class="row">
+                <div class="col-6">
+                    <div class="section-border col-12">
+                        <div class="container">
+                            <div class="col-12">
+                                <!-- php à modifier passage twig -->
+                                    <p>
+                                        <strong>Dernier email reçu:<br/></strong>
+                                        <a class="link-back" href="../V3/index.php?action=email&amp;id_email=<?= $data['id']; ?>">
+                                        <?= nl2br(htmlspecialchars(substr($data['message'], 0, 100))); ?>...
+                                        </a>
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-border col-12">
+                        <div class="container">
+                            <div class="col-12">
+                                <p>
+                                    <strong>Emails non lus:<br/></strong>
+                                    <a class="link-back" href="../V3/index.php?action=listEmails">
+                                    Vous avez actuellement "nombre de mails" mail(s) non lu(s).
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-border col-12">
+                        <label><strong>Mémo :<br/></strong></label>
+                        <textarea id="keep" name="keep" class="col-12" onchange="localStorage.strKeep = this.value">
+                        </textarea>
+                    </div>
+                    <!--
+                    -> Voir google Analytics
+                    -> Faire compteur de visite sur chaque Projet.
+                    -> Voir cours Symphony
+                    -> Voir React.js
+                    -> Voir Vue.js
+                    -->
+                </div>
+                <div class="col-6">
+                    <div class="section-border col-12">
+                        <div class="container">
+                            <div class="col-12">
+                                <p>
+                                    <strong>Boîte de réception:<br/></strong>
+                                    Vous avez actuellement "nombre de mails" mail(s) dans votre boîte de réception.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-border col-12">
+                        <div class="container">
+                            <div class="col-12">
+                                <p>
+                                    <strong>Compteurs de visites:<br/></strong>
+                                    Vous avez actuellement "nombre de visite" visite(s) sur votre site.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-border col-12">
+                        <div class="container">
+                            <div class="col-12">
+                                <p>
+                                    <strong>Vos projets:<br/></strong>
+                                    Vous avez actuellement "nombre de projets" projets sur votre site.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block footer %}{% endblock %}
