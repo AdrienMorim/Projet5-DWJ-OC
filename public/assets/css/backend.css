@@ -1,0 +1,294 @@
+/*
+    Author: MORIM Adrien
+    Template: CV/Backend Bootstrap 4 by Adrien Morim;
+    Version: 1.0
+*/
+
+/*================================*\
+------------------------------------
+    01. General
+    02. Connexion
+    03. Home
+    04. Header
+    05. Navigation
+    06. Dashbord
+    07. List Emails
+    08. Email / Settings
+    09. Errors
+    10. Footer
+-------------------------------------
+\*=================================*/
+/*================================================================================*\
+
+                                    GENERAL
+
+\*================================================================================*/
+
+#backend{
+    /*height: 80vh;*/
+    color: #FFF;
+    /*margin: 50px auto;*/
+    position: relative;
+    overflow: scroll;
+}
+
+#body-backend{
+
+}
+
+/*============[ Horizontal Rules ]=============*/
+
+hr.custom-hr{
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 0), 
+        rgba(255, 255, 255, 0.5), 
+        rgba(255, 255, 255, 0));
+}
+
+/*============[ Links ]=============*/
+
+a.link-back{
+    color: #FFF;
+}
+
+a.link-back:hover{
+    color: #000;
+    text-shadow: #FFF 2px 0px 5px;; 
+}
+
+/*================================================================================*\
+
+                                        CONNEXION
+
+\*================================================================================*/
+
+#login-form label{
+    color: #FFF;
+}
+
+/*================================================================================*\
+
+                                         HOME
+
+\*================================================================================*/
+
+@media (max-width: 640px){
+    .tt-backend{
+        height: 580px !important;
+    }
+}
+
+#home-backend{
+    background: url(../images/back/dashbord.jpg) no-repeat center;
+    background-size: cover;
+    padding: 0;
+    position: relative;
+}
+
+#home-backend:before {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.65);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#home-backend .row{
+    overflow: scroll;
+}
+
+/*================================================================================*\
+
+                                    HEADER
+
+\*================================================================================*/
+
+#header{
+    height: 18vh;
+    margin-bottom: 10px;
+}
+
+.welcome {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    padding: 10px;
+    margin-top: auto;
+}
+
+.welcome h1{
+    font-size: 30px;
+    line-height: 30px;
+    background: linear-gradient(to right top, #0099FF 0%, #66CCFF 25%, #66CCCC 66%, #99FFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.welcome h1 span{
+    color: #67CCCC;
+}
+.welcome p{
+    color: #f7f7f7;
+    margin-bottom: 10px;
+}
+
+.welcome-sub {
+    color: #fff;
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: block;
+    margin: 10px 0;
+}
+
+/*================================================================================*\
+
+                                    NAVIGATION
+
+\*================================================================================*/
+
+#nav-backend{
+    height: 100vh;
+    background: #1a1e23;
+}
+
+#nav-backend .container{
+
+}
+
+#nav-backend .navbar-custom{
+    background: #1a1e23;
+}
+
+#nav-backend .nav-link:hover,
+#nav-backend .nav-link:active{
+    background: linear-gradient(to right top, #0099FF 0%, #66CCFF 25%, #66CCCC 66%, #99FFFF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#nav-backend .navbar-custom .navbar-brand {
+    padding: 20px 0 20px 20px;
+}
+
+/*================================================================================*\
+
+                                    DASHBORD
+
+\*================================================================================*/
+
+.dashbord-container{
+    margin: 20px 10px;
+}
+/*
+.section-border{
+    margin: 10px;
+    border: 4px solid;
+    border-image: linear-gradient(to right top, #0099FF 0%, #66CCFF 25%, #66CCCC 66%, #99FFFF 100%) 30;
+    padding: 20px;
+    background: rgba(255, 255, 255, .6);
+}*/
+
+.section-border{
+    margin: 20px auto;
+    padding: 20px;
+    background: linear-gradient(to right top,
+    rgba(0, 153, 255, .6) 0%,
+    rgba(102, 204, 255, .6) 25%,
+    rgba(102, 204, 204, .6) 66%,
+    rgba(102, 255, 255, .6) 100%);
+    border: thin solid #fff;
+    color: #000;
+}
+
+#keep{
+    width: 100%;
+    height: 20vh;
+    border: none;
+    color: #000;
+    resize: none;
+}
+
+/*================================================================================*\
+
+                                    LIST EMAILS
+
+\*================================================================================*/
+
+.section-bg {
+    height: auto;
+    margin: auto 10px;
+    padding: 20px 0 0;
+    background: linear-gradient(to right top,
+        rgba(0, 153, 255, .7) 0%,
+        rgba(102, 204, 255, .7) 25%,
+        rgba(102, 204, 204, .7) 66%,
+        rgba(102, 255, 255, .7) 100%);
+    overflow: hidden;
+}
+
+.table-hover tbody tr:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #FFF;
+}
+
+.page-nav{
+    margin: 10px;
+}
+
+/*================================================================================*\
+
+                                EMAIL / SETTINGS
+
+\*================================================================================*/
+
+#dark-bg{
+    background: rgba(26, 30, 35, 0.85);
+}
+
+#dark-bg hr{
+    width: 100%;
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, 
+        rgba(0, 153, 255, .7) 0%,
+        rgba(102, 204, 255, .7) 25%,
+        rgba(102, 204, 204, .7) 66%,
+        rgba(102, 255, 255, .7) 100%);
+}
+
+/*================================================================================*\
+
+                                    ERRORS
+
+\*================================================================================*/
+
+#header-secondary{
+    height: 40vh;
+}
+
+#body-secondary{
+    height: auto;
+}
+
+.errors{
+    color: #000;
+}
+
+/*================================================================================*\
+
+                                    FOOTER
+
+\*================================================================================*/
+
+.footer-backend {
+    display: none;
+}
