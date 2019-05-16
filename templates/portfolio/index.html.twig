@@ -1,0 +1,709 @@
+{% extends 'base.html.twig' %}
+
+{% block header %}
+    <!-- PRE-LOADER -->
+    <div id="tt-preloader">
+        <div id="pre-status">
+            <div class="preload-placeholder"></div>
+        </div>
+    </div>
+    <!--===================================================================
+        ============================[ HOME ]===============================
+        ===================================================================-->
+    <header id="home" class="tt-fullHeight" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+        <div class="intro">
+            <img id="logo-web" src= {{ asset("assets/images/logo.png") }} alt="logo">
+            <div class="intro-sub">Adrien Morim</div>
+            <h1>Développeur Web</h1>
+            <p>Je suis développeur intégrateur d'applications web indépendant.<br>
+                Également créateur de mes propres design.<br>
+                N'hésitez pas à me contacter.
+            </p>
+
+            <div class="social-icons">
+                <ul class="list-inline">
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div><!-- /.social-icons -->
+        </div><!-- /.intro -->
+
+        <div class="mouse-icon">
+            <div class="wheel"></div>
+        </div>
+    </header><!-- End Home Section -->
+
+{% endblock %}
+
+{% block nav %}
+
+    <!--===================================================================
+        ============================[ NAV ]================================
+        ===================================================================-->
+    <section id="nav">
+        <div class="navbar-custom" role="navigation">
+            <div class="container">
+                <nav class="navbar navbar-header navbar-expand-lg navbar-light bg-highlight">
+                    <a class="navbar-brand" href="#home">
+                        <img id="logo-web-nav" src= {{ asset("assets/images/logo.png") }} alt="logo">
+                    </a>
+                    <button class="navbar-toggler" data-toggle="collapse" data-target=".collapse" aria-expanded="false" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div id="toggler" class="navbar-collapse collapse justify-content-end">
+                        <div class="navbar-nav text-right">
+                            {% include "inc/nav.html.twig" %}
+                        </div>
+                    </div><!-- /#custom-collapse -->
+                </nav>
+            </div><!-- /.container -->
+        </div><!-- /.navbar-custom -->
+    </section><!-- End Navigation -->
+
+{% endblock %}
+    
+{% block body %}
+
+    <!--===================================================================
+        ============================[ ABOUT ]==============================
+        ===================================================================-->
+    <section id="about" class="about-section section-padding">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">À propos de moi</h2>
+    
+            <div class="row">
+    
+                <div class="col-md-4 order-2">
+                    <div class="biography">
+                        <div class="myphoto">
+                            <img src= {{ asset("assets/images/myphoto.jpg") }} alt="photo de profil de Morim Adrien">
+                        </div>
+                        <ul>
+                            <li class="row"><div class="col-6"><strong class="text-left">Nom:</strong></div><div class="col-6 text-right">Adrien Morim</div></li>
+                            <li class="row"><div class="col-6"><strong class="text-left">Date de naissance:</strong></div><div class="col-6 text-right"> 09 Août 1986</div></li>
+                            <li class="row"><div class="col-6"><strong class="text-left">Adresse:</strong></div><div class="col-6 text-right">Chelles, France</div></li>
+                            <li class="row"><div class="col-6"><strong class="text-left">Nationalité:</strong></div><div class="col-6 text-right">Française</div></li>
+                            <li class="row sr-only"><div class="col-6"><strong class="text-left">Mobile:</strong></div><div class="col-6 text-right">(+33) 6 98 43 19 56</div></li>
+                            <li class="row sr-only"><div class="col-6"><strong class="text-left">Email:</strong></div><div class="col-6 text-right">morimadrien@gmail.com</div></li>
+                        </ul>
+                    </div><!-- /.biography -->
+                </div><!-- /.col-md-4 -->
+    
+                <div class="col-md-8 order-1">
+                    <div class="short-info wow fadeInUp">
+                        <h3>Objectif</h3>
+                        <p>Avoir une occasion de travailler et de se perfectionner, tout en étant impliqué dans l'évolution technologique actuelle. Je suis actuellement en train de me former dans le développement Web. Je me focalise sur les technologies qui me passionnent et sur mes compétences acquises pour créer des sites et des applications de qualités. J'espère développer mes compétences en développement Web et élargir ma connaissance en design, et devenir un atout pour mes clients. En tant qu'individu, je suis autodidacte, minutieux et intègre, mais vous me trouverez aussi créatif, drôle et naturellement passionné.</p>
+                    </div>
+    
+                    <div class="short-info wow fadeInUp">
+                        <h3>Ce que je fais ?</h3>
+                        <p>Je suis actuellement en formation de développeur intégrateur en réalisation d'applications web.
+                            J'ai un sens du style soigné dans ce que j'entreprend et je développe mon expérience dans la production de sites Web. Je crée moi même le design de mes projets selon le besoins de mes clients pour favoriser la meilleure expérience possible.</p>
+    
+                        <ul class="list-check">
+                            <li><i class="fas fa-check"></i>Assembler les pages en HTML5 et CSS3 <!--à partir de maquettes graphiques--></li>
+                            <li><i class="fas fa-check"></i>Intégrer des contenus <!--textes, images, sons, vidéos dans le code HTML5--></li>
+                            <li><i class="fas fa-check"></i>Respecter les normes <!--d’accessibilité et de référencement--> du W3C</li>
+                            <li><i class="fas fa-check"></i>Assurer la compatibilité <!--avec les différents navigateurs du marché--></li>
+                            <li><i class="fas fa-check"></i>Mettre en place une communication <!--entre client et serveur--> avec JavaScript et PHP</li>
+                            <li><i class="fas fa-check"></i>Organiser et gérer une base de données</li>
+                        </ul>
+                    </div>
+    
+                    <div class="my-signature">
+                        <img src= {{ asset("assets/images/sign.png") }} alt="sign" width="50px">
+                    </div>
+    
+                    <div class="download-button row">
+                        <div class="col-8 col-md-6 ml-auto mr-auto col-lg-5"><a class="btn btn-info btn-lg col-12" href="#contact"><i class="fas fa-paper-plane"></i>Contactez-moi</a></div>
+                        <div class="col-8 col-md-6 ml-auto mr-auto col-lg-5"><a class="btn btn-primary btn-lg col-12" href="#"><i class="fas fa-download"></i>Télécharger mon CV</a></div>
+                    </div>
+                </div><!-- /.col-md-8 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+    </section><!-- End About Section -->
+    
+    <!--=======================================================================
+        ============================[ RESUME ]=================================
+        =======================================================================-->
+    <section id="resume" class="resume-section section-padding">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">Parcours</h2>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="resume-title">
+                        <h3>Education</h3>
+                    </div>
+                    <div class="resume">
+                        <ul class="timeline">
+                            <li>
+                                <div class="posted-date">
+                                    <span class="month">2017-2019</span>
+                                </div><!-- /.posted-date -->
+    
+                                <div class="timeline-panel wow fadeInUp">
+                                    <div class="timeline-content">
+                                        <div class="timeline-heading">
+                                            <h3>Développeur web junior</h3>
+                                            <span>OpenClassrooms, Paris, France</span>
+                                        </div><!-- /.timeline-heading -->
+    
+                                        <div class="timeline-body">
+                                            <p>Diplôme de niveau III, Openclassrooms en partenariat avec 3W Academy</p>
+                                        </div><!-- /.timeline-body -->
+                                    </div> <!-- /.timeline-content -->
+                                </div><!-- /.timeline-panel -->
+                            </li>
+    
+                            <li class="timeline-inverted">
+                                <div class="posted-date">
+                                    <span class="month">Février 2018</span>
+                                </div><!-- /.posted-date -->
+    
+                                <div class="timeline-panel wow fadeInUp">
+                                    <div class="timeline-content">
+                                        <div class="timeline-heading">
+                                            <h3>Intégrateur Web</h3>
+                                            <span>OpenClassrooms, Paris, France</span>
+                                        </div><!-- /.timeline-heading -->
+    
+                                        <div class="timeline-body">
+                                            <p>Certificat de Parcours, Openclassrooms en partenariat avec 3W Academy</p>
+                                        </div><!-- /.timeline-body -->
+                                    </div> <!-- /.timeline-content -->
+                                </div> <!-- /.timeline-panel -->
+                            </li>
+    
+                            <li>
+                                <div class="posted-date">
+                                    <span class="month">Juin 2006</span>
+                                </div><!-- /.posted-date -->
+    
+                                <div class="timeline-panel wow fadeInUp">
+                                    <div class="timeline-content">
+                                        <div class="timeline-heading">
+                                            <h3>Baccalauréat Scientifique</h3>
+                                            <span>Jehan de Chelles, Chelles, France</span>
+                                        </div><!-- /.timeline-heading -->
+    
+                                        <div class="timeline-body">
+                                            <p>Attestation de niveau Bac délivré par la maison des examens - Académie de Créteil</p>
+                                        </div><!-- /.timeline-body -->
+                                    </div> <!-- /.timeline-content -->
+                                </div><!-- /.timeline-panel -->
+                            </li>
+                        </ul> <!-- /.timeline -->
+                    </div> <!-- /.resume -->
+                </div>
+            </div><!-- /.row -->
+    
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="resume-title">
+                        <h3>Experience</h3>
+                    </div>
+                    <div class="resume">
+                        <ul class="timeline">
+                            <li class="timeline-inverted">
+                                <div class="posted-date">
+                                    <span class="month">Août 2018</span>
+                                </div><!-- /posted-date -->
+    
+                                <div class="timeline-panel wow fadeInUp">
+                                    <div class="timeline-content">
+                                        <div class="timeline-heading">
+                                            <h3>Billet Simple pour l'Alaska</h3>
+                                            <span>Roman / blog de Jean Forteroche</span>
+                                        </div><!-- /timeline-heading -->
+    
+                                        <div class="timeline-body">
+                                            <p>Création d'un roman / blog pour un écrivain.</p>
+                                        </div><!-- /timeline-body -->
+                                    </div> <!-- /timeline-content -->
+                                </div> <!-- /timeline-panel -->
+                            </li>
+    
+                            <li>
+                                <div class="posted-date">
+                                    <span class="month">Octobre 2017</span>
+                                </div><!-- /posted-date -->
+    
+                                <div class="timeline-panel wow fadeInUp">
+                                    <div class="timeline-content">
+                                        <div class="timeline-heading">
+                                            <h3>Find A Bike</h3>
+                                            <span>Application Web de réservation de vélo</span>
+                                        </div><!-- /timeline-heading -->
+    
+                                        <div class="timeline-body">
+                                            <p>Conception d'une carte interactive de location de vélos.</p>
+                                        </div><!-- /timeline-body -->
+                                    </div> <!-- /timeline-content -->
+                                </div><!-- /timeline-panel -->
+                            </li>
+                            <li class="timeline-inverted">
+                                <div class="posted-date">
+                                    <span class="month">Août 2017</span>
+                                </div><!-- /posted-date -->
+    
+                                <div class="timeline-panel ">
+                                    <div class="timeline-content">
+                                        <div class="timeline-heading">
+                                            <h3>Office du Tourisme de Strasbourg</h3>
+                                            <span>Wordpress de l'office de tourisme</span>
+                                        </div><!-- /timeline-heading -->
+    
+                                        <div class="timeline-body">
+                                            <p>Création d'un site en personnalisé avec un thème WordPress.</p>
+                                        </div><!-- /timeline-body -->
+                                    </div> <!-- /timeline-content -->
+                                </div> <!-- /timeline-panel -->
+                            </li>
+    
+                            <li>
+                                <div class="posted-date">
+                                    <span class="month">Juillet 2017</span>
+                                </div><!-- /posted-date -->
+    
+                                <div class="timeline-panel ">
+                                    <div class="timeline-content">
+                                        <div class="timeline-heading">
+                                            <h3>WebAgency</h3>
+                                            <span>Site Web de l'agence</span>
+                                        </div><!-- /timeline-heading -->
+    
+                                        <div class="timeline-body">
+                                            <p>Intégration de la maquette du site d'une agence web.</p>
+                                        </div><!-- /timeline-body -->
+                                    </div> <!-- /timeline-content -->
+                                </div><!-- /timeline-panel -->
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!-- /row -->
+        </div><!-- /.container -->
+    </section><!-- End Resume Section -->
+    
+    <!--=======================================================================
+        ============================[ SKILLS ]=================================
+        =======================================================================-->
+    <section id="skills" class="skills-section section-padding">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">Compétences</h2>
+    
+            <div class="row wow fadeInUp">
+                <div class="col-md-6">
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>HTML5</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" ><span>95%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+    
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>CSS3</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ><span>90%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>JavaScript</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100" ><span>65%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>Bootstrap</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" ><span>85%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+                </div><!-- /.col-md-6 -->
+    
+                <div class="col-md-6">
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>PHP</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" ><span>70%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>MySQL</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" ><span>80%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>jQuery</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ><span>60%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+                    <div class="skill-progress">
+                        <div class="skill-title"><h3>Ruby</h3></div>
+                        <div class="progress">
+                            <div class="progress-bar six-sec-ease-in-out" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" ><span>20%</span>
+                            </div>
+                        </div><!-- /.progress -->
+                    </div><!-- /.skill-progress -->
+                </div><!-- /.col-md-6 -->
+            </div><!-- /.row -->
+    
+            <div class="skill-chart text-center">
+                <h3>Autres Compétences</h3>
+            </div>
+    
+            <div class="row more-skill text-center wow fadeInUp">
+                <div class="col-xs-12 col-sm-4 col-md-3 order-md-3 mr-md-auto col-lg-2 order-lg-1">
+                    <div class="chart" data-percent="100" data-color="e74c3c">
+                        <span class="percent"></span>
+                        <div class="chart-text">
+                            <span>Autodidacte</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 order-lg-2">
+                    <div class="chart" data-percent="80" data-color="3498db">
+                        <span class="percent"></span>
+                        <div class="chart-text">
+                            <span>Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 order-md-4 mr-md-auto ml-md-auto col-lg-2 order-lg-3">
+                    <div class="chart" data-percent="95" data-color="3498db">
+                        <span class="percent"></span>
+                        <div class="chart-text">
+                            <span>Responsive</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 order-lg-4">
+                    <div class="chart" data-percent="80" data-color="2ecc71">
+                        <span class="percent"></span>
+                        <div class="chart-text">
+                            <span>Créativité</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-2 order-lg-5">
+                    <div class="chart" data-percent="60" data-color="3498db">
+                        <span class="percent"></span>
+                        <div class="chart-text">
+                            <span>Leadership</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-3 order-md-5 ml-md-auto col-lg-2 order-lg-6">
+                    <div class="chart" data-percent="100" data-color="3498db">
+                        <span class="percent"></span>
+                        <div class="chart-text">
+                            <span>Motivation</span>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.more-skill -->
+    
+        </div><!-- /.container -->
+    </section><!-- End Skills Section -->
+    
+    <!--=================================================================
+        ============================[ WORKS ]============================
+        =================================================================-->
+    <section id="works" class="works-section section-padding">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">Projets</h2>
+    
+            <ul class="list-inline" id="filter">
+                <li class="list-inline-item"><a class="active" data-group="all">Tous</a></li>
+                <li class="list-inline-item"><a data-group="html">HTML5/CSS3</a></li>
+                <li class="list-inline-item"><a data-group="wp">Wordpress</a></li>
+                <li class="list-inline-item"><a data-group="js">JavaScript</a></li>
+                <li class="list-inline-item"><a data-group="php">PHP</a></li>
+                <li class="list-inline-item"><a data-group="bootstrap">Bootstrap</a></li>
+            </ul>
+    
+            <div class="row">
+                <div id="grid" class="col">
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='["all", "html"]'>
+                        <div class="portfolio-bg">
+                            <div class="portfolio">
+                                <div class="texture-overlay"></div>
+                                <div class="links">
+                                    <a class="image-link" href= {{ asset("assets/images/works/portfolio-1.png") }}><i class="fas fa-search-plus"></i></a>
+                                    <a href= "http://projet1.morimadrien.fr"><i class="fas fa-link"></i></a>
+                                </div><!-- /.links -->
+                                <img class="portfolio-img" src= {{ asset("assets/images/works/portfolio-1.jpg") }} alt="couverture du site de la Webagency">
+                                <div class="portfolio-info">
+                                    <h3>Webagency</h3>
+                                </div><!-- /.portfolio-info -->
+                            </div><!-- /.portfolio -->
+                        </div><!-- /.portfolio-bg -->
+                    </div><!-- /.portfolio-item -->
+    
+    
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='["all", "html", "bootstrap", "wp"]'>
+                        <div class="portfolio-bg">
+                            <div class="portfolio">
+                                <div class="texture-overlay"></div>
+                                <div class="links">
+                                    <a class="image-link" href= {{ asset("assets/images/works/portfolio-2.png") }}><i class="fas fa-search-plus"></i></a>
+                                    <a href="http://projet2.morimadrien.fr"><i class="fas fa-link"></i></a>
+                                </div><!-- /.links -->
+                                <img class="portfolio-img" src= {{ asset("assets/images/works/portfolio-2.jpg") }} alt="couverture du site de l'office du tourisme de Strasbourg">
+                                <div class="portfolio-info">
+                                    <h3>OT de Strasbourg</h3>
+                                </div><!-- /.portfolio-info -->
+                            </div><!-- /.portfolio -->
+                        </div><!-- /.portfolio-bg -->
+                    </div><!-- /.portfolio-item -->
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='["all", "html", "js"]'>
+                        <div class="portfolio-bg">
+                            <div class="portfolio">
+                                <div class="texture-overlay"></div>
+                                <div class="links">
+                                    <a class="image-link" href= {{ asset("assets/images/works/portfolio-3.png") }}><i class="fas fa-search-plus"></i></a>
+                                    <a href="http://projet3.morimadrien.fr"><i class="fas fa-link"></i></a>
+                                </div><!-- /.links -->
+                                <img class="portfolio-img" src= {{ asset("assets/images/works/portfolio-3.jpg") }} alt="couverture de l'application Find a bike">
+                                <div class="portfolio-info">
+                                    <h3>Find A Bike</h3>
+                                </div><!-- /.portfolio-info -->
+                            </div><!-- /.portfolio -->
+                        </div><!-- /.portfolio-bg -->
+                    </div><!-- /.portfolio-item -->
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='["all", "html", "php", "js", "bootstrap"]'>
+                        <div class="portfolio-bg">
+                            <div class="portfolio">
+                                <div class="texture-overlay"></div>
+                                <div class="links">
+                                    <a class="image-link" href= {{ asset("assets/images/works/portfolio-4.png") }}><i class="fas fa-search-plus"></i></a>
+                                    <a href="http://projet4.morimadrien.fr"><i class="fas fa-link"></i></a>
+                                </div><!-- /.links -->
+                                <img class="portfolio-img" src= {{ asset("assets/images/works/portfolio-4.jpg") }} alt="couverture du blog de Jean Forteroche">
+                                <div class="portfolio-info">
+                                    <h3>Billet Simple Pour l'Alaska</h3>
+                                </div><!-- /.portfolio-info -->
+                            </div><!-- /.portfolio -->
+                        </div><!-- /.portfolio-bg -->
+                    </div><!-- /.portfolio-item -->
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='["all", "html", "js", "php", "bootstrap"]'>
+                        <div class="portfolio-bg">
+                            <div class="portfolio">
+                                <div class="texture-overlay"></div>
+                                <div class="links">
+                                    <a class="image-link" href= {{ asset("assets/images/works/portfolio-5.png") }}><i class="fas fa-search-plus"></i></a>
+                                    <a href="https://morimadrien.fr"><i class="fas fa-link"></i></a>
+                                </div><!-- /.links -->
+                                <img class="portfolio-img" src= {{ asset("assets/images/works/portfolio-5.jpg") }} alt="couverture du site de Morim Adrien">
+                                <div class="portfolio-info">
+                                    <h3>Portfolio CV</h3>
+                                </div><!-- /.portfolio-info -->
+                            </div><!-- /.portfolio -->
+                        </div><!-- /.portfolio-bg -->
+                    </div><!-- /.portfolio-item -->
+    
+                </div><!-- /#grid -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- End Works Section -->
+    
+    <!--========================================================================
+        ============================[ FACTS ]===================================
+        ========================================================================-->
+    <section id="facts" class="facts-section text-center" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+        <div class="texture-overlay-bg">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row count-wrap">
+                            <div class="col-sm-3 col-xs-6">
+                                <i class="fa fa-flask"></i>
+                                <h3 class="timer">5</h3>
+                                <p>Langages de programmation</p>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <i class="fa fa-thumbs-up"></i>
+                                <h3 class="timer">5</h3>
+                                <p>Projets réalisés</p>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <i class="fa fa-users"></i>
+                                <h3 class="timer">4</h3>
+                                <p>Recommandation</p>
+                            </div>
+                            <div class="col-sm-3 col-xs-6">
+                                <i class="fa fa-trophy"></i>
+                                <h3 class="timer">14</h3>
+                                <p>Certificats de réussite</p>
+                            </div>
+                        </div><!-- /count-wrap -->
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div>
+    </section> <!-- End Facts Section -->
+    
+    <!--========================================================================
+        ============================[ ADVICE ]==================================
+        ========================================================================-->
+    <section id="advice" class="latest-advice-section section-padding">
+        <div class="container-fluid">
+            <h2 class="section-title wow fadeInUp">Recommandations</h2>
+    
+            <div class="row">
+                <div id="advice-carousel" class="col carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <blockquote class="blockquote">
+                                <p>Excellent projet, code très propre, très bien réalisé avec des explications claires! On voit qu'Adrien est très à l'aise, bravo !</p>
+                                <footer class="blockquote-footer">Alan Piron-Lafleur</footer>
+                            </blockquote>
+                        </div>
+                        <div class="carousel-item">
+                            <blockquote class="blockquote">
+                                <p>Le projet est de qualité, le respect du cahier des charges, ainsi que des différents éléments et bonne pratique sont présents.</p>
+                                <footer class="blockquote-footer">Philippe Carlier</footer>
+                            </blockquote>
+                        </div>
+                        <div class="carousel-item">
+                            <blockquote class="blockquote">
+                                <p>Aisance dans la manipulation technique. Bon projet conforme au cdc, les attendus techniques sont acquis.</p>
+                                <footer class="blockquote-footer">Sandy Razafitrimo</footer>
+                            </blockquote>
+                        </div>
+                        <div class="carousel-item">
+                            <blockquote class="blockquote">
+                                <p>Positif et toujours d’humeur égale, il a contribué, par ses traits de caractères, à créer une atmosphère propice au transfert de savoirs et a su solliciter l’ensemble des ressources que je pouvais mettre à sa disposition.</p>
+                                <footer class="blockquote-footer">Kévin Si</footer>
+                            </blockquote>
+                        </div>
+                    </div><!-- /.carousel-inner-->
+                    <div class="carousel-ctrl">
+                        <button class="carousel-control-prev" href="#advice-carousel" role="button" data-slide="prev">
+                            <span class="prev-icon" aria-hidden="true"><i class="fas fa-chevron-left fa-3x"></i></span>
+                            <span class="sr-only">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" href="#advice-carousel" role="button" data-slide="next">
+                            <span class="next-icon" aria-hidden="true"><i class="fas fa-chevron-right fa-3x"></i></span>
+                            <span class="sr-only">Next</span>
+                        </button>
+                    </div><!-- /.carousel-ctrl -->
+                </div><!-- /#advice-carousel -->
+            </div><!-- /.row -->
+            <div class="advice-more text-center">
+                <a href="#" class="btn btn-primary sr-only" >Voir plus</a>
+            </div>
+    
+        </div><!-- /.container -->
+    </section><!-- End Blog Section -->
+    
+    <!--=======================================================================
+        ============================[ HIRE ]===================================
+        =======================================================================-->
+    <section class="hire-section text-center" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+        <div class="hire-section-bg">
+            <div class="container wow fadeInUp">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="hire-title">Je suis disponible pour un projet freelance</h2>
+                        <a href="#contact" class="btn btn-default">Demande de mission</a>
+                    </div><!-- /.col-md-12 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.hire-section-bg -->
+    </section><!-- End Hire Section -->
+    
+    <!--===================================================================
+        ============================[ CONTACT ]============================
+        ===================================================================-->
+    <section id="contact" class="contact-section section-padding">
+        <div class="container">
+            <h2 class="section-title wow fadeInUp">Contact</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-form wow fadeInUp">
+                        <strong>Envoyez-moi un message</strong>
+                        <form id="contactForm" name="contact-form"  action="index.php?action=send" method="POST" >
+    
+                            <div class="form-group">
+                                <label for="name">Nom</label>
+                                <input type="text" name="name" class="form-control" id="name" >
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" class="form-control" id="email" >
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="subject">Objet</label>
+                                <input type="text" name="subject" class="form-control" id="subject">
+                            </div>
+    
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea name="message" class="form-control" id="message" rows="5" ></textarea>
+                            </div>
+    
+                            <button id="send" type="submit" name="submit" class="btn btn-primary">Envoyer</button>
+                        </form>
+                    </div><!-- /.contact-form -->
+                </div><!-- /.col-md-6 -->
+    
+                <div class="col-md-6">
+                    <div id="address" class="row center-xs">
+                        <div class="col-sm-6">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <address>
+                                <strong>Adresse</strong>
+                                Chelles, 77500<br>
+                                IDF, France<br>
+                            </address>
+                        </div>
+    
+                        <div id="mobile" class="col-sm-6 sr-only">
+                            <i class="fas fa-mobile-alt"></i>
+                            <div class="contact-number">
+                                <strong>Mobile</strong>
+                                (+33) 6 98 43 19 56<br>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="location-map">
+                                <div id="mapCanvas" class="map-canvas"></div>
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- End Contact Section -->
+
+    <div class="scroll-up">
+        <div class="hexa">
+            <a href="#home"><i class="fas fa-arrow-up fa-2x"></i></a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArwq52mLIhCDJiKd66ghyrgrtJ2qfnOBQ"></script>
+{% endblock %}
