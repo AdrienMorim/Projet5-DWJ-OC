@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
@@ -18,21 +19,36 @@ class Work
 
     /**
      * @ORM\Column(type="string", length=40)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 40,
+     *      minMessage = "Votre titre doit contenir au minimum {{ limit }} caractères",
+     *      maxMessage = "Votre titre doit contenir au maximum {{ limit }} caractères")
      */
     private $title;
 
     /**
      * @ORM\Column(type="string", length=60)
+     * @Assert\Length(
+     *      min = 3,
+     *      max = 60,
+     *      minMessage = "Votre titre doit contenir au minimum {{ limit }} caractères",
+     *      maxMessage = "Votre titre doit contenir au maximum {{ limit }} caractères")
      */
     private $subtitle;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *      min = 10,
+     *      minMessage = "Votre titre doit contenir au minimum {{ limit }} caractères")
      */
     private $content;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(
+     *      message = "Cette '{{ value }}' n'est pas une URL valide")
      */
     private $link;
 
