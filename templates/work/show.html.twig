@@ -22,51 +22,66 @@
         <div id="dark-bg">
             <div class="container">
                 <div class="row">
-                    <hr>
-                    <div class="col-1 offset-1">
-                        <p>Titre: </p>
-                    </div>
-                    <div class="col-6 ml-auto mr-auto">
-                        <h3>{{ work.title }}</h3>
-                    </div>
-                    <div class="col-1 offset-1">
-                        <p>Sous-titre: </p>
-                    </div>
-                    <div class="col-6 ml-auto mr-auto">
-                        <h4>{{ work.subtitle }}</h4>
-                    </div>
-                    <div class="col-1">
-                        <p>Lien: </p>
-                    </div>
-                    <div class="col-3 text-left">
-                        <p><a href="{{ work.link }}">{{ work.link }}</a></p>
-                    </div>
-                    <hr>
-                    <div class="col-1 offset-1">
-                        <p>Image: </p>
-                    </div>
-                    <div class="col-6 ml-auto mr-auto">
-                        <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
-                    </div>
-                    <div class="col-1">
-                        <p>Date: </p>
-                    </div>
-                    <div class="col-3 text-left">
-                        <p>{{ work.createdAt | date('d/m/Y à H:i') }}</p>
-                    </div>
-                    <hr>
-                    <hr>
-                    <div class="col-10 mr-auto ml-auto">
-                        <p>Description: </p>
-                        <p>{{ work.title }}</p>
-                    </div>
-                    <div class="col-2 mr-auto ml-auto">
-                        <p>Catégorie: </p>
-                        <p></p>
-                    </div>
-                    <hr>
+                    <div class="col">
+                        <hr>
+                        <div class="row">
+                            <div class="col-2">
+                                <p>Titre: </p>
+                            </div>
+                            <div class="col-8 mr-auto text-center">
+                                <h3><a href="{{ work.link }}">{{ work.title }}</a></h3>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-2">
+                                <p>Sous-titre: </p>
+                            </div>
+                            <div class="col-8 mr-auto text-center">
+                                <h4>{{ work.subtitle }}</h4>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-2">
+                                <p>Description: </p>
+                            </div>
+                            <div class="col-8 mr-auto">
+                                <p>{{ work.content }}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-1 ml-auto mr-auto">
+                                <p>Image: </p>
+                            </div>
+                            <div class="col-6 ml-auto mr-auto">
+                                <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
+                            </div>
+                            <div class="col-5">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <p>Date: </p>
+                                    </div>
+                                    <div class="col-9 text-left">
+                                        <p>{{ work.createdAt | date('d/m/Y à H:i') }}</p>
+                                    </div>
+                                    <div class="col-3">
+                                        <p>Catégories:</p>
+                                    </div>
+                                    <div class="col-9 text-left">
+                                        <p>Html</p>
+                                        <p>Php</p>
+                                    </div>
+                                </div>
+                                <div>
+                            </div>
+                        </div><!-- /.row -->
+                        <hr>
+                    </div><!-- /.col -->
                 </div><!-- /.row -->
             </div><!-- /.container -->
         </div><!-- /.hire-section-bg -->
     </section><!-- End Hire Section -->
 {% endblock %}
+
+{% block footer %}{% endblock %}
