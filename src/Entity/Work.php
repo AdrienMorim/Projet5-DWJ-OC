@@ -34,8 +34,8 @@ class Work
      * @Assert\Length(
      *      min = 3,
      *      max = 60,
-     *      minMessage = "Votre titre doit contenir au minimum {{ limit }} caractères",
-     *      maxMessage = "Votre titre doit contenir au maximum {{ limit }} caractères")
+     *      minMessage = "Votre sous-titre doit contenir au minimum {{ limit }} caractères",
+     *      maxMessage = "Votre sous-titre doit contenir au maximum {{ limit }} caractères")
      */
     private $subtitle;
 
@@ -43,7 +43,7 @@ class Work
      * @ORM\Column(type="text")
      * @Assert\Length(
      *      min = 10,
-     *      minMessage = "Votre titre doit contenir au minimum {{ limit }} caractères")
+     *      minMessage = "Votre contenu doit contenir au minimum {{ limit }} caractères")
      */
     private $content;
 
