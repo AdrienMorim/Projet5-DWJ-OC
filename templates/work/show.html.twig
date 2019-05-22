@@ -69,8 +69,9 @@
                                         <p>Catégories:</p>
                                     </div>
                                     <div class="col-9 text-left">
-                                        <p>Html</p>
-                                        <p>Php</p>
+                                        {% for category in work.categories %}
+                                            <p> {{ category.title }} </p>
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div>

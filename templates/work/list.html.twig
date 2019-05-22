@@ -50,8 +50,14 @@
                                                 <a class="link-back" href=" {{ path("work_show" , { 'id': work.id }) }}" >Voir le projet {{ work.id }} </a>
                                             </strong>
                                         </td>
-                                        <td><strong><img src="{{ work.image }}" alt="{{ work.imageAlt }}"></strong></td>
-                                        <td><strong>Catégorie</strong></td>
+                                        <td><strong>
+                                            <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
+                                        </strong></td>
+                                        <td><strong> 
+                                        {% for category in work.categories %}
+                                            <p> {{ category.title }} </p>
+                                        {% endfor %} 
+                                        </strong></td>
                                         <td><em>{{ work.createdAt | date('d/m/Y à H:i') }}</em></td>
                                     </tr>
                                 {% endfor %}
