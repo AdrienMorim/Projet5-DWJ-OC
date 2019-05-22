@@ -27,17 +27,37 @@
                     <div class="col-md-12">
                         {{ form_start(formWork) }}
                         
-                        {{ form_row(formWork.title, { 'label' : 'Titre', 'attr' : { 'placeholder' : 'Titre du Projet' }}) }}
-                        {{ form_row(formWork.subtitle, { 'label' : 'Sous-titre', 'attr' : { 'placeholder' : 'Sous-titre du Projet' }}) }}
-                        {{ form_row(formWork.content, { 'label' : 'Contenu', 'attr' : { 'placeholder' : 'Contenu du Projet' }}) }}
-                        {{ form_row(formWork.link, { 'label' : 'Lien', 'attr' : { 'placeholder' : 'Url du Projet' }}) }}
-                        {{ form_row(formWork.image, { 'label' : 'Image', 'attr' : { 'placeholder' : 'Image du Projet' }}) }}
-                        {{ form_row(formWork.imageAlt, { 'label' : 'Description de l\'image', 'attr' : { 'placeholder' : 'Description de l\'image' }}) }}
+                        {{ form_row(formWork.title, { 
+                            'label' : 'Titre', 
+                            'attr' : { 'placeholder' : 'Titre du Projet' }}) }}
+                        {{ form_row(formWork.subtitle, { 
+                            'label' : 'Sous-titre', 
+                            'attr' : { 'placeholder' : 'Sous-titre du Projet' }}) }}
+                        {{ form_row(formWork.content, { 
+                            'label' : 'Contenu', 
+                            'attr' : { 'placeholder' : 'Contenu du Projet' }}) }}
+                        {{ form_row(formWork.link, { 
+                            'label' : 'Lien', 
+                            'attr' : { 'placeholder' : 'Url du Projet' }}) }}
+                        {{ form_row(formWork.image, { 
+                            'label' : 'Image', 
+                            'attr' : { 'placeholder' : 'Image du Projet' }}) }}
+                        {{ form_row(formWork.imageAlt, { 
+                            'label' : 'Description de l\'image', 
+                            'attr' : { 'placeholder' : 'Description de l\'image' }}) }}
+                        {{ form_row(formWork.categories, {
+                            'label' : 'Catégories'
+                        })}}
+
 
                         {% if editMode %}
-                            <button id="edit" type="submit" name="submit" class="btn btn-info">Modifier le projet</button>
+                            <button id="edit" type="submit" name="submit" class="btn btn-info">
+                                Modifier le projet
+                            </button>
                         {% else %}
-                            <button id="save" type="submit" name="submit" class="btn btn-primary">Enregistrer le projet</button>
+                            <button id="save" type="submit" name="submit" class="btn btn-primary">
+                                Enregistrer le projet
+                            </button>
                         {% endif %}    
                 
                         {{ form_end(formWork) }}
