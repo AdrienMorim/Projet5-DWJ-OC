@@ -7,13 +7,13 @@
 /*================================*\
 ------------------------------------
     01. General
-    02. Connexion
-    03. Home
-    04. Header
-    05. Navigation
+    02. Form
+    03. Header
+    04. Navigation
+    05. Home
     06. Dashbord
-    07. List Emails
-    08. Email / Settings
+    07. List Messages
+    08. Messages / Works / Settings
     09. Errors
     10. Footer
 -------------------------------------
@@ -25,15 +25,9 @@
 \*================================================================================*/
 
 #backend{
-    /*height: 80vh;*/
-    color: #FFF;
-    /*margin: 50px auto;*/
+    margin-top: 70px;
     position: relative;
     overflow: scroll;
-}
-
-#body-backend{
-
 }
 
 /*============[ Horizontal Rules ]=============*/
@@ -48,58 +42,63 @@ hr.custom-hr{
         rgba(255, 255, 255, 0));
 }
 
+hr.dashbord-hr{
+    border: thin solid #cccccc;
+}
+
 /*============[ Links ]=============*/
 
 a.link-back{
     color: #FFF;
+    cursor: pointer;
 }
 
 a.link-back:hover{
     color: #000;
-    text-shadow: #FFF 2px 0px 5px;; 
+    text-shadow: #FFF 2px 0px 5px;
+    cursor: pointer; 
 }
 
-/*================================================================================*\
+.link-table{
+    color: #000;
+    cursor: pointer;
+}
 
-                                        CONNEXION
-
-\*================================================================================*/
-
-#login-form label{
+.link-table:hover{
     color: #FFF;
+    text-shadow: #000 2px 0px 5px;
+    cursor: pointer;
+}
+
+#body-backend .btn{
+    margin: 20px;
 }
 
 /*================================================================================*\
 
-                                         HOME
+                                        FORM
 
 \*================================================================================*/
 
-@media (max-width: 640px){
-    .tt-backend{
-        height: 580px !important;
-    }
+.form-control{
+    border-radius: 2px;
 }
 
-#home-backend{
-    background: url(../images/back/dashbord.jpg) no-repeat center;
-    background-size: cover;
-    padding: 0;
-    position: relative;
+.form-group label, label, legend{
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
-#home-backend:before {
-    content: "";
-    background-color: rgba(0, 0, 0, 0.65);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.form-check label{
+    font-size: inherit;
+    font-weight: normal;
+    text-transform: none;
 }
 
-#home-backend .row{
-    overflow: scroll;
+.form-group textarea{
+    height: 100px;
 }
 
 /*================================================================================*\
@@ -109,43 +108,35 @@ a.link-back:hover{
 \*================================================================================*/
 
 #header{
-    height: 18vh;
-    margin-bottom: 10px;
+    background: #1a1e23;
+    padding: 6px;
+    z-index: 200;
 }
 
 .welcome {
-    position: absolute;
     width: 100%;
-    top: 0;
-    left: 0;
     text-align: center;
-    padding: 10px;
-    margin-top: auto;
+}
+
+.welcome .col-10{
+    margin: auto;
 }
 
 .welcome h1{
-    font-size: 30px;
-    line-height: 30px;
+    font-size: 18px;
+    line-height: 20px !important;
     background: linear-gradient(to right top, #0099FF 0%, #66CCFF 25%, #66CCCC 66%, #99FFFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.welcome h1 span{
-    color: #67CCCC;
-}
-.welcome p{
-    color: #f7f7f7;
-    margin-bottom: 10px;
-}
 
 .welcome-sub {
     color: #fff;
-    font-size: 24px;
-    line-height: 32px;
-    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    font-weight: 500;
     text-transform: uppercase;
     display: block;
-    margin: 10px 0;
 }
 
 /*================================================================================*\
@@ -155,27 +146,84 @@ a.link-back:hover{
 \*================================================================================*/
 
 #nav-backend{
+    position: fixed;
+    padding: 0 10px;
     height: 100vh;
     background: #1a1e23;
-}
-
-#nav-backend .container{
-
+    z-index: 900;
 }
 
 #nav-backend .navbar-custom{
     background: #1a1e23;
 }
 
-#nav-backend .nav-link:hover,
-#nav-backend .nav-link:active{
-    background: linear-gradient(to right top, #0099FF 0%, #66CCFF 25%, #66CCCC 66%, #99FFFF 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+#nav-backend .container{
+    padding: 0 10px;
 }
 
-#nav-backend .navbar-custom .navbar-brand {
-    padding: 20px 0 20px 20px;
+#nav-backend .navbar-toggler{
+    top: -50px;
+    right: -10px;
+}
+
+.navbar-group-items{
+    margin: 5px 0;
+}
+
+.navbar-group-items .hide{
+    display: none;
+}
+
+.navbar-group-items .show{
+    display: block;
+}
+
+#chevron-nav{
+    margin-left: 20px;
+}
+
+.nav-link{
+    width: 200px;
+}
+
+.btn-messages{
+    background: #66CCFF;
+}
+
+.btn-tasks{
+    background: #ff9900;
+}
+
+.btn-charts{
+    background: #6666cc;
+}
+
+.btn-projects{
+    background: #66cc99;
+}
+
+.btn-projects-others{
+    background: #89c5a7;
+    width: 200px;
+    font-weight: 400;
+    transform: translate(50px, 5px);
+}
+
+/*================================================================================*\
+
+                                         HOME
+
+\*================================================================================*/
+
+#home-backend{
+    background: #d4d4d4;
+    padding: 0;
+    position: relative;
+}
+
+#home-backend .row{
+    overflow: scroll;
+    margin: 0;
 }
 
 /*================================================================================*\
@@ -184,59 +232,105 @@ a.link-back:hover{
 
 \*================================================================================*/
 
-.dashbord-container{
-    margin: 20px 10px;
-}
-/*
-.section-border{
-    margin: 10px;
-    border: 4px solid;
-    border-image: linear-gradient(to right top, #0099FF 0%, #66CCFF 25%, #66CCCC 66%, #99FFFF 100%) 30;
-    padding: 20px;
-    background: rgba(255, 255, 255, .6);
-}*/
-
 .section-border{
     margin: 20px auto;
     padding: 20px;
-    background: linear-gradient(to right top,
-    rgba(0, 153, 255, .6) 0%,
-    rgba(102, 204, 255, .6) 25%,
-    rgba(102, 204, 204, .6) 66%,
-    rgba(102, 255, 255, .6) 100%);
-    border: thin solid #fff;
+    background: rgba(255, 255, 255, 0.8);
+    border: thin solid #b9b9b9;
+    border-radius: 2px;
     color: #000;
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
 #keep{
     width: 100%;
-    height: 20vh;
+    height: 100%;
     border: none;
     color: #000;
+    background: rgba(255, 187, 68, 0.3);
     resize: none;
+    cursor: text;
+    z-index: 10;
+}
+
+.overview p{
+    margin-top: 1rem;
+}
+
+.info-overview{
+    display: block;
+    position: relative;
+    top: 0;
+    left: 0;
+    height: 20vh;
+    margin: 10px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.icon-overview{
+    position: absolute;
+    top: 55%;
+    left: 70%;
+    transform: scale(8);
+}
+
+.info-messages{
+    background: #66CCFF;
+}
+
+.info-messages .icon-overview{
+    color: #86d7ff;
+}
+
+.info-tasks{
+    background: #ff9900;
+}
+
+.info-tasks .icon-overview{
+    color: #fcad36;
+    z-index: 9;
+}
+
+.info-charts{
+    background: #6666cc;
+}
+
+.info-charts .icon-overview{
+    color: #8585c9;
+}
+
+.info-projects{
+    background: #66cc99;
+}
+
+.info-projects .icon-overview{
+    color: #81c9a5;
 }
 
 /*================================================================================*\
 
-                                    LIST EMAILS
+                                    LIST MESSAGES
 
 \*================================================================================*/
 
 .section-bg {
     height: auto;
-    margin: auto 10px;
-    padding: 20px 0 0;
-    background: linear-gradient(to right top,
-        rgba(0, 153, 255, .7) 0%,
-        rgba(102, 204, 255, .7) 25%,
-        rgba(102, 204, 204, .7) 66%,
-        rgba(102, 255, 255, .7) 100%);
-    overflow: hidden;
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(26, 30, 35, 0.5);
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .table-hover tbody tr:hover{
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
     color: #FFF;
+    6px 6px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.table tr a{
+    display: block;
+    cursor: pointer;
 }
 
 .page-nav{
@@ -245,24 +339,34 @@ a.link-back:hover{
 
 /*================================================================================*\
 
-                                EMAIL / SETTINGS
+                                MESSAGES / WORKS / SETTINGS
 
 \*================================================================================*/
 
 #dark-bg{
-    background: rgba(26, 30, 35, 0.85);
+    color: #fff;
+    height: auto;
+    margin: 10px;
+    padding: 20px;
+    background: rgba(26, 30, 35, 0.5);
+    border-radius: 2px;
 }
 
 #dark-bg hr{
     width: 100%;
     border: 0;
     height: 1px;
-    background: #333;
     background-image: linear-gradient(to right, 
         rgba(0, 153, 255, .7) 0%,
         rgba(102, 204, 255, .7) 25%,
         rgba(102, 204, 204, .7) 66%,
         rgba(102, 255, 255, .7) 100%);
+}
+
+.work-show .work-label{
+    font-size: 16px;
+    font-weight: 400;
+    text-transform: uppercase;
 }
 
 /*================================================================================*\
