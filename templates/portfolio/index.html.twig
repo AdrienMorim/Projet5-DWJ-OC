@@ -38,31 +38,7 @@
 {% endblock %}
 
 {% block nav %}
-
-    <!--===================================================================
-        ============================[ NAV ]================================
-        ===================================================================-->
-    <section id="nav">
-        <div class="navbar-custom" role="navigation">
-            <div class="container">
-                <nav class="navbar navbar-header navbar-expand-lg navbar-light bg-highlight">
-                    <a class="navbar-brand" href="#home">
-                        <img id="logo-web-nav" src= {{ asset("assets/images/logo.png") }} alt="logo">
-                    </a>
-                    <button class="navbar-toggler" data-toggle="collapse" data-target=".collapse" aria-expanded="false" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-
-                    <div id="toggler" class="navbar-collapse collapse justify-content-end">
-                        <div class="navbar-nav text-right">
-                            {% include "inc/nav.html.twig" %}
-                        </div>
-                    </div><!-- /#custom-collapse -->
-                </nav>
-            </div><!-- /.container -->
-        </div><!-- /.navbar-custom -->
-    </section><!-- End Navigation -->
-
+    {% include "inc/navFrontend.html.twig" %}
 {% endblock %}
     
 {% block body %}
@@ -79,7 +55,7 @@
                 <div class="col-md-4 order-2">
                     <div class="biography">
                         <div class="myphoto">
-                            <img src= {{ asset("assets/images/myphoto.jpg") }} alt="photo de profil de Morim Adrien">
+                            <img src= {{ asset("assets/images/adrien.jpeg") }} alt="photo de profil de Morim Adrien">
                         </div>
                         <ul>
                             <li class="row"><div class="col-6"><strong class="text-left">Nom:</strong></div><div class="col-6 text-right">Adrien Morim</div></li>
@@ -100,7 +76,7 @@
     
                     <div class="short-info wow fadeInUp">
                         <h3>Ce que je fais ?</h3>
-                        <p>Je suis actuellement en formation de développeur intégrateur en réalisation d'applications web.
+                        <p>Je suis actuellement en formation de développeur intégrateur en réalisation d'applications web chez <a class="" href="https://openclassrooms.com">OpenClassrooms</a>.
                             J'ai un sens du style soigné dans ce que j'entreprend et je développe mon expérience dans la production de sites Web. Je crée moi même le design de mes projets selon le besoins de mes clients pour favoriser la meilleure expérience possible.</p>
     
                         <ul class="list-check">
