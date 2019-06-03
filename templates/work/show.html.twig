@@ -9,80 +9,99 @@
 {% block title %} Projet {{ work.id }} - {% endblock %}
 
 {% block header %}
-    <header id="header" class="col-12">
-        <div class="welcome">
-            <div class="welcome-sub">Dashbord</div>
-            <h1>Projet {{ work.id }}</h1>
-        </div><!-- /.intro -->
-    </header><!-- End Home Section -->
+    <header id="header" class="col-12 fixed-top">
+        <div class="welcome row">
+            <a class="col-2" href="{{ path("portfolio_dashbord") }}">
+                <img id="logo-web-nav" src= {{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
+            </a>
+            <div class="col-10">
+                <h1>Projet:</h1>
+                <div class="welcome-sub">{{ work.title }}</div>
+            </div>
+        </div><!-- /.welcome -->
+    </header>
 {% endblock %}
 
 {% block body %}
-    <section id="body-backend" class="container col-11">
-        <div id="dark-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <hr>
-                        <div class="row">
-                            <div class="col-2">
-                                <p>Titre: </p>
-                            </div>
-                            <div class="col-8 mr-auto text-center">
-                                <h3><a href="{{ work.link }}">{{ work.title }}</a></h3>
-                            </div>
+    <div id="backend" class="d-flex h-100">
+        <!-- NAV -->
+        {% include "inc/navBackend.html.twig" %}
+        <div id="home-backend" class="ml-auto col-lg-10 d-flex flex-column tt-backend">
+            <div class="row">
+                <section id="body-backend" class="container col-12">
+                    <div class="ml-auto col-3">
+                        <div class="container text-center">
+                            <a class="btn btn-primary" href="{{ path('work_edit',{ 'id': work.id }) }}">Modifier le Projet</a>
                         </div>
+                    </div>
+                    <div id="dark-bg">
                         <div class="row">
-                            <div class="col-2">
-                                <p>Sous-titre: </p>
-                            </div>
-                            <div class="col-8 mr-auto text-center">
-                                <h4>{{ work.subtitle }}</h4>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-2">
-                                <p>Description: </p>
-                            </div>
-                            <div class="col-8 mr-auto">
-                                <p>{{ work.content }}</p>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-1 ml-auto mr-auto">
-                                <p>Image: </p>
-                            </div>
-                            <div class="col-6 ml-auto mr-auto">
-                                <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
-                            </div>
-                            <div class="col-5">
+                            <div class="col work-show">
+                                <hr>
                                 <div class="row">
-                                    <div class="col-3">
-                                        <p>Date: </p>
+                                    <div class="col-2">
+                                        <p class="work-label">Titre: </p>
                                     </div>
-                                    <div class="col-9 text-left">
-                                        <p>{{ work.createdAt | date('d/m/Y à H:i') }}</p>
-                                    </div>
-                                    <div class="col-3">
-                                        <p>Catégories:</p>
-                                    </div>
-                                    <div class="col-9 text-left">
-                                        {% for category in work.categories %}
-                                            <p> {{ category.title }} </p>
-                                        {% endfor %}
+                                    <div class="col-8 mr-auto text-center">
+                                        <h3><a href="{{ work.link }}">{{ work.title }}</a></h3>
                                     </div>
                                 </div>
-                                <div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p class="work-label">Sous-titre: </p>
+                                    </div>
+                                    <div class="col-8 mr-auto text-center">
+                                        <h4>{{ work.subtitle }}</h4>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <p class="work-label">Description: </p>
+                                    </div>
+                                    <div class="col-8 mr-auto">
+                                        <p>{{ work.content }}</p>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-1 ml-auto mr-auto">
+                                        <p class="work-label">Image: </p>
+                                    </div>
+                                    <div class="col-5 ml-auto mr-auto">
+                                        <figure>
+                                            <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
+                                            <figcaption> <em>{{ work.imageAlt }}</em> </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="row">
+                                            <div class="col-3">
+                                                <p class="work-label">Date: </p>
+                                            </div>
+                                            <div class="ml-auto col-7 text-left">
+                                                <p>{{ work.createdAt | date('d/m/Y à H:i') }}</p>
+                                            </div>
+                                            <hr>
+                                            <div class="col-3">
+                                                <p class="work-label">Catégories:</p>
+                                            </div>
+                                            <div class="ml-auto col-8 d-flex flex-wrap text-left">
+                                                {% for category in work.categories %}
+                                                    <p class="col-4"> {{ category.title }} </p>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- /.row -->
+                                <hr>
+                            </div><!-- /.col -->
                         </div><!-- /.row -->
-                        <hr>
-                    </div><!-- /.col -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </div><!-- /.hire-section-bg -->
-    </section><!-- End Hire Section -->
+                    </div><!-- /#dark-bg -->
+                </section><!-- /#body-backend -->
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block footer %}{% endblock %}
