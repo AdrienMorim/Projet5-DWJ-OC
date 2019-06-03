@@ -17,7 +17,7 @@ class PortfolioController extends AbstractController
         ]);
     }
     /**
-     * @Route("/dashbord", name="dashbord")
+     * @Route("/dashbord", name="portfolio_dashbord")
      */
     public function dashbord()
     {
