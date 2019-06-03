@@ -1,0 +1,51 @@
+<div id="nav-backend" class="col-lg-2">
+    <div class="navbar-custom" role="navigation">
+        <div class="container">
+            <nav class="navbar navbar-header navbar-expand-lg navbar-dark">
+                <button class="navbar-toggler" data-toggle="collapse" data-target=".collapse" aria-expanded="false" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span id="bar1" class="bar"></span>
+                    <span id="bar2" class="bar"></span>
+                    <span id="bar3" class="bar"></span>
+                </button>
+
+                <div id="toggler" class="collapse navbar-collapse">
+                    <div class="navbar-nav flex-column text-left dropdown show">
+                        <hr class="custom-hr">
+                        <div class="navbar-group-items">
+                            <a class="nav-item nav-link btn btn-charts" href="{{ path('portfolio_dashbord') }}">
+                                <i class="fas fa-tachometer-alt"></i> Dashbord
+                            </a>
+                        </div>
+                        <div class="navbar-group-items">
+                            <a class="nav-item nav-link btn btn-messages" href="#">
+                                <i class="fas fa-envelope"></i> Messages
+                            </a>
+                        </div>
+                        <div id="projects" class="navbar-group-items">
+                            <a class="nav-item nav-link btn btn-projects show-all" href="">
+                                <i class="fas fa-laptop"></i> Projets <i id="chevron-nav" class="fas fa-chevron-down"></i>
+                            </a>
+                            <a id="btn-projects-1" class="nav-item nav-link btn btn-projects-others hide" href="{{ path('work_list') }}">
+                                <i class="fas fa-list-ol"></i> Listes des Projets
+                            </a>
+                            <a id="btn-projects-2" class="nav-item nav-link btn btn-projects-others hide" href="{{ path('work_create') }}">
+                                <i class="fas fa-folder-plus"></i> Ajouter un Projet
+                            </a>
+                        </div>
+                        <div class="navbar-group-items">
+                            <a class="nav-item nav-link btn btn-tasks" href="#">
+                                <i class="fas fa-user-cog"></i> Paramètres
+                            </a>
+                        </div>
+                        <hr class="custom-hr">
+                        <div class="navbar-group-items">
+                            <a class="nav-item nav-link btn btn-primary" href="{{ path('security_logout') }}">
+                                <i class="fas fa-user-times"></i> Déconnexion
+                            </a>
+                        </div>
+                    </div>
+                </div><!-- /#custom-collapse -->
+            </nav>
+        </div><!-- /.container -->
+    </div><!-- /.navbar-custom -->
+</div><!-- /#nav-backend -->

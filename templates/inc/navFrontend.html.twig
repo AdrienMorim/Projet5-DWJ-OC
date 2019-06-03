@@ -1,0 +1,41 @@
+<section id="nav">
+    <div class="navbar-custom" role="navigation">
+        <div class="container">
+            <nav class="navbar navbar-header navbar-expand-lg navbar-light bg-highlight">
+                <a class="navbar-brand" href="#home">
+                    <img id="logo-web-nav" src= {{ asset("assets/images/logo.png") }} alt="logo">
+                </a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target=".collapse" aria-expanded="false" aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span id="bar1" class="bar"></span>
+                    <span id="bar2" class="bar"></span>
+                    <span id="bar3" class="bar"></span>
+                </button>
+                <div id="toggler" class="navbar-collapse collapse justify-content-end">
+                    <div class="navbar-nav text-right">
+                        {% if app.user %}
+                            <a class="nav-item nav-link" href="{{ path('portfolio_dashbord') }}">Dashbord</a>
+                            <a class="nav-item nav-link active" href="{{ path('portfolio') }}">Accueil</a>
+                            <a class="nav-item nav-link" href="#about">À propos</a>
+                            <a class="nav-item nav-link" href="#resume">Parcours</a>
+                            <a class="nav-item nav-link" href="#skills">Compétences</a>
+                            <a class="nav-item nav-link" href="#works">Projets</a>
+                            <a class="nav-item nav-link" href="#advice">Recommandations</a>
+                            <a class="nav-item nav-link" href="#contact">Contact</a>
+                            <a class="nav-item nav-link disabled sr-only" href="#blog">Blog</a>
+                        {% else %}
+                            <a class="nav-item nav-link active" href="{{ path('portfolio') }}">Accueil</a>
+                            <a class="nav-item nav-link" href="#about">À propos</a>
+                            <a class="nav-item nav-link" href="#resume">Parcours</a>
+                            <a class="nav-item nav-link" href="#skills">Compétences</a>
+                            <a class="nav-item nav-link" href="#works">Projets</a>
+                            <a class="nav-item nav-link" href="#advice">Recommandations</a>
+                            <a class="nav-item nav-link" href="#contact">Contact</a>
+                            <a class="nav-item nav-link disabled sr-only" href="#blog">Blog</a>
+                        {% endif %}
+                    </div>
+                </div><!-- /#toggler -->
+            </nav><!-- /.navbar navbar-header navbar-expand-lg navbar-light bg-highlight -->
+        </div>
+    </div><!-- /.navbar-custom -->
+</section><!-- /#nav -->  
+
