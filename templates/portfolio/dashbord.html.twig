@@ -32,17 +32,17 @@
                 <div class="row">
                     <div class="col-12 overview">
                         <p><strong>Aperçu:</strong></p>
-                        <div class="d-flex col-11">
-                            <div class="section-border col-3 info-overview info-messages">
+                        <div class="d-flex flex-lg-nowrap flex-wrap col-lg-11 col-md-12">
+                            <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-messages">
                                 <i class="icon-overview far fa-envelope"></i>
                             </div>
-                            <div class="section-border col-3 info-overview info-charts">
+                            <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-charts">
                                 <i class="icon-overview far fa-chart-bar"></i>
                             </div>
-                            <div class="section-border col-3 info-overview info-projects">
+                            <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-projects">
                                 <i class="icon-overview fas fa-laptop"></i>
                             </div>
-                            <div class="section-border col-3 info-overview info-tasks">
+                            <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-tasks">
                                 <textarea id="keep" name="keep" class="col-12" onchange="localStorage.strKeep = this.value">Faire menu dropdown
                                 Voir SF4 -> upload Image
                                 Faire btn Navigation
@@ -62,7 +62,7 @@
                     <div class="col-12 overview">
                         <p><strong>Informations complémentaires:</strong></p>
                         <div class="d-flex flex-wrap">
-                            <div class="col-6">
+                            <div class="col-lg-6 col-md-12">
                                 <div class="section-border col-12 info-messages">
                                     <strong>Boîte de réception:<br/></strong>
                                     Vous avez actuellement "nombre message(s)" message dans votre boîte de réception.
@@ -76,7 +76,7 @@
                                     Vous avez actuellement "nombre de projets" projets sur votre site.
                                 </div>
                             </div>
-                            <div class="col-6">
+                            <div class="col-lg-6 col-md-12">
                                 <div class="section-border col-12 info-messages">
                                     <strong>Dernier message reçu:<br/></strong>
                                     <a class="link-back" href="../V3/index.php?action=message&amp;id_message=<?= $data['id']; ?>">
