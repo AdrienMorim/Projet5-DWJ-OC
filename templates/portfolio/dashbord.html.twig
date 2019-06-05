@@ -34,12 +34,36 @@
                         <p><strong>Aperçu:</strong></p>
                         <div class="d-flex flex-lg-nowrap flex-wrap col-lg-11 col-md-12">
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-messages">
+                                {% if works|length > 1 %}
+                                    <p>Messages </br>
+                                    reçus:</p>
+                                {% else %}
+                                    <p>Message </br>
+                                    reçu:</p>
+                                {% endif %}
+                                <div class="number-overview">{{ works|length }}</div>
                                 <i class="icon-overview far fa-envelope"></i>
                             </div>
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-charts">
+                                {% if works|length > 1 %}
+                                    <p>Visites </br>
+                                    totales:</p>
+                                {% else %}
+                                    <p>visite </br>
+                                    total:</p>
+                                {% endif %}
+                                <div class="number-overview">{{ works|length }}</div>
                                 <i class="icon-overview far fa-chart-bar"></i>
                             </div>
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-projects">
+                                {% if works|length > 1 %}
+                                    <p>Projets </br>
+                                    réalisés:</p>
+                                {% else %}
+                                    <p>Projet </br>
+                                    réalisé:</p>
+                                {% endif %}
+                                <div class="number-overview">{{ works|length }}</div>
                                 <i class="icon-overview fas fa-laptop"></i>
                             </div>
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-tasks">
@@ -65,15 +89,15 @@
                             <div class="col-lg-6 col-md-12">
                                 <div class="section-border col-12 info-messages">
                                     <strong>Boîte de réception:<br/></strong>
-                                    Vous avez actuellement "nombre message(s)" message dans votre boîte de réception.
+                                    Vous avez actuellement {{ works|length }} message dans votre boîte de réception.
                                 </div>
                                 <div class="section-border col-12 info-charts">
                                     <strong>Compteurs de visites:<br/></strong>
-                                    Vous avez actuellement "nombre de visite" visite(s) sur votre site.
+                                    Vous avez actuellement {{ works|length }} visite(s) sur votre site.
                                 </div>
                                 <div class="section-border col-12 info-projects">
                                     <strong>Vos projets:<br/></strong>
-                                    Vous avez actuellement "nombre de projets" projets sur votre site.
+                                    Vous avez actuellement {{ works|length }} projets sur votre site.
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -86,23 +110,23 @@
                                 <div class="section-border col-12 info-messages">
                                     <strong>Messages non lus:<br/></strong>
                                     <a class="link-back" href="../V3/index.php?action=listmessages">
-                                    Vous avez actuellement "nombre de message(s)" message non lu(s).
+                                    Vous avez actuellement {{ works|length }} message non lu(s).
                                     </a>
                                 </div>
                                 <div class="section-border col-12 info-charts">
-                                        
+                                    {{ works|length }}
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="section-border col-12 info-tasks">
-                                    
+                                    {{ works|length }}
                                 </div>
                             </div>
                         </div><!-- /.d-flex -->
                     </div><!-- /.col-12 overview -->
                     <div class="col-12 overview">
                         <div class="section-border col-12">
-                                        
+                            {{ works|length }} 
                         </div>
                     </div>
                 </div><!-- /.row -->
