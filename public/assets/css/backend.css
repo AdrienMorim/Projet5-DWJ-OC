@@ -101,6 +101,18 @@ a.link-back:hover{
     height: 100px;
 }
 
+#register-form .form-group{
+    width: 45%;
+}
+
+#register-form input, #login-form input{
+    background: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+
 /*================================================================================*\
 
                                     HEADER
@@ -166,7 +178,17 @@ a.link-back:hover{
     right: -10px;
 }
 
+#toggler{
+    width: 100%;
+    justify-content: center;
+}
+
+#toggler .navbar-nav{
+    margin-bottom: 20px;
+}
+
 .navbar-group-items{
+    width: auto;
     margin: 5px 0;
 }
 
@@ -325,7 +347,7 @@ a.link-back:hover{
 .table-hover tbody tr:hover{
     background-color: rgba(0, 0, 0, 0.2);
     color: #FFF;
-    6px 6px 2px 1px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .table tr a{

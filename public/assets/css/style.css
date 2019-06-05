@@ -317,18 +317,11 @@ ul.list-check i {
 
 \*================================================================================*/
 
-
-@media (max-width : 640px) {
-    .tt-fullHeight{
-        height: 560px !important;
-    }
-}
-
 #home {
 	background: url(../images/front/home.jpg) no-repeat center center;
 	-webkit-background-attachment: fixed;
     background-attachment: fixed;
-	background-color: #222;
+	background-color: #222222;
 	background-size: cover;
 	padding: 0;
 	position: relative;
@@ -371,9 +364,7 @@ ul.list-check i {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
-.intro h1 span{
-	color: #67CCCC;
-}
+
 .intro p{
 	color: #f7f7f7;
 	margin-bottom: 20px;
@@ -490,7 +481,7 @@ ul.list-check i {
 }
 
 #logo-web-nav:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: transform ease-out .5s;
 }
 
@@ -503,20 +494,7 @@ ul.list-check i {
     text-transform: uppercase;
 }
 
-.navbar-custom .dropdown-menu > li{
-    border-bottom: 1px solid #F0F0F0;
-}
 
-.navbar-custom .dropdown-menu > li:last-child{
-    border-bottom: 0;
-}
-
-.navbar-custom .dropdown-menu > li > a {
-    padding: 10px 20px;
-    color: #282828;
-    font-size: 14px;
-    font-weight: 700;
-}
 
 .navbar-custom .nav li.active,
 .navbar-custom .nav li a:hover,
@@ -541,7 +519,61 @@ ul.list-check i {
     padding: 0;
 }
 
+.navbar-toggler{
+    display: block;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    z-index: 300;
+    border: none;
+}
 
+#nav .navbar-toggler{
+    top: 20px;
+    right: 10px;
+}
+
+.bar{
+    display: block;
+    position: absolute; 
+    width: 100%; /* On défini la taille des span */
+    height: 3px;
+    top: 50%;
+    left: 0;
+    background: #5fadd3;
+    z-index: 9;
+}
+
+#bar1{
+    top: 20%;
+    transition: 0.3s;
+}
+
+#bar2{
+    transition: 0.3s;
+}
+
+#bar3{
+    top: 80%;
+    transition: 0.3s;
+}
+
+.navbar-toggler:active #bar1{
+    opacity: 1;
+    top: 50%;
+	transform: rotate(405deg);
+}
+
+.navbar-toggler:active #bar2{
+    opacity: 0;
+    top: 50%;
+}
+
+.navbar-toggler:active #bar3{
+    opacity: 1;
+    top: 50%;
+	transform: rotate(-405deg);
+}
 
 /*================================================================================*\
 
@@ -1290,6 +1322,7 @@ ul.list-check i {
 
 .carousel-ctrl button{
     border: none;
+    cursor: pointer;
 }
 .carousel-ctrl span{
     text-shadow: 0 0 5px #000;
@@ -1344,6 +1377,7 @@ ul.list-check i {
 
 .hire-section .btn {
     padding: 9px 54px;
+    cursor: pointer;
 }
 
 /*================================================================================*\
@@ -1351,10 +1385,6 @@ ul.list-check i {
                                     CONTACT
 
 \*================================================================================*/
-
-.contact-section  {
-  
-}
 
 .contact-section strong {
     display: block;
@@ -1440,7 +1470,7 @@ ul.list-check i {
 }
 
 .socialnetwork a i:hover{
-    transform: scale(2);
+    transform: scale(1.2);
     transition: transform ease-out .5s;
 }
 

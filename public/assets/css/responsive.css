@@ -1,5 +1,9 @@
 /* Extra small devices (phones, less than 768px) */
 @media screen and (max-width : 480px) {
+	.intro{
+		height: 100%;
+	}
+	
 	.intro h1 {
 		font-size: 40px;
 		line-height: 40px;
@@ -22,8 +26,8 @@
 		margin:0 5px;
 	}
 
-	.mouse-icon{
-		display:none;
+	#nav-backend{
+		height: 0 !important;
 	}
 
 	.navbar-custom .navbar-brand,
@@ -177,10 +181,32 @@
 	.hexa:after{
 		display: none;
 	}
+
+	#register-form .form-group{
+		width: 100% !important;
+	}
+
+	#register-form .form-group, 
+	#register-form .form-group label{
+		margin-bottom: 0.3rem;
+	}
+
+
+	#register-form small{
+		display: none;
+	}
+
+	.invalid-feedback{
+		font-size: 10px;
+	}
 }
 
 /* Landscape Mobile */
-@media only screen and (min-width : 480px) and (max-width : 768px) {
+@media only screen and (min-width : 481px) and (max-width : 768px) {
+	.intro{
+		height: 100%;
+	}
+	
 	.intro h1 {
 		font-size: 60px;
 		line-height: 80px;
@@ -198,8 +224,18 @@
 		margin:0 7px;
 	}
 
-	.mouse-icon{
-		display:none;
+	/* Nav */
+	#nav-backend{
+		height: 0 !important;
+	}
+
+	#btn-projects-1{
+		transform: translate(100px, 5px);
+	}
+
+	#btn-projects-2{
+		margin-top: 5px;
+		transform: translate(200px, 5px);
 	}
 
 	.navbar-custom .navbar-brand,
@@ -323,12 +359,18 @@
   		margin-right: 20px;
 	}
 
+	#register-form .form-group{
+		width: 45% !important;
+	}
 
+	#register-form .form-group, 
+	#register-form .form-group label{
+		margin-bottom: 0.3rem;
+	}
 }
 
-
-/* Small devices (tablets, 768px and up) */
-@media (min-width : 768px) and (max-width : 992px) {
+/* Small devices (tablets, 769px and up) */
+@media screen and (min-width : 769px) and (max-width : 992px) {
 	.navbar-custom .navbar-brand{
 		padding: 10px 15px;
 	}
@@ -337,6 +379,19 @@
 	.navbar-custom .navbar-nav .dropdown-menu > li > a{
 		font-size: 12px;
 		padding: 15px;
+	}
+
+	#nav-backend{
+		height: 0 !important;
+	}
+
+	#projects{
+		display: flex;
+	}
+
+	.btn-projects-others{
+		margin-left: 10px;
+		transform: none !important;
 	}
 
 	/*about me section*/
@@ -406,8 +461,8 @@
 
 }
 
-/* Medium devices (desktops, 992px and up) */
-@media (min-width : 992px) and (max-width : 1200px) {
+/* Medium devices (desktops, 993px and up) */
+@media (min-width : 993px) and (max-width : 1200px) {
 
 	.portfolio-item{
 		min-height: 150px;
@@ -423,18 +478,18 @@
 }
 
 
-/* Large devices (large desktops, 1200px and up) */
-@media (min-width : 1200px) and (max-width : 1289px) {
+/* Large devices (large desktops, 1201px and up) */
+@media (min-width : 1201px) and (max-width : 1280px) {
 
 }
 
-/* Large devices (large desktops, 1280px and up) */
-@media screen and (min-width:1280px) and (max-width:1600px) {
+/* Large devices (large desktops, 1281px and up) */
+@media screen and (min-width:1281px) and (max-width:1600px) {
 	
 }
 
 /* Extra Large devices (large desktops, 1600px and up) */
-@media screen and (min-width:1600px) and (max-width:1920px) {
+@media screen and (min-width:1601px) and (max-width:1920px) {
 	.personal-info{
 		padding-right:180px;
 	}
