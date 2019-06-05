@@ -5,6 +5,8 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Repository\WorkRepository;
+
 class PortfolioController extends AbstractController
 {
     /**
@@ -19,8 +21,12 @@ class PortfolioController extends AbstractController
     /**
      * @Route("/dashbord", name="portfolio_dashbord")
      */
-    public function dashbord()
+    public function dashbord(WorkRepository $repo)
     {
-        return $this->render('portfolio/dashbord.html.twig');
+        $works = $repo->findAll();
+            
+        return $this->render('portfolio/dashbord.html.twig', [
+            'works' => $works
+        ]);
     }
 }
