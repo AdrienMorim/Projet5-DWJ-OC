@@ -29,7 +29,7 @@
         <div id="home-backend" class="ml-auto col-lg-10 d-flex flex-column tt-backend">
             <div class="row">
                 <section id="body-backend" class="container col-12">
-                    <div class="ml-auto col-3">
+                    <div class="ml-lg-auto col-lg-3 col-md-12">
                         <div class="container text-center">
                             <a class="btn btn-primary" href="{{ path('work_edit',{ 'id': work.id }) }}">Modifier le Projet</a>
                         </div>
@@ -39,56 +39,56 @@
                             <div class="col work-show">
                                 <hr>
                                 <div class="row">
-                                    <div class="col-2">
+                                    <div class="col-lg-2 col-md-3 col-sm-12">
                                         <p class="work-label">Titre: </p>
                                     </div>
-                                    <div class="col-8 mr-auto text-center">
+                                    <div class="col-lg-8 col-md-9 col-sm-12 mr-lg-auto text-center">
                                         <h3><a href="{{ work.link }}">{{ work.title }}</a></h3>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-2">
+                                    <div class="col-lg-2 col-md-3 col-sm-12">
                                         <p class="work-label">Sous-titre: </p>
                                     </div>
-                                    <div class="col-8 mr-auto text-center">
+                                    <div class="col-lg-8 col-md-9 col-sm-12 mr-lg-auto text-center">
                                         <h4>{{ work.subtitle }}</h4>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-2">
+                                    <div class="col-lg-2 col-md-3 col-sm-12">
                                         <p class="work-label">Description: </p>
                                     </div>
-                                    <div class="col-8 mr-auto">
+                                    <div class="col-lg-8 col-md-9 col-sm-12 mr-auto">
                                         <p>{{ work.content }}</p>
                                     </div>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <div class="col-1 ml-auto mr-auto">
+                                    <div class="col-lg-1 col-md-1 col-sm-12 ml-auto mr-auto">
                                         <p class="work-label">Image: </p>
                                     </div>
-                                    <div class="col-5 ml-auto mr-auto">
+                                    <div class="col-lg-4 col-md-4 col-sm-12 ml-auto mr-auto">
                                         <figure>
                                             <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
                                             <figcaption> <em>{{ work.imageAlt }}</em> </figcaption>
                                         </figure>
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="row">
-                                            <div class="col-3">
+                                            <div class="col-lg-3  col-sm-12">
                                                 <p class="work-label">Date: </p>
                                             </div>
-                                            <div class="ml-auto col-7 text-left">
+                                            <div class="ml-auto col-lg-7 col-sm-12 text-left">
                                                 <p>{{ work.createdAt | date('d/m/Y à H:i') }}</p>
                                             </div>
                                             <hr>
-                                            <div class="col-3">
+                                            <div class="col-lg-3 col-md-4 col-sm-12">
                                                 <p class="work-label">Catégories:</p>
                                             </div>
-                                            <div class="ml-auto col-8 d-flex flex-wrap text-left">
+                                            <div class="ml-lg-auto col-lg-8 col-md-8 d-flex flex-wrap">
                                                 {% for category in work.categories %}
-                                                    <p class="col-4"> {{ category.title }} </p>
+                                                    <p class="col-lg-5 col-md-5 checked-categories"> {{ category.title }} </p>
                                                 {% endfor %}
                                             </div>
                                         </div>
