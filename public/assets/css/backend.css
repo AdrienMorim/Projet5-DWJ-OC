@@ -12,10 +12,11 @@
     04. Navigation
     05. Home
     06. Dashbord
-    07. List Messages
-    08. Messages / Works / Settings
-    09. Errors
-    10. Footer
+    07. Messages
+    08. Works
+    09. Settings
+    10. Errors
+    11. Footer
 -------------------------------------
 \*=================================*/
 /*================================================================================*\
@@ -28,6 +29,16 @@
     margin-top: 70px;
     position: relative;
     overflow: scroll;
+}
+
+#dark-bg{
+    color: #fff;
+    height: auto;
+    margin: 20px 0;
+    padding: 10px;
+    background: rgba(26, 30, 35, 0.5);
+    box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
 }
 
 /*============[ Horizontal Rules ]=============*/
@@ -111,6 +122,8 @@ a.link-back:hover{
     border-left: none;
     border-right: none;
 }
+
+
 
 
 /*================================================================================*\
@@ -295,6 +308,23 @@ a.link-back:hover{
     top: 55%;
     left: 70%;
     transform: scale(8);
+    z-index: 9;
+}
+
+.info-overview p{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.number-overview{
+    position: absolute;
+    top: 40%;
+    left: 72%;
+    transform: scale(4);
+    color: #000;
+    z-index: 10;
 }
 
 .info-messages{
@@ -311,7 +341,6 @@ a.link-back:hover{
 
 .info-tasks .icon-overview{
     color: #fcad36;
-    z-index: 9;
 }
 
 .info-charts{
@@ -332,17 +361,9 @@ a.link-back:hover{
 
 /*================================================================================*\
 
-                                    LIST MESSAGES
+                                        MESSAGES
 
 \*================================================================================*/
-
-.section-bg {
-    height: auto;
-    margin: 10px;
-    padding: 10px;
-    background-color: rgba(26, 30, 35, 0.5);
-    box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.1);
-}
 
 .table-hover tbody tr:hover{
     background-color: rgba(0, 0, 0, 0.2);
@@ -361,18 +382,9 @@ a.link-back:hover{
 
 /*================================================================================*\
 
-                                MESSAGES / WORKS / SETTINGS
+                                WORKS
 
 \*================================================================================*/
-
-#dark-bg{
-    color: #fff;
-    height: auto;
-    margin: 10px;
-    padding: 20px;
-    background: rgba(26, 30, 35, 0.5);
-    border-radius: 2px;
-}
 
 #dark-bg hr{
     width: 100%;
@@ -385,11 +397,81 @@ a.link-back:hover{
         rgba(102, 255, 255, .7) 100%);
 }
 
+/*============[ Work show ]=============*/
+
 .work-show .work-label{
     font-size: 16px;
     font-weight: 400;
     text-transform: uppercase;
 }
+
+#work_categories{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#work_categories .form-check{
+    padding: 0;  
+}
+
+#work_categories .form-check input + label{
+    display: inline-block;
+    padding: 0 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    color: #626262;
+    background: #f7f7f7;
+    border: thin solid #b9b9b9;
+    border-radius: 50px; 
+    transition: all .3s ease-in-out;
+}
+
+#work_categories .form-check label::before{
+    display: inline-block;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    color: #626262;
+    transition: all .2s;
+}
+
+#work_categories .form-check input:checked + label::before{
+    content: "\f00c";
+    color: #FFF;
+    transform: rotate(-360deg);
+    transition: all .2s;
+}
+
+#work_categories .form-check input:checked + label{
+    color: #FFF;
+    background: #66cc99;
+    border: thin solid #FFFFFF;
+    transition: all .3s ease-in-out;
+}
+
+#work_categories .form-check input{
+    display: none;   
+}
+
+#dark-bg .checked-categories{
+    display: inline-block;
+    padding: 0 10px;
+    margin: 0 0 5px 5px;
+    cursor: pointer;
+    color: #FFF;
+    background: #66cc99;
+    border: thin solid #FFFFFF;
+    border-radius: 50px;
+}
+
+/*================================================================================*\
+
+                                    SETTINGS
+
+\*================================================================================*/
 
 /*================================================================================*\
 
