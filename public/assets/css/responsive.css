@@ -182,6 +182,8 @@
 		display: none;
 	}
 
+	/* backend */
+
 	#register-form .form-group{
 		width: 100% !important;
 	}
@@ -191,13 +193,21 @@
 		margin-bottom: 0.3rem;
 	}
 
-
 	#register-form small{
 		display: none;
 	}
 
 	.invalid-feedback{
 		font-size: 10px;
+	}
+
+	#dark-bg{
+		padding: 20px 0 !important;
+	}
+
+	#dark-bg .container{
+		padding-left: 0;
+		padding-right: 0;
 	}
 }
 
