@@ -16,7 +16,7 @@ Author URL: morimadrien.fr
     9. Shuffle
     10. Magnific Popup
     11. Google Map
-    12. Dashbord
+    12. Navbar Dashbord
 */
 
 // Quand le document HTML est prêt lance jQuery
@@ -203,7 +203,7 @@ jQuery(function($) {
     $(document).load(function() {
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-         
+
         }else {
             $.stellar({
                 horizontalScrolling: false,
@@ -239,6 +239,16 @@ jQuery(function($) {
     $(function initMap() {
         myMap.initMap();
     });
+
+    // -------------------------------------------------------------
+    // Navbar Dashbord
+    // -------------------------------------------------------------
+    
+    $('.show-all').click(function(e){
+        e.preventDefault();
+        $('.hide').toggleClass('show');
+        $('#chevron-nav').toggleClass('fa-chevron-up');
+    })
 });
 
 
