@@ -1,0 +1,66 @@
+<!--=================================================================
+        ============================[ WORKS ]============================
+        =================================================================-->
+<section class="works-section section-padding" id="works">
+    <div class="container">
+        <h2 class="section-title wow fadeInUp">Projets</h2>
+
+        <ul class="list-inline" id="filter">
+            <li class="list-inline-item">
+                <a class="active" data-group="all">Tous</a>
+            </li>
+            <li class="list-inline-item">
+                <a data-group="html">HTML5/CSS3</a>
+            </li>
+            <li class="list-inline-item">
+                <a data-group="wp">Wordpress</a>
+            </li>
+            <li class="list-inline-item">
+                <a data-group="js">JavaScript</a>
+            </li>
+            <li class="list-inline-item">
+                <a data-group="php">PHP</a>
+            </li>
+            <li class="list-inline-item">
+                <a data-group="bootstrap">Bootstrap</a>
+            </li>
+        </ul>
+
+        <div class="row">
+            <div class="col" id="grid">
+
+                {% for work in works %}
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='["all", "html"]'>
+                        <div class="portfolio-bg">
+                            <div class="portfolio">
+                                <div class="texture-overlay"></div>
+                                <div class="links">
+                                    <a class="image-link" href={{ work.image }}>
+                                        <i class="fas fa-search-plus"></i>
+                                    </a>
+                                    <a href="{{ work.link }}">
+                                        <i class="fas fa-link"></i>
+                                    </a>
+                                </div>
+                                <!-- /.links -->
+                                <img class="portfolio-img" src={{ work.image }} alt="{{ work.imageAlt }}">
+                                <div class="portfolio-info">
+                                    <h3>{{ work.title }}</h3>
+                                </div>
+                                <!-- /.portfolio-info -->
+                            </div>
+                            <!-- /.portfolio -->
+                        </div>
+                        <!-- /.portfolio-bg -->
+                    </div>
+                    <!-- /.portfolio-item -->
+                {% endfor %}
+
+            </div>
+            <!-- /#grid -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container -->
+</section>
+<!-- End Works Section -->
