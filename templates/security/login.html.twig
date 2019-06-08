@@ -3,46 +3,50 @@
 {% block stylesheets %}
     {{ parent() }}
     <!-- Backend styles CSS -->
-    <link rel="stylesheet" type="text/css" href= {{ asset("assets/css/backend.css") }} media="screen">
+    <link rel="stylesheet" type="text/css" href={{ asset("assets/css/backend.css") }} media="screen">
 {% endblock %}
 
-{% block title %} Connexion - {% endblock %}
+{% block title %}
+    Connexion -
+{% endblock %}
 
 {% block header %}{% endblock %}
 
 {% block body %}
     <div class="d-flex flex-column h-100">
-        <section id="home" class="tt-backend" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
+        <section class="tt-backend" data-stellar-background-ratio="0.2" data-stellar-vertical-offset="50" id="home">
             <div class="intro">
                 <a class="" href="{{ path("portfolio") }}">
-                    <img id="logo-web" src= {{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
+                    <img id="logo-web" src={{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
                 </a>
                 <h1>Connexion</h1>
-                <form id="login-form" action="{{ path('security_login') }}" method="POST">
+                <form id="login-form" action="{{ path('portfolio_dashboard') }}" method="POST">
                     <div class="col-lg-6 mr-auto ml-auto card-body">
                         <div class="form-group row">
-                            <label for="email" class="col-lg-12 text-left">Email :</label>
+                            <label class="col-lg-12 text-left" for="email">Email :</label>
                             <div class="col-lg-12">
-                                <input type="text" name="_username" id="email" class="form-control" placeholder="Email" required/>
+                                <input class="form-control" id="email" name="_username" placeholder="Email" required type="text"/>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="password" class="col-lg-12 text-left">Mot de Passe :</label>
+                            <label class="col-lg-12 text-left" for="password">Mot de Passe :</label>
                             <div class="col-lg-12">
-                                <input type="password" name="_password" id="password" class="form-control" placeholder="Mot de passe" required/>
+                                <input class="form-control" id="password" name="_password" placeholder="Mot de passe" required type="password"/>
                             </div>
                         </div>
                         <div class="form-group row">
                             <div class="col-lg-4 mr-auto ml-auto">
-                                <button type="submit" class="btn btn-info">
+                                <button class="btn btn-info btn-submit-form" type="submit">
                                     Connexion
                                 </button>
                             </div>
                         </div>
                     </div>
                 </form>
-            </div><!-- /.intro -->
-        </section><!-- End Section -->
+            </div>
+            <!-- /.intro -->
+        </section>
+        <!-- End Section -->
     </div>
 
 {% endblock %}
