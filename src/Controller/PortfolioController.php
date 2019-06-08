@@ -12,20 +12,23 @@ class PortfolioController extends AbstractController
     /**
      * @Route("/", name="portfolio")
      */
-    public function index()
+    public function index(WorkRepository $repo)
     {
+        $works = $repo->findAll();
+
         return $this->render('portfolio/index.html.twig', [
             'controller_name' => 'PortfolioController',
+            'works' => $works
         ]);
     }
     /**
-     * @Route("/dashbord", name="portfolio_dashbord")
+     * @Route("/dashboard", name="portfolio_dashboard")
      */
-    public function dashbord(WorkRepository $repo)
+    public function dashboard(WorkRepository $repo)
     {
         $works = $repo->findAll();
             
-        return $this->render('portfolio/dashbord.html.twig', [
+        return $this->render('portfolio/dashboard.html.twig', [
             'works' => $works
         ]);
     }
