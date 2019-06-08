@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <!-- Backend styles CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset("assets/css/backend.css") }}" media="screen">
+{% endblock %}
+
+{% block title %}
+    Catégories -
+{% endblock %}
+
+{% block header %}
+    <header class="col-12 fixed-top" id="header">
+        <div class="welcome row">
+            <a class="col-2" href="{{ path("portfolio") }}">
+                <img id="logo-web-nav" src={{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
+            </a>
+            <div class="col-10">
+                <h1>Gestion des Catégories</h1>
+            </div>
+        </div>
+        <!-- /.welcome -->
+    </header>
+{% endblock %}
+
+{% block body %}
+    <div
+        class="d-flex h-100" id="backend">
+        <!-- NAV -->
+        {% include "inc/navBackend.html.twig" %}
+        <!-- HOME -->
+        <div class="ml-auto col-lg-10 d-flex flex-column tt-backend" id="home-backend">
+            <div class="row">
+                <section class="container col-12" id="body-backend">
+                    <div id="dark-bg">
+                        <div class="container">
+                            <div class="row">
+                                {{ form_start(formCategory) }}
+
+                                {% if editCategory %}
+
+                                {{ form_row(formCategory.title, { 
+                                    'label' : 'Modifier', 
+                                    'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
+                                
+                                    <button class="btn btn-primary btn-add">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                {% else %}
+
+                                {{ form_row(formCategory.title, { 
+                                    'label' : 'Ajouter', 
+                                    'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
+
+                                    <button class="btn btn-info btn-add">
+                                        <i class="fas fa-plus"></i>
+                                    </button>
+                                {% endif %}
+
+                                {{ form_end(formCategory) }}
+                            </div>
+                        </div>
+                    </div>
+                    <div id="dark-bg">
+                        <div class="container-fluid">
+                            <div class="table-responsive-sm">
+                                <table class="table table-striped table-hover" id="works-table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Nom</th>
+                                            <th scope="col">Nombre de projets</th>
+                                            <th scope="col">Modifier</th>
+                                            <th scope="col">Supprimer</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for category in categories %}
+
+                                            <tr>
+                                                <th scope="row">
+                                                    <strong>{{ category.id }}</strong>
+                                                </th>
+                                                <td>
+                                                    <strong>{{ category.title }}</strong>
+                                                </td>
+                                                <td>
+                                                    <strong>{{ category.works | length }}</strong>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-primary btn-add" href="{{ path('category_edit', { 'id': category.id }) }}">
+                                                        <i class="fas fa-edit"></i>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="btn btn-danger btn-add" href=#>
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </a>
+                                                </td>
+                                            </tr>
+
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- /.container -->
+                    </div>
+                    <!-- /.dark-bg -->
+                </section>
+                <!-- End Hire Section -->
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}{% endblock %}
