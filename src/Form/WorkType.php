@@ -26,8 +26,7 @@ class WorkType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'by_reference' => false // A utilisé pour que addCategory() / removeCategory() soient appelés comme categories est un ArrayCollection()
-            ])
-        ;
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
