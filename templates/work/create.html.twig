@@ -8,98 +8,111 @@
     <link rel="stylesheet" type="text/css" href={{ asset("assets/css/backend.css") }} media="screen">
 {% endblock %}
 
-{% block title %} Ajouter un Projet - {% endblock %}
+{% block title %}
+    Ajouter un Projet -
+{% endblock %}
 
 {% block header %}
-    <header id="header" class="col-12 fixed-top">
+    <header class="col-12 fixed-top" id="header">
         <div class="welcome row">
-            <a class="col-2" href="{{ path("portfolio_dashbord") }}">
-                <img id="logo-web-nav" src= {{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
+            <a class="col-2" href="{{ path("portfolio") }}">
+                <img id="logo-web-nav" src={{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
             </a>
             <div class="col-10">
-                 {% if editMode %}
+                {% if editMode %}
                     <h1>Modifier le projet</h1>
                 {% else %}
                     <h1>Ajouter un Projet</h1>
                 {% endif %}
             </div>
-        </div><!-- /.welcome -->
+        </div>
+        <!-- /.welcome -->
     </header>
 {% endblock %}
 
 {% block body %}
-    <div id="backend" class="d-flex h-100">
+    <div
+        class="d-flex h-100" id="backend">
         <!-- NAV -->
         {% include "inc/navBackend.html.twig" %}
-        <div id="home-backend" class="ml-auto col-lg-10 d-flex flex-column tt-backend">
+        <div class="ml-auto col-lg-10 d-flex flex-column tt-backend" id="home-backend">
             <div class="row">
-                <section id="body-backend" class="container col-11">
+                <section class="container col-11" id="body-backend">
                     <div id="dark-bg">
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
                                     {{ form_start(formWork) }}
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-12">
-                                                {{ form_row(formWork.title, { 
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-12">
+                                            {{ form_row(formWork.title, { 
                                                     'label' : 'Titre', 
                                                     'attr' : { 'placeholder' : 'Titre du Projet' }
                                                     }) }}
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                {{ form_row(formWork.subtitle, { 
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            {{ form_row(formWork.subtitle, { 
                                                     'label' : 'Sous-titre', 
                                                     'attr' : { 'placeholder' : 'Sous-titre du Projet' }
                                                     }) }}
-                                            </div>
-                                            <div class="col-12">
-                                                {{ form_row(formWork.content, { 
+                                        </div>
+                                        <div class="col-12">
+                                            {{ form_row(formWork.content, { 
                                                     'label' : 'Contenu', 
                                                     'attr' : { 'placeholder' : 'Contenu du Projet' }
                                                     }) }}
-                                            </div>
-                                            <div class="col-12">
-                                                {{ form_row(formWork.link, { 
+                                        </div>
+                                        <div class="col-12">
+                                            {{ form_row(formWork.link, { 
                                                     'label' : 'Lien', 
                                                     'attr' : { 'placeholder' : 'Url du Projet' }
                                                     }) }}
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                {{ form_row(formWork.image, { 
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            {{ form_row(formWork.image, { 
                                                     'label' : 'Image', 
                                                     'attr' : { 'placeholder' : 'Image du Projet' }
                                                     }) }}
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                {{ form_row(formWork.imageAlt, { 
+                                        </div>
+                                        <div class="col-lg-6 col-md-12">
+                                            {{ form_row(formWork.imageAlt, { 
                                                     'label' : 'Description de l\'image', 
                                                     'attr' : { 'placeholder' : 'Description de l\'image' }
                                                     }) }}
-                                            </div>
-                                            <div class="col-12">
-                                                {{ form_row(formWork.categories, {
+                                        </div>
+                                        <div class="col-12">
+                                            {{ form_row(formWork.categories, {
                                                     'label' : 'Catégories'
                                                     }) }}
+                                            <div class="row">
+                                                <input class="form-control col-3" id="add-category" name="add-category" placeholder="Ajouter une catégorie" type="text">
+                                                <button class="btn btn-info btn-add" id="js-add">
+                                                    <i class="fas fa-plus"></i>
+                                                </button>
                                             </div>
-                                        
-
-                                    {% if editMode %}
-                                        <button id="edit" type="submit" name="submit" class="btn btn-info align-self-end">
-                                            Enregistrer
-                                        </button>
-                                    {% else %}
-                                        <button id="save" type="submit" name="submit" class="btn btn-primary">
-                                            Ajouter
-                                        </button>
-                                    {% endif %} 
-                                    </div>   
-                            
+                                        </div>
+                                        {% if editMode %}
+                                            <button class="btn btn-info btn-submit-form" id="edit" name="submit" type="submit">
+                                                Enregistrer
+                                            </button>
+                                        {% else %}
+                                            <button class="btn btn-primary btn-submit-form" id="save" name="submit" type="submit">
+                                                Ajouter
+                                            </button>
+                                        {% endif %}
+                                    </div>
+                                    <!-- /.row -->
                                     {{ form_end(formWork) }}
                                 </div>
-                            </div><!-- /.row -->
-                        </div><!-- /.container -->
-                    </div><!-- /.hire-section-bg -->
-                </section><!-- End Hire Section -->
+                                <!-- /.col-12 -->
+                            </div>
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.container -->
+                    </div>
+                    <!-- /.hire-section-bg -->
+                </section>
+                <!-- End Hire Section -->
             </div>
         </div>
     </div>

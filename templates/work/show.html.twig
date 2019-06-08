@@ -6,32 +6,38 @@
     <link rel="stylesheet" type="text/css" href={{ asset("assets/css/backend.css") }} media="screen">
 {% endblock %}
 
-{% block title %} Projet {{ work.id }} - {% endblock %}
+{% block title %}
+    Projet
+    {{ work.id }}
+    -
+{% endblock %}
 
 {% block header %}
-    <header id="header" class="col-12 fixed-top">
+    <header class="col-12 fixed-top" id="header">
         <div class="welcome row">
-            <a class="col-2" href="{{ path("portfolio_dashbord") }}">
-                <img id="logo-web-nav" src= {{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
+            <a class="col-2" href="{{ path("portfolio") }}">
+                <img id="logo-web-nav" src={{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
             </a>
             <div class="col-10">
                 <h1>Projet:</h1>
                 <div class="welcome-sub">{{ work.title }}</div>
             </div>
-        </div><!-- /.welcome -->
+        </div>
+        <!-- /.welcome -->
     </header>
 {% endblock %}
 
 {% block body %}
-    <div id="backend" class="d-flex h-100">
+    <div
+        class="d-flex h-100" id="backend">
         <!-- NAV -->
         {% include "inc/navBackend.html.twig" %}
-        <div id="home-backend" class="ml-auto col-lg-10 d-flex flex-column tt-backend">
+        <div class="ml-auto col-lg-10 d-flex flex-column tt-backend" id="home-backend">
             <div class="row">
-                <section id="body-backend" class="container col-12">
+                <section class="container col-12" id="body-backend">
                     <div class="ml-lg-auto col-lg-3 col-md-12">
                         <div class="container text-center">
-                            <a class="btn btn-primary" href="{{ path('work_edit',{ 'id': work.id }) }}">Modifier le Projet</a>
+                            <a class="btn btn-primary btn-submit-form" href="{{ path('work_edit',{ 'id': work.id }) }}">Modifier le Projet</a>
                         </div>
                     </div>
                     <div id="dark-bg">
@@ -40,15 +46,19 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-12">
-                                        <p class="work-label">Titre: </p>
+                                        <p class="work-label">Titre:
+                                        </p>
                                     </div>
                                     <div class="col-lg-8 col-md-9 col-sm-12 mr-lg-auto text-center">
-                                        <h3><a href="{{ work.link }}">{{ work.title }}</a></h3>
+                                        <h3>
+                                            <a href="{{ work.link }}">{{ work.title }}</a>
+                                        </h3>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-12">
-                                        <p class="work-label">Sous-titre: </p>
+                                        <p class="work-label">Sous-titre:
+                                        </p>
                                     </div>
                                     <div class="col-lg-8 col-md-9 col-sm-12 mr-lg-auto text-center">
                                         <h4>{{ work.subtitle }}</h4>
@@ -57,7 +67,8 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-lg-2 col-md-3 col-sm-12">
-                                        <p class="work-label">Description: </p>
+                                        <p class="work-label">Description:
+                                        </p>
                                     </div>
                                     <div class="col-lg-8 col-md-9 col-sm-12 mr-auto">
                                         <p>{{ work.content }}</p>
@@ -66,18 +77,22 @@
                                 <hr>
                                 <div class="row">
                                     <div class="col-lg-1 col-md-1 col-sm-12 ml-auto mr-auto">
-                                        <p class="work-label">Image: </p>
+                                        <p class="work-label">Image:
+                                        </p>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 ml-auto mr-auto">
                                         <figure>
                                             <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
-                                            <figcaption> <em>{{ work.imageAlt }}</em> </figcaption>
+                                            <figcaption>
+                                                <em>{{ work.imageAlt }}</em>
+                                            </figcaption>
                                         </figure>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="row">
                                             <div class="col-lg-3  col-sm-12">
-                                                <p class="work-label">Date: </p>
+                                                <p class="work-label">Date:
+                                                </p>
                                             </div>
                                             <div class="ml-auto col-lg-7 col-sm-12 text-left">
                                                 <p>{{ work.createdAt | date('d/m/Y à H:i') }}</p>
@@ -88,17 +103,24 @@
                                             </div>
                                             <div class="ml-lg-auto col-lg-8 col-md-8 d-flex flex-wrap">
                                                 {% for category in work.categories %}
-                                                    <p class="col-lg-5 col-md-5 checked-categories"> {{ category.title }} </p>
+                                                    <p class="col-lg-5 col-md-5 checked-categories">
+                                                        {{ category.title }}
+                                                    </p>
                                                 {% endfor %}
                                             </div>
                                         </div>
                                     </div>
-                                </div><!-- /.row -->
+                                </div>
+                                <!-- /.row -->
                                 <hr>
-                            </div><!-- /.col -->
-                        </div><!-- /.row -->
-                    </div><!-- /#dark-bg -->
-                </section><!-- /#body-backend -->
+                            </div>
+                            <!-- /.col -->
+                        </div>
+                        <!-- /.row -->
+                    </div>
+                    <!-- /#dark-bg -->
+                </section>
+                <!-- /#body-backend -->
             </div>
         </div>
     </div>
