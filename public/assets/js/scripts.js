@@ -229,6 +229,7 @@ jQuery(function($) {
     // -------------------------------------------------------------
     // Contact Form
     // -------------------------------------------------------------
+    
     $(function () {
         myForm.initForm();
     });
@@ -236,24 +237,18 @@ jQuery(function($) {
     // -------------------------------------------------------------
     // Google Map
     // -------------------------------------------------------------
+    
     $(function initMap() {
-        myMap.initMap();
+            myMap.initMap();
     });
 
     // -------------------------------------------------------------
-    // Navbar Dashbord
+    // Navbar Dashboard
     // -------------------------------------------------------------
-    
+
     $('.show-all').click(function(e){
         e.preventDefault();
         $('.hide').toggleClass('show');
         $('#chevron-nav').toggleClass('fa-chevron-up');
     })
 });
-
-
-
-
-
-
-
