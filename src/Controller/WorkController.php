@@ -32,7 +32,7 @@ class WorkController extends AbstractController
      */
     public function formWork(Work $work = null, Request $request, ObjectManager $manager)
     {
-        if(!$work) {
+        if (!$work) {
             $work = new Work();
         }
 
@@ -40,8 +40,8 @@ class WorkController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
-            if(!$work->getId()){
+        if ($form->isSubmitted() && $form->isValid()) {
+            if (!$work->getId()) {
                 $work->setCreatedAt(new \Datetime());
             }
 
@@ -49,9 +49,9 @@ class WorkController extends AbstractController
             $manager->flush();
 
             return $this->redirectToRoute('work_show', ['id' => $work->getId()]);
-        } 
+        }
 
-        return $this->render('work/create.html.twig' ,[
+        return $this->render('work/create.html.twig', [
             'formWork' => $form->createView(),
             'editMode' => $work->getId() !== null
         ]);
