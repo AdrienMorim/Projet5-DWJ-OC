@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
+use App\Entity\Work;
+use App\Form\WorkType;
+use App\Entity\Category;
+use App\Repository\WorkRepository;
+
+use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
-
-use App\Entity\Work;
-use App\Repository\WorkRepository;
-use App\Form\WorkType;
+use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class WorkController extends AbstractController
 {
@@ -65,5 +67,25 @@ class WorkController extends AbstractController
         return $this->render('work/show.html.twig', [
             'work' => $work
         ]);
+    }
+
+    /**
+     * Supprimer un Work (voir ci supp aussi lien entre work<->category)
+     * 
+     * @Route("/work/{id}/remove", name="work_remove")
+     *
+     * @param Work $work
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function removeWork(Work $work, ObjectManager $manager)
+    {
+        if($work) {
+            $manager->remove($work);
+            $manager->flush();
+
+            return $this->redirectToRoute('work_list');
+        }
+        return $this->render('work/list.html.twig');
     }
 }
