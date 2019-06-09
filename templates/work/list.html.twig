@@ -79,25 +79,22 @@
                                                     <strong>
                                                         {% for category in work.categories %}
                                                             <p>
-                                                                {{ category.title }}
+                                                                {{ category.name }}
                                                             </p>
                                                         {% endfor %}
                                                     </strong>
                                                 </td>
                                                 <td>
-                                                    <td>
-                                                    <button class="btn btn-info btn-add">
+                                                    <a class="btn btn-primary btn-add" href="{{ path('work_edit', { 'id': work.id }) }}">
                                                         <i class="fas fa-edit"></i>
-                                                    </button>
+                                                    </a>
                                                 </td>
                                                 <td>
-                                                    <button class="btn btn-info btn-add">
+                                                    <a class="btn btn-danger btn-add" href="{{ path('work_remove', { 'id': work.id }) }}">
                                                         <i class="fas fa-trash-alt"></i>
-                                                    </button>
-                                                </td>
+                                                    </a>
                                                 </td>
                                             </tr>
-
                                         {% endfor %}
                                     </tbody>
                                 </table>
