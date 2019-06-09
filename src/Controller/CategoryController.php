@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
+use App\Form\CategoryType;
+use App\Repository\CategoryRepository;
+
+use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
-
-use App\Entity\Category;
-use App\Repository\CategoryRepository;
-use App\Form\CategoryType;
 
 class CategoryController extends AbstractController
 {
@@ -36,6 +37,8 @@ class CategoryController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $manager->persist($category);
             $manager->flush();
+
+            return $this->redirectToRoute('category_list');
         }
 
         $categories = $repo->findAll();
@@ -45,5 +48,23 @@ class CategoryController extends AbstractController
             'editCategory' => $category->getId() !== null,
             'categories' => $categories
         ]);
+    }
+
+    /**
+     * @Route("/category/{id}/remove", name="category_remove")
+     *
+     * @param Category $category
+     * @param ObjectManager $manager
+     * @return void
+     */
+    public function removeCategory(Category $category, ObjectManager $manager)
+    {
+        if($category) {
+            $manager->remove($category);
+            $manager->flush();
+
+            return $this->redirectToRoute('category_list');
+        }
+        return $this->render('category/list.html.twig');
     }
 }
