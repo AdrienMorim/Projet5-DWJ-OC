@@ -27,7 +27,7 @@ class Category
      *      minMessage = "Le nom de la catégorie doit contenir au minimum {{ limit }} caratères",
      *      maxMessage = "Le nom de la catégorie doit contenir au maximum {{ limit }} caratères")
      */
-    private $title;
+    private $name;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Work", inversedBy="categories")
@@ -44,14 +44,14 @@ class Category
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getName(): ?string
     {
-        return $this->title;
+        return $this->name;
     }
 
-    public function setTitle(string $title): self
+    public function setName(string $name): self
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }
