@@ -18,14 +18,13 @@ class WorkType extends AbstractType
             ->add('subtitle')
             ->add('content')
             ->add('link')
-            ->add('image')
-            ->add('imageAlt')
             ->add('categories', EntityType::class, [ // On précise d'où vient les catégories
                 'class' => Category::class,
-                'choice_label' => 'title',
+                'choice_label' => 'name',
                 'expanded' => true,
                 'multiple' => true,
                 'by_reference' => false // A utilisé pour que addCategory() / removeCategory() soient appelés comme categories est un ArrayCollection()
+                
             ]);
     }
 
