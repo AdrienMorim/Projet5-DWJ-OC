@@ -55,16 +55,6 @@ class Work
     private $link;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
-
-    /**
-     * @ORM\Column(type="string", length=60)
-     */
-    private $imageAlt;
-
-    /**
      * @ORM\Column(type="datetime")
      */
     private $createdAt;
@@ -128,30 +118,6 @@ class Work
     public function setLink(string $link): self
     {
         $this->link = $link;
-
-        return $this;
-    }
-
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function getImageAlt(): ?string
-    {
-        return $this->imageAlt;
-    }
-
-    public function setImageAlt(string $imageAlt): self
-    {
-        $this->imageAlt = $imageAlt;
 
         return $this;
     }
