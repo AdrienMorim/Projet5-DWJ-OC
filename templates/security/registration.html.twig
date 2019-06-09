@@ -3,23 +3,27 @@
 {% block stylesheets %}
     {{ parent() }}
     <!-- Backend styles CSS -->
-    <link rel="stylesheet" type="text/css" href= {{ asset("assets/css/backend.css") }} media="screen">
+    <link rel="stylesheet" type="text/css" href={{ asset("assets/css/backend.css") }} media="screen">
 {% endblock %}
 
-{% block title %} Inscription - {% endblock %}
+{% block title %}
+    Inscription -
+{% endblock %}
 
 {% block header %}{% endblock %}
 
 {% block body %}
-    <div class="d-flex flex-column h-100">
-        <section id="home" class="tt-backend" data-stellar-vertical-offset="50" data-stellar-background-ratio="0.2">
-            <div class="intro">
-                <img id="logo-web" src={{ asset("assets/images/logo.png") }} alt="logo">
-                <h1>Inscription</h1>
-                {{ form_start(formRegister) }}
-                    <div id="register-form" class="col-lg-10 mr-auto ml-auto card-body">
-                        <div class="row justify-content-between">
-                            {{ form_row(formRegister.username, {
+<div class="d-flex flex-column h-100">
+    <section class="tt-backend" data-stellar-background-ratio="0.2" data-stellar-vertical-offset="50" id="home">
+        <div class="intro">
+            <a class="" href="{{ path("portfolio") }}">
+                <img id="logo-web" src={{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
+            </a>
+            <h1>Inscription</h1>
+            {{ form_start(formRegister) }}
+            <div class="col-lg-10 mr-auto ml-auto card-body" id="register-form">
+                <div class="row justify-content-between">
+                    {{ form_row(formRegister.username, {
                                 'label' : 'Nom de l\'utilisateur', 
                                 'label_attr' : { 'class' : 'col-lg-12 text-left'},
                                 'attr' : { 'placeholder' : 'Votre nom' , 'class' : 'col-12'},
@@ -46,7 +50,7 @@
                                 'help' : 'Vos deux de mots de passe doivent être identiques'
                                 }) }}
                         </div>
-                        <button type="submit" class="btn btn-primary">
+                        <button type="submit" class="btn btn-primary btn-submit-form">
                             Inscription
                         </button>
                     </div>
