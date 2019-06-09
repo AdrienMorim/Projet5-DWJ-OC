@@ -37,13 +37,13 @@
                 <section class="container col-12" id="body-backend">
                     <div id="dark-bg">
                         <div class="container">
-                            <div class="row">
+                            <div id="form-list-category" class="row">
                                 {{ form_start(formCategory) }}
 
                                 {% if editCategory %}
 
-                                {{ form_row(formCategory.title, { 
-                                    'label' : 'Modifier', 
+                                {{ form_row(formCategory.name, { 
+                                    'label' : 'Modifier la catégorie:', 
                                     'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
                                 
                                     <button class="btn btn-primary btn-add">
@@ -51,8 +51,8 @@
                                     </button>
                                 {% else %}
 
-                                {{ form_row(formCategory.title, { 
-                                    'label' : 'Ajouter', 
+                                {{ form_row(formCategory.name, { 
+                                    'label' : 'Ajouter une catégorie:', 
                                     'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
 
                                     <button class="btn btn-info btn-add">
@@ -86,7 +86,7 @@
                                                     <strong>{{ category.id }}</strong>
                                                 </th>
                                                 <td>
-                                                    <strong>{{ category.title }}</strong>
+                                                    <strong>{{ category.name }}</strong>
                                                 </td>
                                                 <td>
                                                     <strong>{{ category.works | length }}</strong>
@@ -97,7 +97,7 @@
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger btn-add" href=#>
+                                                    <a class="btn btn-danger btn-add" href="{{ path('category_remove', { 'id': category.id }) }}">
                                                         <i class="fas fa-trash-alt"></i>
                                                     </a>
                                                 </td>
