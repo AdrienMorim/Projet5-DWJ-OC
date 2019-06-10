@@ -87,6 +87,8 @@ a.link-back:hover {
 
 #body-backend .btn-add {
     width: 50px;
+    height: 50px;
+    line-height: 50px;
     border-radius: 100%;
     border: none;
     margin-left: 10px;
@@ -133,9 +135,6 @@ legend {
     border-left: none;
     border-right: none;
 }
-
-
-
 
 /*================================================================================*\
 
@@ -199,15 +198,19 @@ legend {
 
 #nav-backend .navbar-toggler {
     top: -50px;
-    right: -10px;
+    right: 0;
 }
 
 #toggler {
     width: 100%;
+    display: flex;
     justify-content: center;
 }
 
 #toggler .navbar-nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     margin-bottom: 20px;
 }
 
@@ -229,7 +232,7 @@ legend {
 }
 
 .nav-link {
-    width: 200px;
+    width: 100%;
 }
 
 .btn-messages {
@@ -249,10 +252,20 @@ legend {
 }
 
 .btn-projects-others {
-    background: #89c5a7;
-    width: 200px;
+    color: #1a1e23 !important;
+    width: 90%;
+    margin: auto;
     font-weight: 400;
-    transform: translateY(5px);
+    white-space: inherit;
+    transform: translateY(10px);
+}
+
+.btn-projects-1{
+    background: rgba(102, 204, 153, 0.8);
+}
+
+.btn-projects-2{
+    background: rgba(101, 204, 153, 0.6);
 }
 
 /*================================================================================*\
@@ -420,11 +433,12 @@ legend {
 #work_categories {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 #work_categories .form-check {
     padding: 0;
+    margin-right: 10px;
 }
 
 #work_categories .form-check input+label {
@@ -478,6 +492,26 @@ legend {
     background: #66cc99;
     border: thin solid #FFFFFF;
     border-radius: 50px;
+}
+
+.custom-file-label::after{
+    content: "Télécharger une image";
+}
+
+/*============[ Category List]=============*/
+
+#form-list-category form,
+#form-list-category .form-group{
+    display: flex;
+    align-items: center;
+}
+
+#form-list-category .form-group{
+    margin: 10px;
+}
+
+#form-list-category .form-group label{
+    margin: 10px;
 }
 
 /*================================================================================*\
