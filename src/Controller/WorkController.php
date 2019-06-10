@@ -3,11 +3,10 @@
 namespace App\Controller;
 
 use App\Entity\Work;
+use App\Entity\Image;
 use App\Form\WorkType;
-use App\Entity\Category;
 use App\Repository\WorkRepository;
 
-use App\Repository\CategoryRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
@@ -46,7 +45,27 @@ class WorkController extends AbstractController
             if (!$work->getId()) {
                 $work->setCreatedAt(new \Datetime());
             }
+            $work = $form->getData();
+            /**
+             * @var Image $image
+             */
+            $image = $work->getImage();
+            /**
+             * @var UploadedFile $file
+             */
 
+             dump($image); die;
+            $file = $image->getFile();
+
+            $fileName = md5(uniqid()). '.' .$file->guessExtension();
+            $file->move(
+                '../',
+                //$this->getParameter('images_directory'), // voir config/services.yaml -> parameters
+                $fileName
+            );
+            $image->setName($fileName);
+            $image->setAlt($fileName);
+            
             $manager->persist($work);
             $manager->flush();
 

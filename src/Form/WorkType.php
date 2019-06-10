@@ -6,8 +6,8 @@ use App\Entity\Work;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class WorkType extends AbstractType
 {
@@ -24,8 +24,11 @@ class WorkType extends AbstractType
                 'expanded' => true,
                 'multiple' => true,
                 'by_reference' => false // A utilisé pour que addCategory() / removeCategory() soient appelés comme categories est un ArrayCollection()
-                
-            ]);
+            ])
+            ->add('image', ImageType::class, [
+                'label' => false
+            ])
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

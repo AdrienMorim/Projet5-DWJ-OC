@@ -64,6 +64,13 @@ class Work
      */
     private $categories;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     * @Assert\File(
+     *     mimeTypes = {"image/jpeg", "image/png", "image/gif"})
+     */
+    private $image;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -158,6 +165,18 @@ class Work
             $this->categories->removeElement($category);
             $category->removeWork($this);
         }
+
+        return $this;
+    }
+
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
+    public function setImage($image)
+    {
+        $this->image = $image;
 
         return $this;
     }
