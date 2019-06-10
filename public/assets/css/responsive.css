@@ -30,6 +30,17 @@
 		height: 0 !important;
 	}
 
+	.nav-link{
+		width: 100%;
+	}
+
+	#nav-backend .navbar-custom{
+		width: 100vw;
+		margin: 0;
+		padding: 0 10px;
+		transform: translateX(-10px);
+	}
+
 	.navbar-custom .navbar-brand,
 	.navbar-custom .navbar-nav > li > a,
 	.navbar-custom .navbar-nav .dropdown-menu > li > a {
@@ -212,7 +223,7 @@
 }
 
 /* Landscape Mobile */
-@media only screen and (min-width : 481px) and (max-width : 768px) {
+@media only screen and (min-width : 481px) and (max-width : 992px) {
 	.intro{
 		height: 100%;
 	}
@@ -239,13 +250,11 @@
 		height: 0 !important;
 	}
 
-	#btn-projects-1{
-		transform: translate(100px, 5px);
-	}
-
-	#btn-projects-2{
-		margin-top: 5px;
-		transform: translate(200px, 5px);
+	#nav-backend .navbar-custom{
+		width: 100vw;
+		margin: 0;
+		padding: 0 10px;
+		transform: translateX(-10px);
 	}
 
 	.navbar-custom .navbar-brand,
@@ -256,6 +265,14 @@
 
 	.navbar-custom .dropdown-menu{
 		margin-left: 20px;
+	}
+
+	#toggler{
+		justify-content: flex-end !important;
+	}
+
+	#toggler .navbar-nav {
+		width: 25% !important;
 	}
 
 	/*about me section*/
@@ -395,13 +412,18 @@
 		height: 0 !important;
 	}
 
-	#projects{
+	#toggler .navbar-nav {
 		display: flex;
+		flex-direction: row;
+		margin-bottom: 20px;
 	}
 
-	.btn-projects-others{
-		margin-left: 10px;
-		transform: none !important;
+	#toggler .navbar-nav .custom-hr{
+		display: none;
+	}
+
+	#projects{
+		display: flex;
 	}
 
 	/*about me section*/
