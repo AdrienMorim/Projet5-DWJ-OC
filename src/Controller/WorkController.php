@@ -41,37 +41,25 @@ class WorkController extends AbstractController
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) { 
+
             if (!$work->getId()) {
                 $work->setCreatedAt(new \Datetime());
             }
             $work = $form->getData();
-            /**
-             * @var Image $image
-             */
             $image = $work->getImage();
-            /**
-             * @var UploadedFile $file
-             */
-
-             dump($image); die;
             $file = $image->getFile();
-
-            $fileName = md5(uniqid()). '.' .$file->guessExtension();
+            $name = md5(uniqid()).'.'.$file->guessExtension();
+            $image->setName($name); 
             $file->move(
-                '../',
-                //$this->getParameter('images_directory'), // voir config/services.yaml -> parameters
-                $fileName
-            );
-            $image->setName($fileName);
-            $image->setAlt($fileName);
+                $this->getParameter('images_directory'),
+                $name);
             
             $manager->persist($work);
             $manager->flush();
 
             return $this->redirectToRoute('work_show', ['id' => $work->getId()]);
         }
-
         return $this->render('work/create.html.twig', [
             'formWork' => $form->createView(),
             'editMode' => $work->getId() !== null
@@ -89,7 +77,6 @@ class WorkController extends AbstractController
     }
 
     /**
-     * Supprimer un Work (voir ci supp aussi lien entre work<->category)
      * 
      * @Route("/work/{id}/remove", name="work_remove")
      *
