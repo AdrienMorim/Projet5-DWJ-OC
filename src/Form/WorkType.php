@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\Work;
+use App\Form\ImageType;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -28,7 +29,7 @@ class WorkType extends AbstractType
             ->add('image', ImageType::class, [
                 'label' => false
             ])
-            ;
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
