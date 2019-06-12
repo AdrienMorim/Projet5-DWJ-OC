@@ -494,7 +494,7 @@
 }
 
 /* Medium devices (desktops, 993px and up) */
-@media (min-width : 993px) and (max-width : 1200px) {
+@media (min-width : 993px) and (max-width : 1280px) {
 
 	.portfolio-item{
 		min-height: 150px;
@@ -507,22 +507,19 @@
 		font-size: 14px;
 	}
 
+	.image-list{
+		width: 200px;
+	}
+
+	#chevron-nav {
+		margin-left: 0 !important;
+	}
 }
 
 
 /* Large devices (large desktops, 1201px and up) */
-@media (min-width : 1201px) and (max-width : 1280px) {
-
-}
-
-/* Large devices (large desktops, 1281px and up) */
-@media screen and (min-width:1281px) and (max-width:1600px) {
-	
-}
-
-/* Extra Large devices (large desktops, 1600px and up) */
-@media screen and (min-width:1601px) and (max-width:1920px) {
-	.personal-info{
-		padding-right:180px;
+@media (min-width : 1201px) and (max-width : 1920px) {
+	.image-list{
+		width: 150px;
 	}
 }
