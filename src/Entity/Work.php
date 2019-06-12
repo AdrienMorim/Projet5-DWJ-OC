@@ -66,8 +66,6 @@ class Work
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
-     * @Assert\File(
-     *     mimeTypes = {"image/jpeg", "image/png", "image/gif"})
      */
     private $image;
 
@@ -174,10 +172,8 @@ class Work
         return $this->image;
     }
 
-    public function setImage($image)
+    public function setImage($image): void
     {
         $this->image = $image;
-
-        return $this;
     }
 }
