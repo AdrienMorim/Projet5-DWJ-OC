@@ -20,12 +20,10 @@ class Image
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=255)
      * @Assert\Length(
      *      min = 3,
-     *      max = 40,
-     *      minMessage = "Le nom de l/'image doit contenir au minimum {{ limit }} caractères",
-     *      maxMessage = "Le nom de l/'image doit contenir au maximum {{ limit }} caractères")
+     *      minMessage = "Le nom de l/'image doit contenir au minimum {{ limit }} caractères")
      */
     private $name;
 
@@ -36,18 +34,14 @@ class Image
      *      minMessage = "La description de l/'image doit contenir au minimum {{ limit }} caractères")
      */
     private $alt;
-    
-    /**
-     * Ajout d'un fichier de type Img.
-     * Ce fichier ne sera pas dans la db d'où l'absence de mapping
-     */
+
     private $file;
 
     public function getId(): ?int
     {
         return $this->id;
     }
-
+    
     public function getName(): ?string
     {
         return $this->name;
@@ -81,5 +75,4 @@ class Image
     {
         $this->file = $file;
     }
-
 }
