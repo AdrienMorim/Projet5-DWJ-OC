@@ -42,27 +42,38 @@
 
                                 {% if editCategory %}
 
-                                {{ form_row(formCategory.name, { 
-                                    'label' : 'Modifier la catégorie:', 
-                                    'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
+                                    {{ form_row(formCategory.name, { 
+                                        'label' : 'Modifier la catégorie:', 
+                                        'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
                                 
-                                    <button class="btn btn-primary btn-add">
+                                    <button class="btn btn-primary btn-round">
                                         <i class="fas fa-edit"></i>
                                     </button>
+
                                 {% else %}
 
-                                {{ form_row(formCategory.name, { 
-                                    'label' : 'Ajouter une catégorie:', 
-                                    'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
+                                    {{ form_row(formCategory.name, { 
+                                        'label' : 'Ajouter une catégorie:', 
+                                        'attr' : { 'placeholder' : 'Nom de la catégorie' } }) }}
 
-                                    <button class="btn btn-info btn-add">
+                                    <button class="btn btn-info btn-round">
                                         <i class="fas fa-plus"></i>
                                     </button>
+
                                 {% endif %}
 
                                 {{ form_end(formCategory) }}
                             </div>
                         </div>
+
+                        {% if editCategory == false %}
+                            {% for message in app.flashes('success') %}
+                                <div class="alert alert-success">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
                     </div>
                     <div id="dark-bg">
                         <div class="container-fluid">
@@ -92,14 +103,18 @@
                                                     <strong>{{ category.works | length }}</strong>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-primary btn-add" href="{{ path('category_edit', { 'id': category.id }) }}">
+                                                    <a class="btn btn-primary btn-round" href="{{ path('category_edit', { 'id': category.id }) }}">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
                                                 </td>
                                                 <td>
-                                                    <a class="btn btn-danger btn-add" href="{{ path('category_remove', { 'id': category.id }) }}">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a>
+                                                    <form method="POST" action="{{ path('category_remove', { 'id': category.id }) }}" onclick="return confirm('Es-tu sûr de vouloir supprimer la catégorie ?')">
+                                                        <input type="hidden" name="_method" value="REMOVE">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token('remove-category' ~ category.id) }}">
+                                                        <button class="btn btn-danger btn-round">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
 
