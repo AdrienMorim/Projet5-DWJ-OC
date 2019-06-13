@@ -11,7 +11,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(
  *      fields = {"email"},
- *      message = "L'email que vous avez saisie est déjà utilisé !")
+ *      message = "L'email '{{ value }}' que vous avez saisie est déjà utilisé !")
  */
 class User implements UserInterface
 {
@@ -107,11 +107,12 @@ class User implements UserInterface
         return $this;
     }
 
-    public function eraseCredentials(){}
+    public function getRoles(){
+        return ['ROLE_ADMIN'];
+    }
 
     public function getSalt() {}
 
-    public function getRoles(){
-        return ['ROLE_USER'];
-    }
+    public function eraseCredentials(){}
+
 }
