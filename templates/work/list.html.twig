@@ -33,34 +33,42 @@
         <div class="ml-auto col-lg-10 d-flex flex-column tt-backend" id="home-backend">
             <div class="row">
                 <section class="container col-12" id="body-backend">
-                    <div class="ml-lg-auto col-lg-3 col-md-12">
-                        <div class="container text-center">
-                            <a class="btn btn-info btn-submit-form" href="{{ path('work_create') }}">Nouveau Projet</a>
+                    <div id="dark-bg">
+                        {% for message in app.flashes('success') %}
+                            <div class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+
+                        <div class="ml-lg-auto col-lg-3 col-md-12">
+                            <div class="container text-center">
+                                <a class="btn btn-info btn-submit-all" href="{{ path('work_create') }}">Nouveau Projet</a>
+                            </div>
                         </div>
                     </div>
+                    <!-- /.dark-bg -->
                     <div id="dark-bg">
                         <div class="container-fluid">
-                            <div class="table-responsive-sm">
+                            <div class="table-responsive">
                                 <table class="table table-striped table-hover" id="works-table">
                                     <thead>
                                         <tr>
                                             <th scope="col">#</th>
                                             <th scope="col">Titre</th>
                                             <th scope="col">Sous-titre</th>
-                                            <th scope="col">Contenu</th>
+                                            <th scope="col">Description</th>
                                             <th scope="col">Image</th>
-                                            <th scope="col">Categories</th>
-                                            <th scope="col">Modifier</th>
-                                            <th scope="col">Supprimer</th>
+                                            <th scope="col">Catégories</th>
+                                            <th scope="col">Action</th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {% for work in works %}
 
-                                            <tr class="link-table" onclick="document.location='{{ path(" work_show" , { 'id': work.id }) }}'">
+                                            <tr class="link-table" onclick="document.location='{{ path('work_show' , { 'id': work.id }) }}'">
                                                 <th scope="row">
                                                     <strong>{{ work.id }}</strong>
-                                                    <em>{{ work.createdAt | date('d/m/Y à H:i') }}</em>
                                                 </th>
                                                 <td>
                                                     <strong>{{ work.title }}</strong>
@@ -72,7 +80,7 @@
                                                     <strong>{{ work.content|slice(0, 50) }}</strong>...</td>
                                                 <td>
                                                     <strong>
-                                                        <img src="{{ work.image }}" alt="{{ work.imageAlt }}">
+                                                        <img class="image-list" src="{{ asset('assets/images/upload/') ~ work.image.name }}" alt="{{ work.image.alt }}">
                                                     </strong>
                                                 </td>
                                                 <td>
@@ -84,15 +92,18 @@
                                                         {% endfor %}
                                                     </strong>
                                                 </td>
-                                                <td>
-                                                    <a class="btn btn-primary btn-add" href="{{ path('work_edit', { 'id': work.id }) }}">
+                                                <td class="action">
+                                                    <a class="btn btn-primary btn-round" href="{{ path('work_edit', { 'id': work.id }) }}">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                </td>
-                                                <td>
-                                                    <a class="btn btn-danger btn-add" href="{{ path('work_remove', { 'id': work.id }) }}">
-                                                        <i class="fas fa-trash-alt"></i>
-                                                    </a>
+
+                                                    <form method="POST" action="{{ path('work_remove', { 'id': work.id }) }}" onclick="return confirm('Es-tu sûr de vouloir supprimer ton projet ?')">
+                                                        <input type="hidden" name="_method" value="REMOVE">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token('remove-work' ~ work.id) }}">
+                                                        <button class="btn btn-danger btn-round">
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                    </form>
                                                 </td>
                                             </tr>
                                         {% endfor %}
