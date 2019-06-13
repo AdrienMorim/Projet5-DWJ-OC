@@ -17,6 +17,7 @@ Author URL: morimadrien.fr
     10. Magnific Popup
     11. Google Map
     12. Navbar Dashbord
+    13. Form Input Upload File
 */
 
 // Quand le document HTML est prêt lance jQuery
@@ -251,4 +252,13 @@ jQuery(function($) {
         $('.hide').toggleClass('show');
         $('#chevron-nav').toggleClass('fa-chevron-up');
     })
+
+    // -------------------------------------------------------------
+    // Form Input Upload File
+    // -------------------------------------------------------------
+
+    $(document).on('change', '.custom-file-input', function () {
+        let fileName = $(this).val().replace(/\\/g, '/').replace(/.*\//, '');
+        $(this).parent('.custom-file').find('.custom-file-label').text(fileName);
+    });
 });
