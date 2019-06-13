@@ -8,6 +8,7 @@ use App\Form\WorkType;
 use App\Repository\WorkRepository;
 
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,6 +17,9 @@ class WorkController extends AbstractController
 {
     /**
      * @Route("/work/list", name="work_list")
+     *
+     * @param WorkRepository $repo
+     * @return void
      */
     public function listWork(WorkRepository $repo)
     {
@@ -28,8 +32,13 @@ class WorkController extends AbstractController
     }
 
     /**
-     * @Route("/work/new", name="work_create")
-     * @Route("/work/{id}/edit", name="work_edit")
+     * @Route("/work/new", name="work_create", methods="GET|POST")
+     * @Route("/work/{id}/edit", name="work_edit", methods="GET|POST")
+     *
+     * @param Work $work
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @return void
      */
     public function formWork(Work $work = null, Request $request, ObjectManager $manager)
     {
@@ -46,6 +55,7 @@ class WorkController extends AbstractController
             if (!$work->getId()) {
                 $work->setCreatedAt(new \Datetime());
             }
+
             $work = $form->getData();
             $image = $work->getImage();
             $file = $image->getFile();
@@ -57,6 +67,7 @@ class WorkController extends AbstractController
             
             $manager->persist($work);
             $manager->flush();
+            $this->addFlash('success', 'Le projet a bien été enregistré');
 
             return $this->redirectToRoute('work_show', ['id' => $work->getId()]);
         }
@@ -68,6 +79,9 @@ class WorkController extends AbstractController
 
     /**
      * @Route("/work/{id}", name="work_show")
+     * 
+     * @param Work $work
+     * @return void
      */
     public function showWork(Work $work)
     {
@@ -78,20 +92,24 @@ class WorkController extends AbstractController
 
     /**
      * 
-     * @Route("/work/{id}/remove", name="work_remove")
+     * @Route("/work/{id}/remove", name="work_remove", methods="REMOVE")
      *
      * @param Work $work
      * @param ObjectManager $manager
+     * @param Request $request
      * @return void
      */
-    public function removeWork(Work $work, ObjectManager $manager)
+    public function removeWork(Work $work, ObjectManager $manager, Request $request)
     {
-        if($work) {
+        $submittedToken = $request->request->get('_token');
+        $workId = $work->getId();
+
+        if($this->isCsrfTokenValid('remove-work' . $workId, $submittedToken)) {
+
             $manager->remove($work);
             $manager->flush();
-
-            return $this->redirectToRoute('work_list');
+            $this->addFlash('success', 'Le projet à bien été supprimé');
         }
-        return $this->render('work/list.html.twig');
+        return $this->redirectToRoute('work_list');
     }
 }

@@ -37,6 +37,8 @@ class CategoryController extends AbstractController
         if($form->isSubmitted() && $form->isValid()) {
             $manager->persist($category);
             $manager->flush();
+            
+            $this->addFlash('success', 'La catégorie à bien été enregistré');
 
             return $this->redirectToRoute('category_list');
         }
@@ -55,16 +57,20 @@ class CategoryController extends AbstractController
      *
      * @param Category $category
      * @param ObjectManager $manager
+     * @param Request $request
      * @return void
      */
-    public function removeCategory(Category $category, ObjectManager $manager)
+    public function removeCategory(Category $category, ObjectManager $manager, Request $request)
     {
-        if($category) {
+        $submittedToken = $request->request->get('_token');
+        $categoryId = $category->getId();
+
+        if($this->isCsrfTokenValid('remove-category' . $categoryId, $submittedToken)) {
             $manager->remove($category);
             $manager->flush();
-
-            return $this->redirectToRoute('category_list');
+            
+            $this->addFlash('success', 'La catégorie à bien été supprimé');
         }
-        return $this->render('category/list.html.twig');
+        return $this->redirectToRoute('category_list');
     }
 }
