@@ -54,6 +54,12 @@ class User implements UserInterface
      */
     private $confirm_password;
 
+    /**
+     * tableau des roles utilisateurs ROLE_USER|ROLE_ADMIN
+     * @ORM\Column(type="array")
+     */
+    private $roles = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -108,10 +114,19 @@ class User implements UserInterface
     }
 
     public function getRoles(){
-        return ['ROLE_ADMIN'];
+
+        //return ['ROLE_USER'];
+        return $this->roles;
     }
 
-    public function getSalt() {}
+    public function setRoles(array $roles): void
+    {
+        $this->roles = $roles;
+    }
+
+    public function getSalt() {
+        return null;
+    }
 
     public function eraseCredentials(){}
 
