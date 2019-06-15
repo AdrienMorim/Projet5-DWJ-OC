@@ -20,44 +20,45 @@
                 <img id="logo-web" src={{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
             </a>
             <h1>Inscription</h1>
-            {{ form_start(formRegister) }}
+            
             <div class="col-lg-10 mr-auto ml-auto card-body" id="register-form">
-                <div class="row justify-content-between">
-                    {{ form_row(formRegister.username, {
-                                'label' : 'Nom de l\'utilisateur', 
-                                'label_attr' : { 'class' : 'col-lg-12 text-left'},
-                                'attr' : { 'placeholder' : 'Votre nom' , 'class' : 'col-12'},
-                                'help' : 'Votre Nom doit comporter au minimum 3 caratères'
-                                }) }}
-                            {{ form_row(formRegister.email, {
-                                'label' : 'Email', 
-                                'label_attr' : { 'class' : 'col-lg-12 text-left'},
-                                'attr' : { 'placeholder' : 'Votre adresse email' , 'class' : 'col-12'},
-                                'help' : 'Votre email doit être sous la forme "nom@exemple.com"'
-                                }) }}
-                        </div>
-                        <div class="row justify-content-between">
-                            {{ form_row(formRegister.password, {
-                                'label' : 'Mot de passe', 
-                                'label_attr' : { 'class' : 'col-lg-12 text-left'},
-                                'attr' : { 'placeholder' : 'Votre mot de passe' , 'class' : 'col-12'},
-                                'help' : 'Votre Mot de passe doit comporter au minimum 8 caratères'
-                                }) }}
-                            {{ form_row(formRegister.confirm_password, {
-                                'label' : 'Confirmation du mot de passe',
-                                'label_attr' : { 'class' : 'col-lg-12 text-left'}, 
-                                'attr' : { 'placeholder' : 'Confirmez votre mot de passe' , 'class' : 'col-12'},
-                                'help' : 'Vos deux de mots de passe doivent être identiques'
-                                }) }}
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit-form">
-                            Inscription
-                        </button>
+                {{ form_start(formRegister) }}
+                    <div class="row justify-content-between">
+                        {{ form_row(formRegister.username, {
+                            'label' : 'Nom de l\'utilisateur', 
+                            'label_attr' : { 'class' : 'col-lg-12 text-left'},
+                            'attr' : { 'placeholder' : 'Votre nom' , 'class' : 'col-12'},
+                            'help' : 'Votre Nom doit comporter au minimum 3 caratères'
+                            }) }}
+                        {{ form_row(formRegister.email, {
+                            'label' : 'Email', 
+                            'label_attr' : { 'class' : 'col-lg-12 text-left'},
+                            'attr' : { 'placeholder' : 'Votre adresse email' , 'class' : 'col-12'},
+                            'help' : 'Votre email doit être sous la forme "nom@exemple.com"'
+                            }) }}
                     </div>
+                    <div class="row justify-content-between">
+                        {{ form_row(formRegister.password, {
+                            'label' : 'Mot de passe', 
+                            'label_attr' : { 'class' : 'col-lg-12 text-left'},
+                            'attr' : { 'placeholder' : 'Votre mot de passe' , 'class' : 'col-12'},
+                            'help' : 'Votre Mot de passe doit comporter au minimum 8 caratères'
+                            }) }}
+                        {{ form_row(formRegister.confirm_password, {
+                            'label' : 'Confirmation du mot de passe',
+                            'label_attr' : { 'class' : 'col-lg-12 text-left'}, 
+                            'attr' : { 'placeholder' : 'Confirmez votre mot de passe' , 'class' : 'col-12'},
+                            'help' : 'Vos deux de mots de passe doivent être identiques'
+                            }) }}
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-submit-form">
+                        Inscription
+                    </button>
                 {{ form_end(formRegister) }}
-            </div><!-- /.intro -->
-        </section><!-- End Section -->
-    </div>
+            </div>
+        </div><!-- /.intro -->
+    </section><!-- End Section -->
+</div>
 
 {% endblock %}
 
