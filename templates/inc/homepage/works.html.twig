@@ -8,34 +8,30 @@
         <ul class="list-inline" id="filter">
             <li class="list-inline-item">
                 <a class="active" data-group="all">Tous</a>
-            </li>
-            <li class="list-inline-item">
-                <a data-group="html">HTML5/CSS3</a>
-            </li>
-            <li class="list-inline-item">
-                <a data-group="wp">Wordpress</a>
-            </li>
-            <li class="list-inline-item">
-                <a data-group="js">JavaScript</a>
-            </li>
-            <li class="list-inline-item">
-                <a data-group="php">PHP</a>
-            </li>
-            <li class="list-inline-item">
-                <a data-group="bootstrap">Bootstrap</a>
-            </li>
+            </li> 
+            {% if categories|length > 0 %}
+                {% for category in categories %}
+                    <li class="list-inline-item">
+                        <a data-group="{{ category.name }}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+            {% endif %}
         </ul>
 
         <div class="row">
             <div class="col" id="grid">
 
                 {% for work in works %}
-                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='["all", "html"]'>
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='[
+                        {%- for category in work.categories -%}
+                            {{- category.name|json_encode() -}},
+                        {%- endfor -%} "all"]'>
+                    
                         <div class="portfolio-bg">
                             <div class="portfolio">
                                 <div class="texture-overlay"></div>
                                 <div class="links">
-                                    <a class="image-link" href={{ work.image }}>
+                                    <a class="image-link" href="{{ asset('assets/images/upload/') ~ work.image.name }}">
                                         <i class="fas fa-search-plus"></i>
                                     </a>
                                     <a href="{{ work.link }}">
@@ -43,7 +39,7 @@
                                     </a>
                                 </div>
                                 <!-- /.links -->
-                                <img class="portfolio-img" src={{ work.image }} alt="{{ work.imageAlt }}">
+                                <img class="portfolio-img" src="{{ asset('assets/images/upload/') ~ work.image.name }}" alt="{{ work.image.alt }}">
                                 <div class="portfolio-info">
                                     <h3>{{ work.title }}</h3>
                                 </div>
