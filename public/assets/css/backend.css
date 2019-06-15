@@ -32,7 +32,7 @@
 }
 
 #dark-bg {
-    color: #fff;
+    color: #ffffff;
     height: auto;
     margin: 20px 0;
     padding: 10px;
@@ -60,13 +60,13 @@ hr.dashbord-hr {
 /*============[ Links ]=============*/
 
 a.link-back {
-    color: #FFF;
+    color: #ffffff;
     cursor: pointer;
 }
 
 a.link-back:hover {
     color: #000;
-    text-shadow: #FFF 2px 0px 5px;
+    text-shadow: #ffffff 2px 0px 5px;
     cursor: pointer;
 }
 
@@ -76,13 +76,17 @@ a.link-back:hover {
 }
 
 .link-table:hover {
-    color: #FFF;
+    color: #ffffff;
     text-shadow: #000 2px 0px 5px;
     cursor: pointer;
 }
 
 #body-backend .btn-submit-form {
     margin: 20px;
+}
+
+#body-backend .btn-submit-all{
+    margin: 20px 0;
 }
 
 #body-backend .btn-round {
@@ -93,6 +97,22 @@ a.link-back:hover {
     border: none;
     margin-left: 10px;
     padding: 0;
+}
+
+/*btn-danger*/
+.btn-danger {
+    background-color: #d65746;
+    border-color: rgba(51, 51, 51, 0.15);
+}
+
+.btn-danger:hover, 
+.btn-danger:focus, 
+.btn-danger.focus, 
+.btn-danger:active, 
+.btn-danger.active{
+    color: #ffffff;
+    background-color: #d65746;
+    border-color: #d65746;
 }
 
 /*================================================================================*\
@@ -108,7 +128,6 @@ a.link-back:hover {
 .form-group label,
 label,
 legend {
-    color: #FFF;
     font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
@@ -166,7 +185,7 @@ legend {
 }
 
 .welcome-sub {
-    color: #fff;
+    color: #ffffff;
     font-size: 18px;
     line-height: 20px;
     font-weight: 500;
@@ -186,6 +205,7 @@ legend {
     height: 100vh;
     background: #1a1e23;
     z-index: 900;
+    overflow-y: scroll;
 }
 
 #nav-backend .navbar-custom {
@@ -265,7 +285,7 @@ legend {
 }
 
 .btn-projects-2{
-    background: rgba(101, 204, 153, 0.6);
+    background: rgba(101, 204, 153, 0.7);
 }
 
 /*================================================================================*\
@@ -392,7 +412,7 @@ legend {
 
 .table-hover tbody tr:hover {
     background-color: rgba(0, 0, 0, 0.2);
-    color: #FFF;
+    color: #ffffff;
     box-shadow: 6px 6px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
@@ -470,13 +490,13 @@ legend {
 
 #work_categories .form-check input:checked+label::before {
     content: "\f00c";
-    color: #FFF;
+    color: #ffffff;
     transform: rotate(-360deg);
     transition: all .2s;
 }
 
 #work_categories .form-check input:checked+label {
-    color: #FFF;
+    color: #ffffff;
     background: #66cc99;
     border: thin solid #FFFFFF;
     transition: all .3s ease-in-out;
@@ -491,8 +511,8 @@ legend {
     text-align: center;
     padding: 0 10px;
     margin: 0 0 5px 5px;
-    cursor: pointer;
-    color: #FFF;
+    line-height: 40px;
+    color: #ffffff;
     background: #66cc99;
     border: thin solid #FFFFFF;
     border-radius: 50px;
