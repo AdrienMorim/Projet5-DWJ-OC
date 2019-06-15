@@ -147,13 +147,11 @@ h6 {
     height: 45px;
     background-color: #f7f7f7;
     border: 1px solid #e8e8e8;
-    color: #e8e8e8;
     border-radius: 0;
     box-shadow: none;
 }
 
 .form-control:focus {
-    color: #e8e8e8;
     border-color: #66CC99;
     box-shadow: none;
 }
