@@ -15,8 +15,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category/list", name="category_list")
-     * @Route("/category/{id}/edit", name="category_edit")
+     * @Route("/admin/category/list", name="category_list")
+     * @Route("/admin/category/{id}/edit", name="category_edit")
      * 
      * @param Category $category est Null quand on est sur "category_list"
      * @param CategoryRepository $repo pour afficher findAll();
@@ -53,7 +53,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/category/{id}/remove", name="category_remove")
+     * @Route("/admin/category/{id}/remove", name="category_remove")
      *
      * @param Category $category
      * @param ObjectManager $manager

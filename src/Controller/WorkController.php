@@ -16,7 +16,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class WorkController extends AbstractController
 {
     /**
-     * @Route("/work/list", name="work_list")
+     * @Route("/admin/work/list", name="work_list")
      *
      * @param WorkRepository $repo
      * @return void
@@ -32,8 +32,8 @@ class WorkController extends AbstractController
     }
 
     /**
-     * @Route("/work/new", name="work_create", methods="GET|POST")
-     * @Route("/work/{id}/edit", name="work_edit", methods="GET|POST")
+     * @Route("/admin/work/new", name="work_create", methods="GET|POST")
+     * @Route("/admin/work/{id}/edit", name="work_edit", methods="GET|POST")
      *
      * @param Work $work
      * @param Request $request
@@ -57,10 +57,13 @@ class WorkController extends AbstractController
             }
 
             $work = $form->getData();
+
             $image = $work->getImage();
             $file = $image->getFile();
+            
             $name = md5(uniqid()).'.'.$file->guessExtension();
-            $image->setName($name); 
+            $image->setName($name);
+            
             $file->move(
                 $this->getParameter('images_directory'),
                 $name);
@@ -73,12 +76,13 @@ class WorkController extends AbstractController
         }
         return $this->render('work/create.html.twig', [
             'formWork' => $form->createView(),
-            'editMode' => $work->getId() !== null
+            'editMode' => $work->getId() !== null,
+            'work' => $work
         ]);
     }
 
     /**
-     * @Route("/work/{id}", name="work_show")
+     * @Route("/admin/work/{id}", name="work_show")
      * 
      * @param Work $work
      * @return void
@@ -92,7 +96,7 @@ class WorkController extends AbstractController
 
     /**
      * 
-     * @Route("/work/{id}/remove", name="work_remove", methods="REMOVE")
+     * @Route("/admin/work/{id}/remove", name="work_remove", methods="REMOVE")
      *
      * @param Work $work
      * @param ObjectManager $manager
