@@ -27,7 +27,8 @@ class WorkType extends AbstractType
                 'by_reference' => false // A utilisé pour que addCategory() / removeCategory() soient appelés comme categories est un ArrayCollection()
             ])
             ->add('image', ImageType::class, [
-                'label' => false
+                'label' => false,
+                'required' => false
             ])
         ;
     }
