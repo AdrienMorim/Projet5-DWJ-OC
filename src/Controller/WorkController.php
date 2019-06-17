@@ -46,12 +46,15 @@ class WorkController extends AbstractController
             $work = new Work();
         }
 
+        $imageSave = $work->getImage(); // on récupère l'ancienne image sauvegarder
+
         $form = $this->createForm(WorkType::class, $work);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) { 
 
+            // Ajouter une date de création uniquement si Work n'existe pas
             if (!$work->getId()) {
                 $work->setCreatedAt(new \Datetime());
             }
@@ -59,14 +62,26 @@ class WorkController extends AbstractController
             $work = $form->getData();
 
             $image = $work->getImage();
-            $file = $image->getFile();
-            
-            $name = md5(uniqid()).'.'.$file->guessExtension();
-            $image->setName($name);
-            
-            $file->move(
-                $this->getParameter('images_directory'),
-                $name);
+
+            if (isset($image)) {
+                
+                $file = $image->getFile();
+
+                // Supprimer une image
+                if (isset($imageSave) && !empty($file)){ // si une $imageSave existe et que $file n'est pas vide
+
+                    $oldName = $imageSave->getName(); // on récupère le nom de l'ancienne image sauvegarder
+                    $oldFile = $this->getParameter('images_directory'). '/' . $oldName; // on récupère le répertoire courant.
+                    unlink($oldFile); // on efface le fichier
+                }
+
+                $name = md5(uniqid()).'.'.$file->guessExtension();
+                $image->setName($name);
+                
+                $file->move(
+                    $this->getParameter('images_directory'),
+                    $name);
+            }
             
             $manager->persist($work);
             $manager->flush();
@@ -77,7 +92,8 @@ class WorkController extends AbstractController
         return $this->render('work/create.html.twig', [
             'formWork' => $form->createView(),
             'editMode' => $work->getId() !== null,
-            'work' => $work
+            'work' => $work, // recupération de l'image dans la vue: {{ work.image.name }}
+            'image' => $imageSave // recupération de l'image dans la vue: {{ image.name }}
         ]);
     }
 
@@ -110,6 +126,9 @@ class WorkController extends AbstractController
 
         if($this->isCsrfTokenValid('remove-work' . $workId, $submittedToken)) {
 
+            $imageName = $work->getImage()->getName();
+            $file = $this->getParameter('images_directory'). '/' . $imageName;
+            unlink($file);
             $manager->remove($work);
             $manager->flush();
             $this->addFlash('success', 'Le projet à bien été supprimé');
