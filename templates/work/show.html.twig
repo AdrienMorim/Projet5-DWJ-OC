@@ -83,12 +83,23 @@
                                         </p>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 ml-auto mr-auto">
-                                        <figure>
-                                            <img src="{{ asset('assets/images/upload/') ~ work.image.name }}">
-                                        </figure>
-                                        <figcaption>
-                                                <em>{{ work.image.alt }}</em>
-                                        </figcaption>
+
+                                        {% if work.image.name is not defined %}
+                                            <figure>
+                                                <img src="{{ asset('assets/images/back/advice.jpg') }}">
+                                            </figure>
+                                            <figcaption>
+                                                    <em>Image par défaut</em>
+                                            </figcaption>
+                                        {% else %}
+                                            <figure>
+                                                <img src="{{ asset('assets/images/upload/') ~ work.image.name }}">
+                                            </figure>
+                                            <figcaption>
+                                                    <em>{{ work.image.alt }}</em>
+                                            </figcaption>
+                                        {% endif %}
+                                        
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12">
                                         <div class="row">
