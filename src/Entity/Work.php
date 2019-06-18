@@ -2,13 +2,19 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\WorkRepository")
+ * @UniqueEntity("title")
+ * @Vich\Uploadable
  */
 class Work
 {
@@ -65,9 +71,30 @@ class Work
     private $categories;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Image", cascade={"persist", "remove"})
+     * @Vich\UploadableField(mapping="work_images", fileNameProperty="imageName")
+     * @Assert\Image(
+     *      mimeTypes = "image/jpeg", "image/jpg", "image/png")
      */
-    private $image;
+    private $imageFile;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageName;
+    
+    /**
+     * @ORM\Column(type="string", length=255)
+     *
+     * @var string
+     */
+    private $imageAlt;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -167,13 +194,74 @@ class Work
         return $this;
     }
 
-    public function getImage(): ?Image
+    /**
+     * @return  File
+     */ 
+    public function getImageFile(): ?File
     {
-        return $this->image;
+        return $this->imageFile;
     }
 
-    public function setImage($image): void
+    /**
+     * @param  File|null  $imageFile
+     * @return  self
+     */ 
+    public function setImageFile(?File $imageFile = null): void
     {
-        $this->image = $image;
+        $this->imageFile = $imageFile;
+
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTime('now');
+        }
+    }
+
+    /**
+     * @return  string
+     */ 
+    public function getImageName(): ?string
+    {
+        return $this->imageName;
+    }
+
+    /**
+     * @param  string|null  $imageName
+     * @return  self
+     */ 
+    public function setImageName(?string $imageName = null): self
+    {
+        $this->imageName = $imageName;
+
+        return $this;
+    }
+
+    /**
+     * @return  string
+     */ 
+    public function getImageAlt(): ?string
+    {
+        return $this->imageAlt;
+    }
+
+    /**
+     * @param  string  $imageAlt
+     * @return  self
+     */ 
+    public function setImageAlt(string $imageAlt): self
+    {
+        $this->imageAlt = $imageAlt;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }

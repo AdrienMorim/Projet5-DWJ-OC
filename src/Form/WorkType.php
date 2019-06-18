@@ -3,12 +3,12 @@
 namespace App\Form;
 
 use App\Entity\Work;
-use App\Form\ImageType;
 use App\Entity\Category;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class WorkType extends AbstractType
 {
@@ -26,7 +26,11 @@ class WorkType extends AbstractType
                 'multiple' => true,
                 'by_reference' => false // A utilisé pour que addCategory() / removeCategory() soient appelés comme categories est un ArrayCollection()
             ])
-            ->add('image', ImageType::class, [
+            ->add('imageFile', FileType::class, [
+                'label' => false,
+                'required' => false
+            ])
+            ->add('imageAlt', null, [
                 'label' => false,
                 'required' => false
             ])
