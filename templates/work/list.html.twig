@@ -79,10 +79,10 @@
                                                 <td>
                                                     <strong>{{ work.content|slice(0, 50) }}</strong>...</td>
                                                 <td>
-                                                    {% if work.image.name is not defined %}
+                                                    {% if work.imageName is not defined %}
                                                         <img class="image-list" src="{{ asset('assets/images/back/advice.jpg') }}" alt="Image par défaut">
                                                     {% else %}
-                                                        <img class="image-list" src="{{ asset('assets/images/upload/') ~ work.image.name }}" alt="{{ work.image.alt }}">
+                                                        <img class="image-list" src=" {{ vich_uploader_asset(work, 'imageFile') }}" alt="{{ work.imageAlt }}">
                                                     {% endif %}
                                                     
                                                 </td>

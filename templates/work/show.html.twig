@@ -84,7 +84,7 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 ml-auto mr-auto">
 
-                                        {% if work.image.name is not defined %}
+                                        {% if work.imageName is not defined %}
                                             <figure>
                                                 <img src="{{ asset('assets/images/back/advice.jpg') }}">
                                             </figure>
@@ -93,10 +93,10 @@
                                             </figcaption>
                                         {% else %}
                                             <figure>
-                                                <img src="{{ asset('assets/images/upload/') ~ work.image.name }}">
+                                                <img src="{{ vich_uploader_asset(work, 'imageFile') }}">
                                             </figure>
                                             <figcaption>
-                                                    <em>{{ work.image.alt }}</em>
+                                                    <em>{{ work.imageAlt }}</em>
                                             </figcaption>
                                         {% endif %}
                                         
