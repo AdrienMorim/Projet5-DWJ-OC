@@ -73,7 +73,7 @@ class Work
     /**
      * @Vich\UploadableField(mapping="work_images", fileNameProperty="imageName")
      * @Assert\Image(
-     *      mimeTypes = "image/jpeg", "image/jpg", "image/png")
+     *      mimeTypes = { "image/jpeg", "image/jpg", "image/png"} )
      */
     private $imageFile;
 
