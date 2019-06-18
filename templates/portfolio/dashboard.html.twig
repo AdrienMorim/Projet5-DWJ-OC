@@ -45,14 +45,14 @@
                                 <i class="icon-overview far fa-envelope"></i>
                             </div>
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-charts">
-                                {% if works|length > 1 %}
-                                    <p>Visites </br>
-                                    totales:</p>
+                                {% if categories|length > 1 %}
+                                    <p>Nombres de </br>
+                                    catégories:</p>
                                 {% else %}
-                                    <p>visite </br>
-                                    total:</p>
+                                    <p>Nombres de </br>
+                                    catégories:</p>
                                 {% endif %}
-                                <div class="number-overview">{{ works|length }}</div>
+                                <div class="number-overview">{{ categories|length }}</div>
                                 <i class="icon-overview far fa-chart-bar"></i>
                             </div>
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-projects">
@@ -91,27 +91,13 @@
                                     <strong>Boîte de réception:<br/></strong>
                                     Vous avez actuellement {{ works|length }} message dans votre boîte de réception.
                                 </div>
-                                <div class="section-border col-12 info-charts sr-only">
-                                    <strong>Compteurs de visites:<br/></strong>
-                                    Vous avez actuellement {{ works|length }} visite(s) sur votre site.
+                                <div class="section-border col-12 info-charts">
+                                    <strong>Vos catégories:<br/></strong>
+                                    Vous avez actuellement {{ categories|length }} catégories dans vos différents projets.
                                 </div>
                                 <div class="section-border col-12 info-projects">
                                     <strong>Vos projets:<br/></strong>
                                     Vous avez actuellement {{ works|length }} projets sur votre site.
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-12">
-                                <div class="section-border col-12 info-messages sr-only">
-                                    <strong>Dernier message reçu:<br/></strong>
-                                    <a class="link-back" href="../V3/index.php?action=message&amp;id_message=<?= $data['id']; ?>">
-                                    <?= nl2br(htmlspecialchars(substr($data['message'], 0, 100))); ?>...
-                                    </a>
-                                </div>
-                                <div class="section-border col-12 info-messages sr-only">
-                                    <strong>Messages non lus:<br/></strong>
-                                    <a class="link-back" href="../V3/index.php?action=listmessages">
-                                    Vous avez actuellement {{ works|length }} message non lu(s).
-                                    </a>
                                 </div>
                             </div>
                         </div><!-- /.d-flex -->
