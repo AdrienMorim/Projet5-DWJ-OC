@@ -7,10 +7,10 @@ use App\Form\WorkType;
 use App\Repository\WorkRepository;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Knp\Component\Pager\PaginatorInterface;
 
 class WorkController extends AbstractController
 {
@@ -20,13 +20,21 @@ class WorkController extends AbstractController
      * @param WorkRepository $repo
      * @return void
      */
-    public function listWork(WorkRepository $repo)
+    public function listWork(WorkRepository $repo, Request $request, ObjectManager $manager, PaginatorInterface $paginator)
     {
-        $works = $repo->findAll();
+        //$works = $repo->findAll();
+        $dql = "SELECT w FROM App:Work w";
+        $query = $manager->createQuery($dql);
+
+        $works = $paginator->paginate(
+            $query, /* Use de query */
+            $request->query->getInt('page', 1), /*page number*/
+            $request->query->getInt('limit', 3) /*limit per page*/
+        );
 
         return $this->render('work/list.html.twig', [
             'controller_name' => 'WorkController',
-            'works' => $works
+            'works' => $works,
         ]);
     }
 
@@ -54,6 +62,8 @@ class WorkController extends AbstractController
             if (!$work->getId()) {
                 $work->setCreatedAt(new \Datetime());
             }
+
+            $work->setUpdatedAt(new \Datetime());
             
             $manager->persist($work);
             $manager->flush();

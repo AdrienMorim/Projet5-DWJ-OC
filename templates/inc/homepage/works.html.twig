@@ -31,15 +31,25 @@
                             <div class="portfolio">
                                 <div class="texture-overlay"></div>
                                 <div class="links">
-                                    <a class="image-link" href="{{ asset('assets/images/upload/') ~ work.image.name }}">
-                                        <i class="fas fa-search-plus"></i>
-                                    </a>
+                                    {% if work.imageName is not defined %}
+                                        <a class="image-link" href="{{ asset('assets/images/back/advice.jpg') }}">
+                                            <i class="fas fa-search-plus"></i>
+                                        </a>
+                                    {% else %}
+                                        <a class="image-link" href="{{ vich_uploader_asset(work, 'imageFile') }}">
+                                            <i class="fas fa-search-plus"></i>
+                                        </a>
+                                    {% endif %}
                                     <a href="{{ work.link }}">
                                         <i class="fas fa-link"></i>
                                     </a>
                                 </div>
                                 <!-- /.links -->
-                                <img class="portfolio-img" src="{{ asset('assets/images/upload/') ~ work.image.name }}" alt="{{ work.image.alt }}">
+                                {% if work.imageName is not defined %}
+                                    <img src="{{ asset('assets/images/back/advice.jpg') }}" alt="Image par défaut">
+                                {% else %}
+                                    <img class="portfolio-img" src="{{ vich_uploader_asset(work, 'imageFile') }}" alt="{{ work.imageAlt }}">
+                                {% endif %}
                                 <div class="portfolio-info">
                                     <h3>{{ work.title }}</h3>
                                 </div>

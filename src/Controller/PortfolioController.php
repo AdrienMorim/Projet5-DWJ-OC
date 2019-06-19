@@ -30,12 +30,14 @@ class PortfolioController extends AbstractController
     /**
      * @Route("/admin/dashboard", name="portfolio_dashboard")
      */
-    public function dashboard(WorkRepository $repo)
+    public function dashboard(WorkRepository $repoWork, CategoryRepository $repoCategory)
     {
-        $works = $repo->findAll();
+        $works = $repoWork->findAll();
+        $categories = $repoCategory->findAll();
             
         return $this->render('portfolio/dashboard.html.twig', [
-            'works' => $works
+            'works' => $works,
+            'categories' => $categories
         ]);
     }
 }

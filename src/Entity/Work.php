@@ -73,19 +73,19 @@ class Work
     /**
      * @Vich\UploadableField(mapping="work_images", fileNameProperty="imageName")
      * @Assert\Image(
-     *      mimeTypes = "image/jpeg", "image/jpg", "image/png")
+     *      mimeTypes = { "image/jpeg", "image/jpg", "image/png"} )
      */
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
     private $imageName;
     
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
@@ -243,10 +243,10 @@ class Work
     }
 
     /**
-     * @param  string  $imageAlt
+     * @param  string|null  $imageAlt
      * @return  self
      */ 
-    public function setImageAlt(string $imageAlt): self
+    public function setImageAlt(string $imageAlt = null): self
     {
         $this->imageAlt = $imageAlt;
 
