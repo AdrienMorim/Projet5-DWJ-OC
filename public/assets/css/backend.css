@@ -453,6 +453,56 @@ legend {
     margin-bottom: 20%;
 }
 
+#paginator .page-item.active .page-link{
+    background: #66CCFF;;
+    color: #FFFFFF;
+    border-color: #66CCFF;;
+    font-weight: 600;
+}
+
+#paginator .page-item .page-link{
+    color:  #66CCFF;;
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    font-weight: 500;
+}
+
+#paginator .page-item.disabled .page-link,
+#paginator .page-item.disabled:hover .page-link
+{
+    color: #626262;
+    background: #FFFFFF;
+    border-color: #FFFFFF;
+    font-weight: 500;
+}
+
+#paginator .page-item:hover{
+    cursor: pointer;
+    transition: all ease-in-out;
+}
+
+#paginator .page-item:hover .page-link{
+    background: #66CCFF;;
+    color: #FFFFFF;
+    border-color: #66CCFF;;
+    transition: all ease-in-out;
+}
+
+#paginator .page-item.active:hover .page-link{
+    background: #FFFFFF;
+    color: #66CCFF;;
+    border-color: #FFFFFF;
+    transition: all ease-in-out;
+}
+
+#paginator .page-item.disabled:hover{
+    text-shadow: none;
+    cursor: default;
+}
+
+
+
+
 /*============[ Work show ]=============*/
 
 .work-show .work-label {
