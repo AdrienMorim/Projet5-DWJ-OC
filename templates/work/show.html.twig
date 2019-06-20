@@ -114,12 +114,26 @@
                                             <div class="col-lg-3 col-md-4 col-sm-12">
                                                 <p class="work-label">Catégories:</p>
                                             </div>
-                                            <div class="ml-lg-auto col-lg-8 col-md-8 d-flex flex-wrap">
-                                                {% for category in work.categories %}
-                                                    <p class="col-lg-5 col-md-5 checked-categories">
-                                                        {{ category.name }}
-                                                    </p>
+                                            <div id="glob" class="ml-lg-auto col-lg-8 col-md-8 d-flex flex-wrap">
+
+                                                {% for category in categories %}
+                                                    <a href="{{ path('work_category_checked', {'work_id' : work.id, 'category_id' : category.id} ) }}" class="link-js">
+
+                                                        {% if category in work.categories %}
+                                                            <div class="col-lg col-md checked-categories">
+                                                                <i class="category-js fas fa-check-circle"></i>
+                                                                <span class="label-js">{{ category.name }}</span>
+                                                            </div>
+                                                        {% else %}
+                                                            <div class="col-lg col-md add-categories">
+                                                                <i class="category-js fas fa-plus-circle"></i>
+                                                                <span class="label-js">{{ category.name }}</span>
+                                                            </div>
+                                                        {% endif %}
+
+                                                    </a>
                                                 {% endfor %}
+                                                
                                             </div>
                                         </div>
                                     </div>

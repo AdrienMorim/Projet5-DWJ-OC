@@ -4,13 +4,16 @@ namespace App\Controller;
 
 use App\Entity\Work;
 use App\Form\WorkType;
+use App\Entity\Category;
 use App\Repository\WorkRepository;
+use App\Repository\CategoryRepository;
 
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Knp\Component\Pager\PaginatorInterface;
 
 class WorkController extends AbstractController
 {
@@ -40,7 +43,7 @@ class WorkController extends AbstractController
 
     /**
      * @Route("/admin/work/new", name="work_create", methods="GET|POST")
-     * @Route("/admin/work/{id}/edit", name="work_edit", methods="GET|POST")
+     * @Route("/admin/work/{id}/edit", name="work_edit", methods="GET|POST", requirements={"id"="\d+"})
      *
      * @param Work $work
      * @param Request $request
@@ -79,21 +82,22 @@ class WorkController extends AbstractController
     }
 
     /**
-     * @Route("/admin/work/{id}", name="work_show")
+     * @Route("/admin/work/{id}", name="work_show" ,requirements={"id"="\d+"})
      * 
      * @param Work $work
+     * @param Category $categories
      * @return void
      */
-    public function showWork(Work $work)
+    public function showWork(Work $work, CategoryRepository $repoCategory)
     {
         return $this->render('work/show.html.twig', [
-            'work' => $work
+            'work' => $work,
+            'categories' => $repoCategory->findAll()
         ]);
     }
 
     /**
-     * 
-     * @Route("/admin/work/{id}/remove", name="work_remove", methods="REMOVE")
+     * @Route("/admin/work/{id}/remove", name="work_remove", methods="REMOVE", requirements={"id"="\d+"})
      *
      * @param Work $work
      * @param ObjectManager $manager
@@ -112,5 +116,43 @@ class WorkController extends AbstractController
             $this->addFlash('success', 'Le projet à bien été supprimé');
         }
         return $this->redirectToRoute('work_list');
+    }
+
+    /**
+     * Ajoute ou Retire une category dynamiquement
+     * 
+     * @Route("/admin/work/{work_id}/category/{category_id}/checked", name="work_category_checked", requirements={"id"="\d+"})
+     *
+     * @param Work $work
+     * @param Category $category
+     * @param ObjectManager $manager
+     * @param CategoryRepository $repoCategory
+     * @return Response
+     */
+    public function checkedCategory(Work $work_id, Category $category_id, ObjectManager $manager, CategoryRepository $repoCategory) : Response
+    {
+
+        if ($work_id->getCategories()->contains($category_id)) { // si la category est déjà dans le work
+
+            $category_id->removeWork($work_id);
+
+            $manager->persist($category_id);
+            $manager->flush();
+
+            return $this->json([
+                'code' => 200, 
+                'message' => 'categorie bien supprimé',
+            ], 200);
+        }
+
+        $category_id->addWork($work_id);
+
+        $manager->persist($category_id);
+        $manager->flush();
+
+        return $this->json([
+            'code' => 200, 
+            'message' => 'categorie bien ajouté'
+        ], 200);
     }
 }

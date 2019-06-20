@@ -1,14 +1,23 @@
-$(document).ready(function(){
+function onClickBtnCheck(event){
+    event.preventDefault();
 
-    let request = new XMLHttpRequest(); // 1- On crée notre objet AJAX
-    // en jQuery $.ajax();
-    request.onreadystatechange = function() {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            let response = JSON.parse(this.responseText);
-            console.log(response.current_condition.condition);
+    const url = this.href;
+    const div = this.querySelector('div');
+    const icone = this.querySelector('i');
+
+    //axios.get(url).then(function(response) {
+    $.get(url, function(){
+        if (icone.classList.contains('fa-check-circle') && div.classList.contains('checked-categories')){
+            icone.classList.replace('fa-check-circle','fa-plus-circle');
+            div.classList.replace('checked-categories', 'add-categories');
+        } 
+        else{
+            icone.classList.replace('fa-plus-circle','fa-check-circle');
+            div.classList.replace('add-categories', 'checked-categories');
         }
-    };
-    request.open("GET", "https://www.prevision-meteo.ch/services/json/paris"); // 2- On demande à ouvrir une connexion
-    request.send(); // 3- On envoie la requete
-});
+    })
+}
 
+document.querySelectorAll('a.link-js').forEach(function(link) {
+    link.addEventListener('click', onClickBtnCheck);
+})
