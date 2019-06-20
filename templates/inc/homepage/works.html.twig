@@ -22,7 +22,7 @@
             <div class="col" id="grid">
 
                 {% for work in works %}
-                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-3" data-groups='[
+                    <div class="portfolio-item col-xs-12 col-sm-4 col-md-4 col-lg-3" data-groups='[
                         {%- for category in work.categories -%}
                             {{- category.name|json_encode() -}},
                         {%- endfor -%} "all"]'>
@@ -31,7 +31,7 @@
                             <div class="portfolio">
                                 <div class="texture-overlay"></div>
                                 <div class="links">
-                                    {% if work.imageName is not defined %}
+                                    {% if work.imageName is null %}
                                         <a class="image-link" href="{{ asset('assets/images/back/advice.jpg') }}">
                                             <i class="fas fa-search-plus"></i>
                                         </a>
@@ -45,11 +45,13 @@
                                     </a>
                                 </div>
                                 <!-- /.links -->
-                                {% if work.imageName is not defined %}
+
+                                {% if work.imageName is null %}
                                     <img src="{{ asset('assets/images/back/advice.jpg') }}" alt="Image par défaut">
                                 {% else %}
                                     <img class="portfolio-img" src="{{ vich_uploader_asset(work, 'imageFile') }}" alt="{{ work.imageAlt }}">
                                 {% endif %}
+                                
                                 <div class="portfolio-info">
                                     <h3>{{ work.title }}</h3>
                                 </div>
