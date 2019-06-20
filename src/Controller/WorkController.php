@@ -36,7 +36,6 @@ class WorkController extends AbstractController
         );
 
         return $this->render('work/list.html.twig', [
-            'controller_name' => 'WorkController',
             'works' => $works,
         ]);
     }
