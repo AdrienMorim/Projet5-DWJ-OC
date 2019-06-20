@@ -500,9 +500,6 @@ legend {
     cursor: default;
 }
 
-
-
-
 /*============[ Work show ]=============*/
 
 .work-show .work-label {
@@ -564,16 +561,40 @@ legend {
 }
 
 #dark-bg .checked-categories {
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    align-items: center;
     padding: 0 10px;
     margin: 0 0 5px 5px;
-    line-height: 40px;
+    cursor: pointer;
     color: #ffffff;
     background: #66cc99;
     border: thin solid #FFFFFF;
     border-radius: 50px;
+    transition: all .3s ease-in-out;
 }
+
+#dark-bg .add-categories {
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    margin: 0 0 5px 5px;
+    cursor: pointer;
+    color: #626262;
+    background: #f7f7f7;
+    border: thin solid #b9b9b9;
+    border-radius: 50px;
+    transition: all .3s ease-in-out;
+}
+
+#dark-bg .link-js{
+    margin-right: 5px;
+}
+
+#dark-bg .category-js{
+    margin: 10px 10px 10px 5px;
+}
+
+/*============[ Upload File ]=============*/
 
 .custom-file-label::after{
     content: "Télécharger une image";

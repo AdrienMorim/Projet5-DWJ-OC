@@ -1,18 +1,17 @@
 // -------------------------------------------------------------
 // Google Map
 // -------------------------------------------------------------
-let myMap = {
+var myMap = {
 
     initMap: function (){
 
-        let chelles = {
+        // Chelles centre
+        var myLatlng = {
             lat: 48.8777304,
             lng: 2.5878141
         };
 
-        let myLatlng = new google.maps.LatLng(chelles.lat, chelles.lng);
-
-        let styles = [
+        var styles = [
             {
                 featureType: "landscape",
                 stylers: [
@@ -39,20 +38,20 @@ let myMap = {
             }
         ];
 
-        let mapOptions = {
+        var mapOptions = {
             zoom: 12,
             scrollwheel: false,
             center: myLatlng,
-            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            mapTypeId: 'roadmap',
             disableDefaultUI: true,
             styles: styles
         };
 
-        let map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
+        var map = new google.maps.Map(document.getElementById('mapCanvas'), mapOptions);
 
-        let iconMarker = {url: 'assets/images/ico/marker.png'};
+        var iconMarker = {url: 'assets/images/ico/marker.png'};
 
-        let marker = new google.maps.Marker({
+        var marker = new google.maps.Marker({
             position: myLatlng,
             map: map,
             icon: iconMarker,
@@ -60,7 +59,7 @@ let myMap = {
             title: 'Hello World!'
         });
 
-        let contentString = '<div>' +
+        var contentString = '<div>' +
             '<h5>Morim Adrien</h5>' +
             '<h6> Freelance</h6>' +
             '<hr>' +
@@ -68,7 +67,7 @@ let myMap = {
             'Web Designer autodidacte</p>' +
             '</div>';
 
-        let infowindow = new google.maps.InfoWindow({
+        var infowindow = new google.maps.InfoWindow({
             content: contentString,
             maxWidth: 300
         });
@@ -78,3 +77,9 @@ let myMap = {
         });
     }
 };
+
+function initMap() {
+
+    myMap.initMap();
+
+}

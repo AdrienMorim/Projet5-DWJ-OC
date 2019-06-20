@@ -41,7 +41,7 @@
                                     <p>Message </br>
                                     reçu:</p>
                                 {% endif %}
-                                <div class="number-overview">{{ works|length }}</div>
+                                <div class="number-overview">0</div>
                                 <i class="icon-overview far fa-envelope"></i>
                             </div>
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-charts">
@@ -67,20 +67,10 @@
                                 <i class="icon-overview fas fa-laptop"></i>
                             </div>
                             <div class="section-border col-lg-3 col-md-5 col-sm-6 info-overview info-tasks">
-                                <textarea id="keep" name="keep" class="col-12" onchange="localStorage.strKeep = this.value">Faire menu dropdown
-                                Voir SF4 -> upload Image
-                                Faire btn Navigation
-                                Modifier affichage form
+                                <textarea id="keep" name="keep" class="col-12">
                                 </textarea>
                                 <i class="icon-overview fas fa-tasks"></i>
                             </div>
-                            <!--
-                                -> Voir google Analytics
-                                -> Faire compteur de visite sur chaque Projet.
-                                -> Voir cours Symphony
-                                -> Voir React.js
-                                -> Voir Vue.js
-                            -->
                         </div>
                     </div>
                     <div class="col-12 overview">
@@ -109,9 +99,3 @@
 {% endblock %}
 
 {% block footer %}{% endblock %}
-
-{% block javascript %}
-    {{ parent() }}
-    <script src="{{ asset("assets/js/dashboard.js") }}"></script>
-    <script src="{{ asset("assets/js/ajax.js") }}"></script>
-{% endblock %}
