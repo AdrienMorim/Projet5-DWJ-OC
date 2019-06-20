@@ -2,7 +2,7 @@
 // Contact Form
 // -------------------------------------------------------------
 
-let myForm = {
+var myForm = {
 
     initForm: function(){
 
@@ -10,10 +10,10 @@ let myForm = {
             e.preventDefault();
 
             // retourne GET()
-            let $action = $(this).prop('action');
+            var $action = $(this).prop('action');
             // retourne le données en une chaîne de caractères compatible dans un req Ajax
-            let $data = $(this).serialize();
-            let $this = $(this);
+            var $data = $(this).serialize();
+            var $this = $(this);
 
             $this.prevAll('.alert').remove();
 
