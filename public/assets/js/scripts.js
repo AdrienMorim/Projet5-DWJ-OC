@@ -228,7 +228,7 @@ jQuery(function($) {
     // STELLAR FOR BACKGROUND SCROLLING
     // -------------------------------------------------------------
 
-    /*$(document).load(function() {
+    $(document).load(function() {
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
@@ -238,7 +238,7 @@ jQuery(function($) {
                 responsive: true
             });
         }
-    });*/
+    });
 
     // -------------------------------------------------------------
     // WOW JS
@@ -264,14 +264,24 @@ jQuery(function($) {
 
     });
 
+    // -------------------------------------------------------------
+    // Burger Menu
+    // -------------------------------------------------------------
+
+    $('.nav-item').click(function() {
+        if ($(this).prop("id") !== "dropdown-project") {
+            $('#toggler').removeClass('show').addClass('hide');
+        }
+    })
+
     /* BACKEND */
     // -------------------------------------------------------------
     // Navbar Dashboard
     // -------------------------------------------------------------
 
     $('.show-all').click(function(e){
-
         e.preventDefault();
+
         $('.btn-projects-others').toggleClass('show').toggleClass('hide');
         $('#chevron-nav').toggleClass('fa-chevron-up');
 

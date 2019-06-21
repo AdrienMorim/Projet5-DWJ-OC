@@ -1,17 +1,9 @@
 /* Extra small devices (phones, less than 768px) */
 @media screen and (max-width : 480px) {
-	.intro{
-		height: 100%;
-	}
 	
 	.intro h1 {
 		font-size: 40px;
 		line-height: 40px;
-	}
-
-	.welcome h1,
-	.welcome-sub{
-		margin: 0 10px;
 	}
 
 	#dashbord-bg{
@@ -238,9 +230,6 @@
 
 /* Landscape Mobile */
 @media only screen and (min-width : 481px) and (max-width : 992px) {
-	.intro{
-		height: 100%;
-	}
 	
 	.intro h1 {
 		font-size: 60px;
