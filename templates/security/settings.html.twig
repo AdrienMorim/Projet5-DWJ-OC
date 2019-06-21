@@ -24,16 +24,16 @@
     </header>
 {% endblock %}
 
+{% block nav %}
+    {{ include("inc/navBackend.html.twig") }} 
+{% endblock %}
+
 {% block body %}
-    <div
-        class="d-flex h-100" id="backend">
-        <!-- NAV -->
-        {% include "inc/navBackend.html.twig" %}
-        <!-- HOME -->
-        <div class="ml-auto col-lg-10 d-flex flex-column tt-backend" id="home-backend">
+    <div class="d-flex h-100" id="backend">
+        <div class="ml-auto col-lg-10 d-flex flex-column" id="home-backend">
             <div class="row">
                 <section class="container col-10" id="body-backend">
-                    <div id="dark-bg">
+                    <div class="dark-bg">
                         <div class="container">
                             {% if app.user %}
                                 <h3>Informations:</h3>
@@ -52,7 +52,7 @@
                         <!-- /.container -->
                     </div>
                     <!-- /.dark-bg -->
-                    <div id="dark-bg">
+                    <div class="dark-bg">
                         <div class="container col">
                             <h3>Modifier tes informations:</h3>
                             <hr>
@@ -78,7 +78,7 @@
                     </div>
                     
                     <!-- /.dark-bg -->
-                    <div id="dark-bg">
+                    <div class="dark-bg">
                         <div class="container col">
                             <h3>Modifier ton mot de passe:</h3>
                             <hr>

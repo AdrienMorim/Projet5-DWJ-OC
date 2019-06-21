@@ -228,7 +228,7 @@ jQuery(function($) {
     // STELLAR FOR BACKGROUND SCROLLING
     // -------------------------------------------------------------
 
-    $(document).load(function() {
+    /*$(document).load(function() {
 
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 
@@ -238,7 +238,7 @@ jQuery(function($) {
                 responsive: true
             });
         }
-    });
+    });*/
 
     // -------------------------------------------------------------
     // WOW JS

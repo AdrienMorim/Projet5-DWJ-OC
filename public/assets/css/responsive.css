@@ -9,6 +9,15 @@
 		line-height: 40px;
 	}
 
+	.welcome h1,
+	.welcome-sub{
+		margin: 0 10px;
+	}
+
+	#dashbord-bg{
+		height: auto !important;
+	}
+
 	.section-title, 
 	.hire-section .hire-title{
 		font-size: 30px;
@@ -255,6 +264,7 @@
 	}
 
 	/* Nav */
+
 	#nav-backend{
 		height: 0 !important;
 		z-index: 300 !important;
