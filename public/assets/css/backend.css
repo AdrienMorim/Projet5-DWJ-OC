@@ -214,8 +214,7 @@ legend {
     padding: 0 10px;
     height: 100vh;
     background: #1a1e23;
-    z-index: 900;
-    overflow-y: scroll;
+    z-index: 190;
 }
 
 #nav-backend .navbar-custom {
@@ -223,20 +222,22 @@ legend {
 }
 
 #nav-backend .container {
+    margin-top: 65px;
     padding: 0 10px;
 }
 
 #nav-backend .navbar-toggler {
     top: -50px;
     right: 0;
+    z-index: 400;
 }
-
+/*
 #toggler {
     width: 100%;
     display: flex;
     justify-content: center;
 }
-
+*/
 #toggler .navbar-nav {
     width: 100%;
     display: flex;

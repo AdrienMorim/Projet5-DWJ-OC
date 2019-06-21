@@ -15,17 +15,16 @@
             <img id="logo-web" src= {{ asset("assets/images/logo.png") }} alt="logo">
             <div class="intro-sub">Adrien Morim</div>
             <h1>Développeur Web</h1>
-            <p>Je suis développeur intégrateur d'applications web indépendant.<br>
+            <p>Je suis développeur intégrateur d'applications web freelance.<br>
                 Également créateur de mes propres design.<br>
                 N'hésitez pas à me contacter.
             </p>
 
             <div class="social-icons">
                 <ul class="list-inline">
-                    <li class="list-inline-item"><a href="#"><i class="fab fa-facebook"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                    <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.facebook.com/adrienmorim"><i class="fab fa-facebook"></i></a></li>
+                    <li class="list-inline-item"><a href="https://twitter.com/MorimAdrien"><i class="fab fa-twitter"></i></a></li>
+                    <li class="list-inline-item"><a href="https://www.linkedin.com/in/adrien-morim-3b37b2118/"><i class="fab fa-linkedin"></i></a></li>
                 </ul>
             </div><!-- /.social-icons -->
         </div><!-- /.intro -->
@@ -38,7 +37,7 @@
 {% endblock %}
 
 {% block nav %}
-    {% include "inc/navFrontend.html.twig" %}
+    {{ include("inc/navFrontend.html.twig") }}
 {% endblock %}
     
 {% block body %}
@@ -88,7 +87,7 @@
                     </div>
     
                     <div class="my-signature">
-                        <img src= {{ asset("assets/images/sign.png") }} alt="sign" width="50px">
+                        <img src= {{ asset("assets/images/sign.png") }} alt="sign">
                     </div>
     
                     <div class="download-button row">
@@ -471,11 +470,11 @@
                         </div>
                     </div><!-- /.carousel-inner-->
                     <div class="carousel-ctrl">
-                        <button class="carousel-control-prev" href="#advice-carousel" role="button" data-slide="prev">
+                        <button class="carousel-control-prev" data-slide="prev">
                             <span class="prev-icon" aria-hidden="true"><i class="fas fa-chevron-left fa-3x"></i></span>
                             <span class="sr-only">Previous</span>
                         </button>
-                        <button class="carousel-control-next" href="#advice-carousel" role="button" data-slide="next">
+                        <button class="carousel-control-next" data-slide="next">
                             <span class="next-icon" aria-hidden="true"><i class="fas fa-chevron-right fa-3x"></i></span>
                             <span class="sr-only">Next</span>
                         </button>
@@ -515,7 +514,7 @@
                 <div class="col-md-6">
                     <div class="contact-form wow fadeInUp">
                         <strong>Envoyez-moi un message</strong>
-                        <form id="contactForm" name="contact-form"  action="" method="POST" >
+                        <form id="contactForm" name="contact-form"  action="#" method="POST" >
     
                             <div class="form-group">
                                 <label for="name">Nom</label>
