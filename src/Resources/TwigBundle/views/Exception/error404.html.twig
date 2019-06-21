@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="{{ _charset }}" />
+        <link rel="icon" type="image/ico" href="{{ asset("assets/images/ico/favicon.ico") }}">
+        <title>Une erreur est survenue: {{ status_text }}</title>
+        <style>
+            body { background: #3a3e43; color: #66CCFF; font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; margin: 0; }
+            .container { margin: 60px; max-width: 600px; }
+            #logo-web { position: absolute; right: 60px; bottom: 60px; width: 30%; }
+            h1 { color: #66CC99; font-size: 28px; }
+            h2 { font-size: 22px; }
+            #text { margin-top: 20%; padding: 20px; border: thin solid #0099FF; border-radius: 5px; }
+            #link { color: #3a3e43; background-color: #66CCFF ; margin-top: 10px ; padding: 10px; border-bottom: 1px solid #0099FF; border-radius: 5px; text-decoration: none;}
+            a:hover { cursor: pointer; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <a href="{{ path("portfolio") }}">
+                <img id="logo-web" src={{ asset("assets/images/logo.png") }} alt="logo hexagonal de Morim Adrien">
+            </a>
+            <h1>Oops! Je crois que tu as perdu ton chemin..</h1>
+            <h2>Si si je t'assure, le serveur a renvoyé un code : </br></br> "{{ status_code }} {{ status_text }}".</h2>
+
+            <div id="text">
+                <p>
+                    Je ne suis pas un GPS et encore moins Lycos ( « va chercher » ) </br> 
+                    mais tu es bien sur une page qui n'existe pas..  
+                </p>
+                <p>
+                    Par contre si tu veux retourner sur mon site, tu peux cliquer sur mon logo. </br>
+                    Ou alors cliquer sur le bouton ci-dessous : </br> 
+                </p>
+                <p><a id="link" href="{{ path("portfolio") }}"> À tout de suite! </a></p>
+            </div>
+        </div>
+    </body>
+</html>
