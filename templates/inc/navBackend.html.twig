@@ -1,71 +1,75 @@
-<div class="col-lg-2" id="nav-backend">
-    <div class="navbar-custom" role="navigation">
-        <div class="container">
-            <nav class="navbar navbar-header navbar-expand-lg navbar-dark">
-                <button aria-controls="collapse" aria-expanded="false" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target=".collapse" data-toggle="collapse">
-                    <span class="bar" id="bar1"></span>
-                    <span class="bar" id="bar2"></span>
-                    <span class="bar" id="bar3"></span>
-                </button>
+<div id="navbar-backend">
+    <div class="col-lg-2" id="nav-backend">
+        <div class="navbar-custom" role="navigation">
+            <div class="container">
+                <nav class="navbar navbar-header navbar-expand-lg navbar-dark">
+                    <button aria-controls="collapse" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler collapsed" data-target=".collapse" data-toggle="collapse">
+                        <span class="bar" id="bar1"></span>
+                        <span class="bar" id="bar2"></span>
+                        <span class="bar" id="bar3"></span>
+                    </button>
 
-                <div class="collapse navbar-collapse" id="toggler">
-                    <div class="navbar-nav dropdown show">
-                        <hr class="custom-hr">
-                        <div class="navbar-group-items">
-                            <a class="nav-item nav-link btn btn-charts" href="{{ path('portfolio_dashboard') }}">
-                                <i class="fas fa-tachometer-alt"></i>
-                                Dashboard
-                            </a>
-                        </div>
-                        <div class="navbar-group-items">
-                            <a class="nav-item nav-link btn btn-messages sr-only" href="#">
-                                <i class="fas fa-envelope"></i>
-                                Messages
-                            </a>
-                        </div>
-                        <div class="navbar-group-items" id="projects">
-                            <a class="nav-item nav-link btn btn-projects show-all" href="">
-                                <i class="fas fa-laptop"></i>
-                                Projets
-                                <i class="fas fa-chevron-down" id="chevron-nav"></i>
-                            </a>
+                    <div class="navbar-collapse collapse" id="toggler">
+                        <div class="navbar-nav dropdown show">
+                            <hr class="custom-hr">
                             <div class="navbar-group-items">
-                                <a class="nav-item nav-link btn btn-projects-others btn-projects-1 hide" href="{{ path('work_list') }}">
-                                    <i class="fas fa-table"></i>
-                                    Listes des Projets
-                                </a>
-                                <a class="nav-item nav-link btn btn-projects-others btn-projects-1 hide" href="{{ path('work_create') }}">
-                                    <i class="fas fa-folder-plus"></i>
-                                    Ajouter un Projet
+                                <a class="nav-item nav-link btn btn-charts" href="{{ path('portfolio_dashboard') }}">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    Dashboard
                                 </a>
                             </div>
                             <div class="navbar-group-items">
-                                <a class="nav-item nav-link btn btn-projects-others btn-projects-2 hide" href="{{ path('category_list') }}">
-                                    <i class="fas fa-list-ol"></i>
-                                    Catégories
+                                <a class="nav-item nav-link btn btn-messages sr-only" href="#">
+                                    <i class="fas fa-envelope"></i>
+                                    Messages
                                 </a>
                             </div>
-                        </div>
-                        <div class="navbar-group-items">
-                            <a class="nav-item nav-link btn btn-tasks" href="{{ path('security_settings') }}">
-                                <i class="fas fa-user-cog"></i>
-                                Paramètres
-                            </a>
-                        </div>
-                        <hr class="custom-hr">
-                        <div class="navbar-group-items">
-                            <a class="nav-item nav-link btn btn-primary" href="{{ path('security_logout') }}">
-                                <i class="fas fa-user-times"></i>
-                                Déconnexion
-                            </a>
+                            <div class="navbar-group-items" id="projects">
+                                <a class="nav-item nav-link btn btn-projects show-all" href="">
+                                    <i class="fas fa-laptop"></i>
+                                    Projets
+                                    <i class="fas fa-chevron-down" id="chevron-nav"></i>
+                                </a>
+                                <div class="navbar-group-items">
+                                    <a class="nav-item nav-link btn btn-projects-others btn-projects-1 hide" href="{{ path('work_list') }}">
+                                        <i class="fas fa-table"></i>
+                                        Listes des Projets
+                                    </a>
+                                    <a class="nav-item nav-link btn btn-projects-others btn-projects-1 hide" href="{{ path('work_create') }}">
+                                        <i class="fas fa-folder-plus"></i>
+                                        Ajouter un Projet
+                                    </a>
+                                </div>
+                                <div class="navbar-group-items">
+                                    <a class="nav-item nav-link btn btn-projects-others btn-projects-2 hide" href="{{ path('category_list') }}">
+                                        <i class="fas fa-list-ol"></i>
+                                        Catégories
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="navbar-group-items">
+                                <a class="nav-item nav-link btn btn-tasks" href="{{ path('security_settings') }}">
+                                    <i class="fas fa-user-cog"></i>
+                                    Paramètres
+                                </a>
+                            </div>
+                            <hr class="custom-hr">
+                            <div class="navbar-group-items">
+                                <a class="nav-item nav-link btn btn-primary" href="{{ path('security_logout') }}">
+                                    <i class="fas fa-user-times"></i>
+                                    Déconnexion
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- /#custom-collapse -->
-            </nav>
+                    <!-- /#custom-collapse -->
+                </nav>
+            </div>
+            <!-- /.container -->
         </div>
-        <!-- /.container -->
+        <!-- /.navbar-custom -->
     </div>
-    <!-- /.navbar-custom -->
+    <!-- /#nav-backend -->
 </div>
-<!-- /#nav-backend -->
+<!-- /#navbar-backend -->
+

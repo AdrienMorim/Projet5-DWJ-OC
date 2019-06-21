@@ -26,8 +26,13 @@
 		margin:0 5px;
 	}
 
+	.mouse-icon{
+		display: none;
+	}
+
 	#nav-backend{
 		height: 0 !important;
+		z-index: 300 !important;;
 	}
 
 	.nav-link{
@@ -245,9 +250,14 @@
 		margin:0 7px;
 	}
 
+	.mouse-icon{
+		display: none;
+	}
+
 	/* Nav */
 	#nav-backend{
 		height: 0 !important;
+		z-index: 300 !important;
 	}
 
 	#nav-backend .navbar-custom{
@@ -269,10 +279,6 @@
 
 	#toggler{
 		justify-content: flex-end !important;
-	}
-
-	#toggler .navbar-nav {
-		width: 25% !important;
 	}
 
 	/*about me section*/
@@ -410,16 +416,6 @@
 
 	#nav-backend{
 		height: 0 !important;
-	}
-
-	#toggler .navbar-nav {
-		display: flex;
-		flex-direction: row;
-		margin-bottom: 20px;
-	}
-
-	#toggler .navbar-nav .custom-hr{
-		display: none;
 	}
 
 	#projects{

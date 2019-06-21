@@ -22,11 +22,12 @@
     </header>
 {% endblock %}
 
+{% block nav %}
+    {{ include("inc/navBackend.html.twig") }} 
+{% endblock %}
+
 {% block body %}
-    <div id="backend" class="d-flex h-100">
-        <!-- NAV -->
-        {% include "inc/navBackend.html.twig" %}           
-        <!-- HOME -->
+    <div id="backend" class="d-flex h-100">          
         <div id="home-backend" class="ml-auto col-lg-10 d-flex flex-column">
             <section class="col-12">
                 <div class="row">
