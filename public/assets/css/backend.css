@@ -28,10 +28,13 @@
 #backend {
     margin-top: 70px;
     position: relative;
-    overflow: scroll;
 }
 
-#dark-bg {
+#dashbord-bg{
+    height: 100vh;
+}
+
+.dark-bg {
     color: #ffffff;
     height: auto;
     margin: 20px 0;
@@ -67,7 +70,10 @@ a.link-back {
 a.link-back:hover {
     color: #000;
     text-shadow: #ffffff 2px 0px 5px;
-    cursor: pointer;
+}
+
+a.info-link-overview{
+    color: #000;
 }
 
 .link-table {
@@ -78,7 +84,6 @@ a.link-back:hover {
 .link-table:hover {
     color: #ffffff;
     text-shadow: #000 2px 0px 5px;
-    cursor: pointer;
 }
 
 #body-backend .btn-submit-form {
@@ -186,21 +191,28 @@ legend {
     margin: auto;
 }
 
+.welcome h1,
+.welcome-sub {
+    margin: 0 10px;
+}
+
 .welcome h1 {
-    font-size: 18px;
-    line-height: 20px !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    font-size: 26px;
     background: linear-gradient(to right top, #0099FF 0%, #66CCFF 25%, #66CCCC 66%, #99FFFF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.welcome-sub {
-    color: #ffffff;
-    font-size: 18px;
-    line-height: 20px;
+.welcome-sub{
+    -webkit-text-fill-color: initial;
+    color: #FFFFFF;
+    display: block;
+    font-size: 26px;
     font-weight: 500;
     text-transform: uppercase;
-    display: block;
 }
 
 /*================================================================================*\
@@ -211,7 +223,7 @@ legend {
 
 #nav-backend {
     position: fixed;
-    padding: 0 10px;
+    padding: 0;
     height: 100vh;
     background: #1a1e23;
     z-index: 190;
@@ -222,7 +234,7 @@ legend {
 }
 
 #nav-backend .container {
-    margin-top: 65px;
+    margin-top: 70px;
     padding: 0 10px;
 }
 
@@ -307,14 +319,18 @@ legend {
 
 #home-backend {
     background: #d4d4d4;
-    height: 100vh;
+    margin: 0;
     padding: 0;
     position: relative;
 }
 
 #home-backend .row {
-    overflow: scroll;
     margin: 0;
+}
+
+#body-backend{
+
+    overflow: scroll;
 }
 
 /*================================================================================*\
@@ -357,6 +373,7 @@ legend {
     margin: 10px;
     border-radius: 3px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .icon-overview {
@@ -442,7 +459,7 @@ legend {
 
 \*================================================================================*/
 
-#dark-bg hr {
+.dark-bg hr{
     width: 100%;
     border: 0;
     height: 0;
@@ -561,7 +578,7 @@ legend {
     display: none;
 }
 
-#dark-bg .checked-categories {
+.dark-bg .checked-categories {
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -574,7 +591,7 @@ legend {
     transition: all .3s ease-in-out;
 }
 
-#dark-bg .add-categories {
+.dark-bg .add-categories {
     display: flex;
     align-items: center;
     padding: 0 10px;
@@ -587,11 +604,11 @@ legend {
     transition: all .3s ease-in-out;
 }
 
-#dark-bg .link-js{
+.dark-bg .link-js{
     margin-right: 5px;
 }
 
-#dark-bg .category-js{
+.dark-bg .category-js{
     margin: 10px 10px 10px 5px;
 }
 
