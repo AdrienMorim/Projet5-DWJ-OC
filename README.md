@@ -3,13 +3,17 @@ Dernier Projet du parcours Developpeur Web Junior d'Openclassrooms
 
 # Installation du projet
 - Cloner le repository de github:
+
 git clone https://github.com/AdrienMorim/Projet5-DWJ-OC.git
 
 - Installer le projet avec composer:
+
 composer install
 
 - Modifier le fichier .env:
+
 ligne 17: APP_ENV=[dev/prod]
+
 ligne 27: DATABASE_URL=mysql://[user]:[password]@[host]/[database]
 
 # Instructions
