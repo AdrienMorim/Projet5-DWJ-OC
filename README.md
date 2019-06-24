@@ -1,6 +1,17 @@
 # Projet5-DWJ-OC
 Dernier Projet du parcours Developpeur Web Junior d'Openclassrooms
 
+#Installation du projet
+- Cloner le repository de github:
+git clone https://github.com/AdrienMorim/Projet5-DWJ-OC.git
+
+- Installer le projet avec composer:
+composer install
+
+- Modifier le fichier .env:
+ligne 17: APP_ENV=[dev/prod]
+ligne 27: DATABASE_URL=mysql://[user]:[password]@[host]/[database]
+
 # Instructions
 Pour ce projet, vous développerez l'application de votre choix en utilisant les 5 langages que vous avez appris : HTML, CSS, JS, PHP et SQL. L'approche visuelle et le thème sont entièrement libres.
 
