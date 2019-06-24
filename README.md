@@ -1,7 +1,7 @@
 # Projet5-DWJ-OC
 Dernier Projet du parcours Developpeur Web Junior d'Openclassrooms
 
-#Installation du projet
+# Installation du projet
 - Cloner le repository de github:
 git clone https://github.com/AdrienMorim/Projet5-DWJ-OC.git
 
