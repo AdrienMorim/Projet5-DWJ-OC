@@ -7,7 +7,6 @@ use App\Form\WorkType;
 use App\Entity\Category;
 use App\Repository\WorkRepository;
 use App\Repository\CategoryRepository;
-
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

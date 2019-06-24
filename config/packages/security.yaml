@@ -1,0 +1,67 @@
+security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+            #cost: 12
+    role_hierarchy:
+        ROLE_ADMIN: ROLE_USER
+
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        in_memory: { memory: ~ }
+        user_in_database: 
+            entity:
+                class: App\Entity\User
+                property: email
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: true
+
+            provider: user_in_database
+
+            # form_login: true
+            # https://symfony.com/doc/current/security/form_login_setup.html
+            form_login:
+                login_path: security_login
+                check_path: security_login
+                # https://symfony.com/doc/current/security/form_login.html#form-login-csrf
+                #CSRF Protection in Login Forms
+                csrf_token_generator: security.csrf.token_manager
+                # Changing the default Page
+                #default_target_path: portfolio_dashboard
+                # Always Redirect to the default Page
+                #always_use_default_target_path: true
+                # Redirecting after Failure
+                #failure_path: forgot_password
+                # Customizing the Target and Failure Request Parameters
+                target_path_parameter: go_to
+                failure_path_parameter: back_to
+
+            logout:
+                path: security_logout
+                target: portfolio
+
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800 # 1 week in seconds
+                path: /
+                always_remember_me: true
+                token_provider: 'Symfony\Bridge\Doctrine\Security\RememberMe\DoctrineTokenProvider'
+
+            # activate different ways to authenticate
+
+            # http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        # to allow access for anyone
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        # to allow access for admin
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        #- { path: ^/, roles: ROLE_USER }
