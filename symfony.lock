@@ -117,6 +117,9 @@
     "fig/link-util": {
         "version": "1.0.0"
     },
+    "fzaninotto/faker": {
+        "version": "v1.8.0"
+    },
     "imagine/imagine": {
         "version": "v0.7.1"
     },
