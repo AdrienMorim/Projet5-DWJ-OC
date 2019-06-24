@@ -20,8 +20,6 @@ class WorkFixtures extends Fixture
                  ->setSubtitle($faker->sentence(3))
                  ->setContent($faker->paragraph())
                  ->setLink($faker->url())
-                 ->setImage($faker->imageUrl())
-                 ->setImageAlt($faker->sentence())
                  ->setCreatedAt($faker->dateTimeBetween('- 6 month'));
 
             $manager->persist($work);
