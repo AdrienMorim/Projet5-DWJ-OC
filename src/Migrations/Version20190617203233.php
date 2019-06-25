@@ -25,7 +25,7 @@ final class Version20190617203233 extends AbstractMigration
         $this->addSql('ALTER TABLE work DROP FOREIGN KEY FK_534E68803DA5256D');
         $this->addSql('DROP TABLE image');
         $this->addSql('DROP INDEX UNIQ_534E68803DA5256D ON work');
-        $this->addSql('ALTER TABLE work ADD image_name VARCHAR(255) NOT NULL, DROP image_id');
+        $this->addSql('ALTER TABLE work ADD image_name VARCHAR(255) NULL, DROP image_id');
     }
 
     public function down(Schema $schema) : void

@@ -22,7 +22,7 @@ final class Version20190611082456 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE work DROP image, DROP image_alt');
+        $this->addSql('CREATE TABLE rememberme_token (series char(88) UNIQUE PRIMARY KEY NOT NULL, value char(88) NOT NULL, lastUsed datetime NOT NULL, class varchar(100) NOT NULL, username varchar(200) NOT NULL) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20190611082456 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('ALTER TABLE work ADD image VARCHAR(255) NOT NULL COLLATE utf8mb4_unicode_ci, ADD image_alt VARCHAR(60) NOT NULL COLLATE utf8mb4_unicode_ci');
+        $this->addSql('DROP TABLE rememberme_token');
     }
 }
